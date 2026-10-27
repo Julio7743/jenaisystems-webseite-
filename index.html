@@ -1,309 +1,233 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JenAiSystems — Beyond intelligence. Into action.</title>
-<meta name="description" content="JenAiSystems builds intelligent systems that think, act and evolve. Joint Evolution Network.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#050810;--bg-2:#080d18;
-  --surface:rgba(255,255,255,0.025);--surface-2:rgba(255,255,255,0.045);
-  --border:rgba(255,255,255,0.08);--border-2:rgba(255,255,255,0.14);
-  --text:#eef1f6;--muted:#7d8899;--muted-2:#5a6478;
-  --accent:#4f9dff;--accent-2:#00d9ff;--accent-3:#a855f7;
-  --grad:linear-gradient(135deg,#4f9dff 0%,#00d9ff 50%,#a855f7 100%);
-  --font:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
-  --mono:'JetBrains Mono',monospace;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-::selection{background:rgba(79,157,255,0.3);color:#fff}
-a{color:inherit;text-decoration:none}
-
-.bg-mesh{position:fixed;inset:0;z-index:-2;pointer-events:none;
-  background:
-    radial-gradient(ellipse 80% 50% at 50% -10%,rgba(79,157,255,0.15),transparent 60%),
-    radial-gradient(ellipse 60% 40% at 90% 50%,rgba(168,85,247,0.08),transparent 60%),
-    radial-gradient(ellipse 60% 50% at 10% 80%,rgba(0,217,255,0.06),transparent 60%);}
-.bg-grid{position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);
-  background-size:64px 64px;
-  mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 30%,transparent 80%);
-  -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 30%,transparent 80%);}
-
-.container{max-width:1200px;margin:0 auto;padding:0 24px}
-
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:all .3s ease}
-nav.scrolled{background:rgba(5,8,16,0.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:12px 0}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
-.logo{font-weight:600;font-size:1.05rem;letter-spacing:-0.01em;display:flex;align-items:center;gap:8px}
-.logo-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent);animation:pulse 2s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(.85)}}
-.logo b{color:var(--accent);font-weight:600}
-.nav-links{display:flex;gap:32px;font-size:.9rem;color:var(--muted)}
-.nav-links a{transition:color .2s}
-.nav-links a:hover{color:var(--text)}
-.nav-cta{font-size:.875rem;padding:9px 18px;border:1px solid var(--border-2);border-radius:999px;transition:all .2s;white-space:nowrap}
-.nav-cta:hover{background:var(--surface-2);border-color:var(--accent)}
-@media(max-width:720px){.nav-links{display:none}}
-
-.hero{position:relative;padding:180px 0 140px;text-align:center}
-@media(max-width:720px){.hero{padding:140px 0 100px}}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding:6px 14px;border:1px solid var(--border);border-radius:999px;background:var(--surface);margin-bottom:32px}
-.eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 8px var(--accent-2)}
-h1.hero-title{font-size:clamp(2.5rem,7vw,5rem);line-height:1.05;font-weight:700;letter-spacing:-0.035em;margin-bottom:32px}
-.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 200%;animation:shift 8s ease infinite}
-@keyframes shift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-.hero-lead{font-size:clamp(1rem,2vw,1.2rem);color:var(--muted);max-width:640px;margin:0 auto 48px;line-height:1.65}
-.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:999px;font-size:.95rem;font-weight:500;transition:all .25s cubic-bezier(.4,0,.2,1);cursor:pointer;border:none}
-.btn-primary{background:var(--text);color:var(--bg);box-shadow:0 4px 24px rgba(255,255,255,0.1)}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(79,157,255,0.25)}
-.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border-2)}
-.btn-ghost:hover{background:var(--surface-2);border-color:var(--accent)}
-
-section{padding:120px 0;position:relative}
-@media(max-width:720px){section{padding:80px 0}}
-.section-head{max-width:720px;margin-bottom:72px}
-.section-label{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
-.section-title{font-size:clamp(1.75rem,4vw,2.75rem);line-height:1.15;font-weight:600;letter-spacing:-0.025em;margin-bottom:20px}
-.section-desc{color:var(--muted);font-size:1.05rem;max-width:600px}
-
-.principles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-@media(max-width:900px){.principles-grid{grid-template-columns:1fr}}
-.principle{position:relative;padding:36px 32px;background:var(--surface);border:1px solid var(--border);border-radius:20px;transition:all .4s cubic-bezier(.4,0,.2,1);overflow:hidden}
-.principle::before{content:"";position:absolute;inset:0;background:radial-gradient(400px circle at var(--mx,50%) var(--my,0%),rgba(79,157,255,0.1),transparent 50%);opacity:0;transition:opacity .4s;pointer-events:none}
-.principle:hover{border-color:var(--border-2);transform:translateY(-4px)}
-.principle:hover::before{opacity:1}
-.p-num{font-family:var(--mono);font-size:.85rem;color:var(--accent);letter-spacing:.05em;margin-bottom:24px}
-.p-icon{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,rgba(79,157,255,0.15),rgba(168,85,247,0.1));border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:24px;color:var(--accent)}
-.p-icon svg{width:22px;height:22px}
-.principle h3{font-size:1.4rem;font-weight:600;letter-spacing:-0.02em;margin-bottom:6px}
-.p-tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);margin-bottom:20px}
-.principle p{color:var(--muted);font-size:.94rem;line-height:1.7}
-
-.cycle-wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-@media(max-width:900px){.cycle-wrap{grid-template-columns:1fr;gap:48px}}
-.cycle-visual{position:relative;aspect-ratio:1;max-width:420px;margin:0 auto;width:100%}
-.cycle-svg{width:100%;height:100%;overflow:visible}
-.cycle-node circle{fill:var(--bg-2);stroke:var(--border-2);stroke-width:1.5;transition:all .3s}
-.cycle-node:hover circle{stroke:var(--accent);fill:rgba(79,157,255,0.08)}
-.cycle-node text{fill:var(--text);font-family:var(--font);font-size:11px;font-weight:500;text-anchor:middle;pointer-events:none}
-.cycle-node .sub{fill:var(--muted);font-family:var(--mono);font-size:8px;letter-spacing:.1em}
-.cycle-arrow{fill:var(--accent);opacity:.7}
-.cycle-center circle{fill:url(#centerGrad)}
-.cycle-copy h3{font-size:clamp(1.5rem,3vw,2rem);font-weight:600;letter-spacing:-0.02em;margin-bottom:20px;line-height:1.2}
-.cycle-copy p{color:var(--muted);font-size:1rem;line-height:1.7;margin-bottom:16px}
-.cycle-copy .flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-family:var(--mono);font-size:.8rem;color:var(--accent);letter-spacing:.05em;margin-top:28px;padding:16px 20px;border:1px solid var(--border);border-radius:12px;background:var(--surface)}
-.flow span:nth-child(odd){color:var(--text)}
-.flow .arrow{color:var(--muted-2)}
-
-.vision{text-align:center;max-width:800px;margin:0 auto}
-.vision-quote{font-size:clamp(1.5rem,4vw,2.5rem);line-height:1.25;font-weight:500;letter-spacing:-0.025em;margin-bottom:32px}
-.vision-quote em{font-style:normal;color:var(--accent)}
-.vision p{color:var(--muted);font-size:1.05rem;max-width:600px;margin:0 auto}
-
-.cta-box{position:relative;padding:80px 40px;border:1px solid var(--border);border-radius:28px;background:linear-gradient(135deg,rgba(79,157,255,0.06),rgba(168,85,247,0.06));text-align:center;overflow:hidden}
-.cta-box::before{content:"";position:absolute;top:-50%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(79,157,255,0.15),transparent 70%);pointer-events:none}
-.cta-box h2{position:relative;font-size:clamp(1.75rem,4vw,2.5rem);font-weight:600;letter-spacing:-0.025em;margin-bottom:20px}
-.cta-box p{position:relative;color:var(--muted);margin-bottom:36px;max-width:500px;margin-left:auto;margin-right:auto}
-
-footer{padding:64px 0 40px;border-top:1px solid var(--border);margin-top:80px}
-.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
-.footer-brand{font-weight:600;font-size:1rem}
-.footer-brand b{color:var(--accent)}
-.footer-meta{color:var(--muted);font-size:.875rem}
-.footer-links{display:flex;gap:24px;font-size:.875rem;color:var(--muted)}
-.footer-links a:hover{color:var(--text)}
-
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.4,0,.2,1),transform .8s cubic-bezier(.4,0,.2,1)}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal.delay-1{transition-delay:.1s}
-.reveal.delay-2{transition-delay:.2s}
-.reveal.delay-3{transition-delay:.3s}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jena Systeme - Willkommen</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0f172a;
+            --background: #ffffff;
+            --text: #1e293b;
+            --text-light: #64748b;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 12rem 0 6rem;
+            text-align: center;
+            background: linear-gradient(180deg, var(--background) 0%, #f8fafc 100%);
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 6rem 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+        }
+        
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+        }
+        
+        .feature-card h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+        
+        .feature-card p {
+            color: var(--text-light);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        footer p {
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            nav ul { gap: 1rem; }
+        }
+    </style>
 </head>
 <body>
-
-<div class="bg-mesh"></div>
-<div class="bg-grid"></div>
-
-<nav id="nav">
-  <div class="container nav-inner">
-    <div class="logo"><span class="logo-dot"></span>JenAi<b>Systems</b></div>
-    <div class="nav-links">
-      <a href="#principles">Principles</a>
-      <a href="#cycle">Evolution</a>
-      <a href="#vision">Vision</a>
-    </div>
-    <a href="#contact" class="nav-cta">Get in touch</a>
-  </div>
-</nav>
-
-<section class="hero">
-  <div class="container">
-    <div class="eyebrow reveal">Joint Evolution Network</div>
-    <h1 class="hero-title reveal delay-1">Beyond intelligence.<br><span class="grad-text">Into action.</span></h1>
-    <p class="hero-lead reveal delay-2">We build intelligent systems that think, act and evolve — transforming AI into meaningful progress.</p>
-    <div class="hero-actions reveal delay-3">
-      <a href="#principles" class="btn btn-primary">Explore our principles →</a>
-      <a href="#contact" class="btn btn-ghost">Talk to us</a>
-    </div>
-  </div>
-</section>
-
-<section id="principles">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="section-label">Operating Principles</div>
-      <h2 class="section-title">How intelligence becomes impact.</h2>
-      <p class="section-desc">Three principles guide everything we build — from first analysis to continuous evolution.</p>
-    </div>
-    <div class="principles-grid">
-      <div class="principle reveal delay-1">
-        <div class="p-num">01</div>
-        <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-        <h3>Judgment</h3>
-        <div class="p-tag">Understand & decide</div>
-        <p>Unsere Systeme analysieren Informationen, erkennen Zusammenhänge und bewerten Handlungsoptionen. Nicht jede Aufgabe braucht mehr Automatisierung — sie braucht die richtige Entscheidung.</p>
-      </div>
-      <div class="principle reveal delay-2">
-        <div class="p-num">02</div>
-        <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-        <h3>Execution</h3>
-        <div class="p-tag">Build & act</div>
-        <p>Wir bringen KI aus der Theorie in die Praxis. Durch integrierte Systeme, autonome Workflows und intelligente Automatisierung werden aus Entscheidungen konkrete Ergebnisse.</p>
-      </div>
-      <div class="principle reveal delay-3">
-        <div class="p-num">03</div>
-        <div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
-        <h3>Navigation</h3>
-        <div class="p-tag">Adapt & evolve</div>
-        <p>Wir gestalten Systeme, die Abläufe koordinieren, Ergebnisse beobachten und auf veränderte Bedingungen reagieren. So werden Lösungen nicht nur automatisiert, sondern anpassungsfähig.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="cycle">
-  <div class="container">
-    <div class="cycle-wrap">
-      <div class="cycle-visual reveal">
-        <svg class="cycle-svg" viewBox="0 0 400 400">
-          <defs>
-            <linearGradient id="centerGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#4f9dff"/>
-              <stop offset="50%" stop-color="#00d9ff"/>
-              <stop offset="100%" stop-color="#a855f7"/>
-            </linearGradient>
-          </defs>
-          <circle cx="200" cy="200" r="130" fill="none" stroke="rgba(79,157,255,0.12)" stroke-width="1.5" stroke-dasharray="2 8"/>
-          <g class="cycle-arrow">
-            <path d="M 305 145 L 320 160 L 305 175 Z"/>
-            <path d="M 130 305 L 115 290 L 100 305 Z"/>
-            <path d="M 70 145 L 85 130 L 100 145 Z"/>
-          </g>
-          <g class="cycle-center">
-            <circle cx="200" cy="200" r="52"/>
-            <text x="200" y="196" style="fill:#050810;font-size:9px;letter-spacing:0.1em">JOINT</text>
-            <text x="200" y="208" style="fill:#050810;font-size:9px;letter-spacing:0.1em">EVOLUTION</text>
-          </g>
-          <g class="cycle-node" transform="translate(200 70)">
-            <circle r="42"/>
-            <text y="-4" style="fill:#eef1f6;font-size:12px;font-weight:600">Judgment</text>
-            <text y="12" class="sub">DECIDE</text>
-          </g>
-          <g class="cycle-node" transform="translate(312 265)">
-            <circle r="42"/>
-            <text y="-4" style="fill:#eef1f6;font-size:12px;font-weight:600">Execution</text>
-            <text y="12" class="sub">ACT</text>
-          </g>
-          <g class="cycle-node" transform="translate(88 265)">
-            <circle r="42"/>
-            <text y="-4" style="fill:#eef1f6;font-size:12px;font-weight:600">Navigation</text>
-            <text y="12" class="sub">EVOLVE</text>
-          </g>
-        </svg>
-      </div>
-      <div class="cycle-copy reveal delay-2">
-        <div class="section-label">The Cycle</div>
-        <h3>Judgment → Execution → Navigation → Evolution</h3>
-        <p>Erst wird beurteilt, was getan werden soll. Dann wird gehandelt. Anschließend werden die Ergebnisse bewertet und der weitere Weg angepasst.</p>
-        <p>Dadurch entsteht kontinuierliche Weiterentwicklung — kein linearer Prozess, sondern ein intelligenter Kreislauf.</p>
-        <div class="flow">
-          <span>Judgment</span><span class="arrow">→</span>
-          <span>Execution</span><span class="arrow">→</span>
-          <span>Navigation</span><span class="arrow">→</span>
-          <span>Evolution</span>
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">🚀 Jena Systeme</a>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Leistungen</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </nav>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </header>
 
-<section id="vision">
-  <div class="container">
-    <div class="vision reveal">
-      <div class="section-label" style="text-align:center;margin-bottom:24px">Our Vision</div>
-      <p class="vision-quote">A world where intelligent systems <em>evolve with us.</em></p>
-      <p>Eine Welt, in der sich intelligente Systeme gemeinsam mit uns weiterentwickeln. Turning intelligence into action — beyond tools, into meaningful progress.</p>
-    </div>
-  </div>
-</section>
+    <section id="home" class="hero">
+        <h1>Willkommen bei Jena Systeme</h1>
+        <p>Professionelle Webentwicklung und IT-Lösungen für Ihr Unternehmen.</p>
+        <a href="#contact" class="cta-button">Projekt starten</a>
+    </section>
 
-<section id="contact">
-  <div class="container">
-    <div class="cta-box reveal">
-      <h2>Intelligence that moves things forward.</h2>
-      <p>Bereit, KI in wirksame Systeme zu verwandeln? Let's build intelligent systems that think, act and evolve.</p>
-      <a href="mailto:hello@jenaisystems.com" class="btn btn-primary">Get in touch →</a>
-    </div>
-  </div>
-</section>
+    <section id="features" class="features">
+        <div class="section-title">
+            <h2>Unsere Leistungen</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>🌐 Webentwicklung</h3>
+                <p>Modernes Responsive Design mit modernen Frameworks und Technologien.</p>
+            </div>
+            <div class="feature-card">
+                <h3>⚡ Performance</h3>
+                <p>Schnelle, optimierte Websites für maximale Benutzererfahrung.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🔒 Sicherheit</h3>
+                <p>Sichere Implementierungen mit best Practice Standards.</p>
+            </div>
+        </div>
+    </section>
 
-<footer>
-  <div class="container footer-inner">
-    <div class="footer-brand">JenAi<b>Systems</b></div>
-    <div class="footer-links">
-      <a href="#principles">Principles</a>
-      <a href="#vision">Vision</a>
-      <a href="mailto:hello@jenaisystems.com">Contact</a>
-    </div>
-    <div class="footer-meta">© 2025 JenAiSystems — Joint Evolution Network</div>
-  </div>
-</footer>
-
-<script>
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 20);
-}, {passive: true});
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      observer.unobserve(e.target);
-    }
-  });
-}, {threshold: 0.1, rootMargin: '0px 0px -50px 0px'});
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-document.querySelectorAll('.principle').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const rect = card.getBoundingClientRect();
-    card.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
-    card.style.setProperty('--my', (e.clientY - rect.top) + 'px');
-  });
-});
-</script>
-
+    <footer>
+        <p>&copy; 2024 Jena Systeme - Alle Rechte vorbehalten</p>
+    </footer>
+    
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
-
- 
