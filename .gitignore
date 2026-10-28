@@ -1,0 +1,27 @@
+# Geheimnisse – niemals einchecken
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+assistant/worker/wrangler.toml
+*.pem
+*.key
+
+# Lokales
+node_modules/
+.wrangler/
+__pycache__/
+*.pyc
+*.sqlite
+*.sqlite3
+phone/p0/ausgang/
+.DS_Store
+
+# Audio darf nie im Repo landen (recht.md)
+*.wav
+*.ogg
+*.mp3
+*.flac
+*.opus

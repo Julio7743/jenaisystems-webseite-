@@ -1,0 +1,157 @@
+{
+  "_hinweis": "BEISPIELDATEN – frei erfunden, nur zum Testen. Diesen Betrieb gibt es nicht.",
+  "_meta": {
+    "katalogVersion": 1,
+    "exportiert": "2026-10-24T03:00:00+02:00"
+  },
+  "betrieb_name": "Beispiel-Bäckerei Sonnenkorn",
+  "betrieb_branche": "Bäckerei und kleines Café",
+  "betrieb_beschreibung": "Wir sind eine erfundene Beispiel-Bäckerei. Wir backen jeden Morgen Brot, Brötchen und Kuchen in der eigenen Backstube. Im Café gibt es Kaffee und Frühstück.",
+  "betrieb_adresse": "Musterstraße 1\n00000 Beispielstadt",
+  "betrieb_anfahrt": "Bushaltestelle „Marktplatz“ direkt vor der Tür. Eingang ebenerdig, ein Tisch ist rollstuhlgerecht.",
+  "betrieb_gebiet": "Laden in Beispielstadt, keine Lieferung",
+  "betrieb_besonderheiten": [
+    "Sauerteigbrote mit 24 Stunden Teigruhe",
+    "Jeden Samstag frischer Butterkuchen"
+  ],
+  "leistungen": [
+    {
+      "name": "Roggenmischbrot 1 kg",
+      "beschreibung": "Sauerteig, 24 h Teigruhe",
+      "preis": "4,80 €",
+      "hinweis": ""
+    },
+    {
+      "name": "Dinkelvollkornbrot 750 g",
+      "beschreibung": "100 % Dinkel",
+      "preis": "5,20 €",
+      "hinweis": ""
+    },
+    {
+      "name": "Brötchen",
+      "beschreibung": "Weizen, Mehrkorn oder Roggen",
+      "preis": "0,55 €",
+      "hinweis": "Mehrkorn 0,75 €"
+    },
+    {
+      "name": "Geburtstagstorte",
+      "beschreibung": "Nach Wunsch",
+      "preis": "",
+      "hinweis": "Nur auf Vorbestellung, mindestens 3 Tage vorher, Preis nach Absprache"
+    },
+    {
+      "name": "Frühstück im Café",
+      "beschreibung": "Brötchen, Butter, Marmelade, Kaffee",
+      "preis": "7,90 €",
+      "hinweis": "bis 11 Uhr"
+    }
+  ],
+  "preise_hinweis": "Alle Preise inkl. MwSt. (Beispielpreise)",
+  "preise_nennen": true,
+  "zahlungsarten": [
+    "Bar",
+    "EC-Karte",
+    "kontaktlos mit dem Handy"
+  ],
+  "bestellung": "Torten und große Mengen bitte telefonisch oder per E-Mail vorbestellen, mindestens 3 Tage vorher.",
+  "lieferung": "Keine Lieferung. Vorbestellungen werden im Laden abgeholt.",
+  "oeffnungszeiten": {
+    "mo": "06:30–18:00",
+    "di": "06:30–18:00",
+    "mi": "06:30–18:00",
+    "do": "06:30–18:00",
+    "fr": "06:30–18:00",
+    "sa": "07:00–13:00",
+    "so": ""
+  },
+  "sonderzeiten": "An Feiertagen geschlossen.",
+  "termin_noetig": false,
+  "termin_link": "",
+  "kontakt_telefon": "+49 000 0000000 (Beispielnummer)",
+  "kontakt_email": "info@beispiel-baeckerei.example",
+  "kontakt_formular": "",
+  "kontakt_erreichbarkeit": "Während der Öffnungszeiten",
+  "kontakt_antwortzeit": "E-Mails beantworten wir meist am nächsten Werktag.",
+  "kontakt_social": [],
+  "faq": [
+    {
+      "frage": "Habt ihr glutenfreies Brot?",
+      "antwort": "Nein, glutenfreie Backwaren bieten wir nicht an. In unserer Backstube wird überall mit Weizen gearbeitet."
+    },
+    {
+      "frage": "Gibt es vegane Produkte?",
+      "antwort": "Ja, unsere Brote und die einfachen Brötchen sind vegan. Bei Kuchen fragen Sie bitte im Laden nach."
+    },
+    {
+      "frage": "Kann man Brot vorbestellen?",
+      "antwort": "Ja, telefonisch oder per E-Mail bis 16 Uhr am Vortag."
+    },
+    {
+      "frage": "Gibt es WLAN im Café?",
+      "antwort": "Ja, kostenlos. Das Passwort steht an der Theke."
+    }
+  ],
+  "tabus": [
+    "Rabatte oder Gutscheine, die nicht hier stehen",
+    "andere Bäckereien"
+  ],
+  "keine_versprechen": [
+    "dass ein bestimmtes Produkt heute noch vorrätig ist"
+  ],
+  "sonstige_regeln": "Bei Fragen zu Allergenen immer auf das Personal im Laden verweisen.",
+  "weiterleiten_wenn": [
+    "Beschwerden",
+    "Allergie-Fragen im Detail",
+    "Bestellungen ab 50 Brötchen"
+  ],
+  "ansprechpartner": "Frau Beispiel (Inhaberin, erfundene Person)",
+  "weiterleitung_weg": "Anruf",
+  "assistent_name": "Korni",
+  "anrede": "Sie",
+  "stil": "herzlich und locker",
+  "sprachen": [
+    "Deutsch",
+    "Englisch"
+  ],
+  "begruessung_chat": "",
+  "chat_vorschlaege": [
+    "Habt ihr glutenfreies Brot?",
+    "Wann haben Sie samstags offen?",
+    "Was kostet das Frühstück?",
+    "Kann man eine Torte bestellen?"
+  ],
+  "telefon_aktiv": true,
+  "telefon_wann": "beides",
+  "telefon_begruessung": "",
+  "gesundheitsbezug": false,
+  "erlaubte_aussagen": [],
+  "impressum_url": "https://beispiel-baeckerei.example/impressum",
+  "datenschutz_url": "https://beispiel-baeckerei.example/datenschutz",
+  "fragen_auswerten": false,
+  "kunden_id": "beispiel",
+  "domains": [
+    "https://beispiel-baeckerei.example",
+    "https://jenaisystems.com",
+    "https://www.jenaisystems.com",
+    "http://localhost:8787",
+    "http://127.0.0.1:8787"
+  ],
+  "farbe": "#8a4b1f",
+  "limit_monat": "300",
+  "limit_minute": "5",
+  "telefon_nicht_im_angebot": [
+    "Lieferung",
+    "glutenfreie Backwaren",
+    "Hochzeitstorten"
+  ],
+  "telefon_dringend": [
+    "für morgen früh",
+    "Großbestellung"
+  ],
+  "telefon_wasser_relevant": false,
+  "telefon_gas_nummer": "[Gas-Entstörungsnummer – vom Betrieb eintragen und prüfen]",
+  "telefon_rueckruf_zusage": "Wir melden uns am nächsten Werktag.",
+  "telefon_empfaenger": "info@beispiel-baeckerei.example",
+  "telefon_ort_abfragen": false,
+  "_demo": "Wird auf der JenAiSystems-Website als Live-Demo genutzt (Demo-Modus im Chat). Deshalb sind jenaisystems.com-Domains erlaubt und die Limits enger (300/Monat, 5/Minute)."
+}

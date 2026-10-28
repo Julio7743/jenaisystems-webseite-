@@ -1,0 +1,19 @@
+{
+  "name": "jenaisystems",
+  "private": true,
+  "version": "0.1.0",
+  "description": "JenAiSystems: Website, KI-Chat-Assistent, KI-Telefonassistent (P0) und Fragebogen für Kunden",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "generate": "node onboarding/generate.mjs",
+    "generate:beispiel": "node onboarding/generate.mjs clients/beispiel/antworten.json && node scripts/build-worker-clients.mjs",
+    "generate:jenaisystems": "node onboarding/generate.mjs clients/jenaisystems/antworten.json && node scripts/build-worker-clients.mjs",
+    "build:worker": "node scripts/build-worker-clients.mjs",
+    "build:site": "node scripts/build-site.mjs",
+    "build:fragebogen": "node scripts/build-fragebogen.mjs",
+    "dev": "node scripts/dev-server.mjs",
+    "test": "node --test \"test/*.test.mjs\" && npm run test:telefon",
+    "test:telefon": "cd phone/p0 && python3 -m unittest"
+  }
+}

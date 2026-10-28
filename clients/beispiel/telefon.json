@@ -1,0 +1,50 @@
+{
+  "id": "beispiel",
+  "firma": "Beispiel-Bäckerei Sonnenkorn",
+  "ort": "Beispielstadt",
+  "oeffnungszeiten": "Montag 06:30 bis 18:00, Dienstag 06:30 bis 18:00, Mittwoch 06:30 bis 18:00, Donnerstag 06:30 bis 18:00, Freitag 06:30 bis 18:00, Samstag 07:00 bis 13:00",
+  "datenschutz_url": "beispiel-baeckerei.example/datenschutz",
+  "begruessung_zusatz": null,
+  "leistungen": [
+    "bäckerei",
+    "roggenmischbrot",
+    "dinkelvollkornbrot",
+    "brötchen",
+    "geburtstagstorte",
+    "frühstück"
+  ],
+  "nicht_im_angebot": [
+    "lieferung",
+    "glutenfreie backwaren",
+    "hochzeitstorten"
+  ],
+  "gas_entstoerung_nummer": "[Gas-Entstörungsnummer – vom Betrieb eintragen und prüfen]",
+  "notfall": {
+    "extern_112": [
+      "feuer",
+      "brennt",
+      "rauch",
+      "verletzt",
+      "bewusstlos",
+      "notarzt",
+      "lebensgefahr"
+    ],
+    "gas": [
+      "gasgeruch",
+      "nach gas",
+      "gas riecht",
+      "gasleitung"
+    ],
+    "wasser": [],
+    "betrieb_dringend": [
+      "für morgen früh",
+      "großbestellung"
+    ]
+  },
+  "ort_pflicht": false,
+  "rueckruf_zusage": "Wir melden uns am nächsten Werktag.",
+  "empfaenger_email": "info@beispiel-baeckerei.example",
+  "max_dauer_s": 360,
+  "transkript_aufbewahrung_tage": 30,
+  "annahme": "beides"
+}

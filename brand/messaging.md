@@ -6,7 +6,7 @@ A world where intelligent systems evolve with us.
 Eine Welt, in der sich intelligente Systeme gemeinsam mit uns weiterentwickeln.
 
 ## Mission
-Turning intelligence into action.
+Turn intelligence into action.
 
 Wir verwandeln künstliche Intelligenz in wirksame Systeme, die denken, handeln und sich kontinuierlich verbessern.
 

@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Fragebogen für Ihren KI-Assistenten – JenAiSystems</title>
+<style>
+:root{--night:#0f1c2e;--amber:#f3a83b;--paper:#f6f4ef;--line:#e2ded3;--muted:#5d6574;--saale:#2e6f6b}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#141b26;background:var(--paper)}
+header{background:var(--night);color:#fff;padding:28px 20px}
+header .w,main{max-width:860px;margin:0 auto}
+header h1{margin:0 0 8px;font-size:clamp(1.5rem,4vw,2.1rem);letter-spacing:-.02em}
+header p{margin:0;opacity:.88;max-width:65ch}
+main{padding:20px}
+.bar{position:sticky;top:0;z-index:5;background:var(--paper);padding:10px 0;display:flex;flex-wrap:wrap;gap:10px;align-items:center;border-bottom:1px solid var(--line)}
+.prog{flex:1;min-width:160px;height:8px;background:#e6e2d8;border-radius:9px;overflow:hidden}.prog i{display:block;height:100%;width:0;background:var(--saale);transition:width .2s}
+button,.btn{font:600 15px/1 inherit;font-family:inherit;border:0;border-radius:10px;padding:11px 16px;cursor:pointer;background:var(--night);color:#fff}
+button.sec{background:#fff;color:var(--night);border:1px solid var(--line)}
+button.amber{background:var(--amber);color:var(--night)}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+fieldset{border:1px solid var(--line);background:#fff;border-radius:16px;padding:18px 20px 8px;margin:22px 0}
+legend{font-weight:700;font-size:1.15rem;padding:0 6px}
+.q{margin:0 0 18px}
+.q>label,.q>.lbl{display:block;font-weight:600;margin-bottom:5px}
+.req{color:#b3261e}
+.help{font-size:.88rem;color:var(--muted);margin:0 0 6px}
+input[type=text],input[type=email],input[type=tel],input[type=url],textarea,select{width:100%;font:inherit;border:1px solid #cfcac0;border-radius:10px;padding:9px 11px;background:#fff;color:inherit}
+textarea{min-height:84px;resize:vertical}
+.yn{display:flex;gap:18px}.yn label{font-weight:500}
+.rep{border:1px dashed #cfcac0;border-radius:12px;padding:12px;margin-bottom:10px;display:grid;gap:8px;grid-template-columns:1fr 1fr}
+.rep label{font-size:.86rem;color:var(--muted);display:block}
+.rep .full{grid-column:1/-1}
+.rep .del{justify-self:end;grid-column:1/-1;background:#fff;color:#b3261e;border:1px solid #e6c9c6;padding:7px 10px;font-size:13px}
+.hours{display:grid;grid-template-columns:110px 1fr;gap:6px 10px;align-items:center}
+.msg{margin:12px 0;padding:12px 14px;border-radius:12px;background:#dcebe8;display:none}.msg.err{background:#fbe1de}
+.note{font-size:.9rem;color:var(--muted)}
+@media (max-width:600px){.rep{grid-template-columns:1fr}.hours{grid-template-columns:90px 1fr}}
+@media print{.bar,button{display:none}fieldset{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header><div class="w">
+  <h1 id="titel">Fragebogen</h1>
+  <p id="einleitung"></p>
+</div></header>
+<main>
+  <div class="bar" role="region" aria-label="Fortschritt und Speichern">
+    <div class="prog" role="progressbar" aria-label="Pflichtfelder ausgefüllt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
+    <span id="progtext" class="note">0 %</span>
+    <button type="button" class="sec" id="import">Datei laden</button>
+    <button type="button" class="amber" id="export">Antworten herunterladen</button>
+    <input type="file" id="file" accept="application/json" hidden>
+  </div>
+  <div class="msg" id="msg" role="status" aria-live="polite"></div>
+  <p class="note">Ihre Eingaben bleiben auf Ihrem Gerät (Zwischenspeicher dieses Browsers) und werden nirgends hochgeladen. Wenn Sie fertig sind, klicken Sie auf „Antworten herunterladen“ und schicken Sie die Datei an JenAiSystems.</p>
+  <form id="form" novalidate></form>
+  <p><button type="button" class="amber" id="export2">Antworten herunterladen</button> <button type="button" class="sec" id="reset">Alles leeren</button></p>
+</main>
+<!-- KATALOG:START – wird von scripts/build-fragebogen.mjs aus fragenkatalog.json befüllt -->
+<script type="application/json" id="katalog">{"version":1,"titel":"JenAiSystems Fragenkatalog für Ihren KI-Assistenten","einleitung":"Mit Ihren Antworten richten wir den Chat-Assistenten auf Ihrer Website und auf Wunsch den Telefonassistenten ein. Der Assistent antwortet später NUR mit dem, was hier steht. Was fehlt, beantwortet er nicht, sondern verweist auf Sie. Pflichtfelder sind mit * markiert.","abschnitte":[{"id":"betrieb","titel":"1. Ihr Betrieb","fragen":[{"id":"betrieb_name","label":"Name des Betriebs","typ":"text","pflicht":true,"beispiel":"Bäckerei Muster"},{"id":"betrieb_branche","label":"Branche","typ":"text","pflicht":true,"beispiel":"Bäckerei und Café"},{"id":"betrieb_beschreibung","label":"Beschreiben Sie Ihren Betrieb in 2–4 Sätzen","typ":"textarea","pflicht":true,"hilfe":"So, wie Sie es einem neuen Kunden am Telefon erzählen würden."},{"id":"betrieb_adresse","label":"Adresse","typ":"textarea","pflicht":false},{"id":"betrieb_anfahrt","label":"Anfahrt, Parken, Barrierefreiheit","typ":"textarea","pflicht":false,"beispiel":"Haltestelle Markt (Linie 3), 2 Parkplätze im Hof, Eingang ebenerdig"},{"id":"betrieb_gebiet","label":"Für welches Gebiet sind Sie tätig?","typ":"text","pflicht":false,"beispiel":"Lieferung im Umkreis von 10 km"},{"id":"betrieb_besonderheiten","label":"Was macht Sie besonders?","typ":"list","pflicht":false,"hilfe":"Ein Punkt pro Zeile. Nur Dinge, die nachweisbar stimmen."}]},{"id":"leistungen","titel":"2. Leistungen und Preise","fragen":[{"id":"leistungen","label":"Ihre Leistungen oder Produkte","typ":"repeat","pflicht":true,"felder":[{"id":"name","label":"Leistung / Produkt"},{"id":"beschreibung","label":"Kurze Beschreibung"},{"id":"preis","label":"Preis (leer lassen, wenn der Assistent keinen Preis nennen soll)"},{"id":"hinweis","label":"Hinweis (z. B. nur auf Vorbestellung)"}]},{"id":"preise_hinweis","label":"Allgemeiner Hinweis zu Preisen","typ":"text","pflicht":false,"beispiel":"Alle Preise inkl. MwSt., Stand Oktober 2026"},{"id":"preise_nennen","label":"Darf der Assistent die oben genannten Preise nennen?","typ":"boolean","pflicht":true},{"id":"zahlungsarten","label":"Zahlungsarten","typ":"list","pflicht":false,"beispiel":"Bar\nEC-Karte"},{"id":"bestellung","label":"Wie kann man bestellen, buchen oder reservieren?","typ":"textarea","pflicht":false},{"id":"lieferung","label":"Lieferung / Versand / Abholung","typ":"textarea","pflicht":false}]},{"id":"zeiten","titel":"3. Öffnungszeiten und Termine","fragen":[{"id":"oeffnungszeiten_keine","label":"Keine festen Öffnungszeiten (z. B. nur nach Vereinbarung oder reiner Online-Betrieb)","typ":"boolean","pflicht":false,"hilfe":"Wenn ja, bleiben die Öffnungszeiten leer. Erklären Sie unter „Sonderzeiten“, wie man Sie erreicht."},{"id":"oeffnungszeiten","label":"Öffnungszeiten","typ":"hours","pflicht":true,"hilfe":"Format z. B. 08:00–18:00. Leer = geschlossen. Mehrere Zeiten mit Komma trennen."},{"id":"sonderzeiten","label":"Feiertage, Urlaub, Sonderzeiten","typ":"textarea","pflicht":false,"hilfe":"Bitte bei Änderungen Bescheid geben, damit der Assistent aktuell bleibt."},{"id":"termin_noetig","label":"Braucht man einen Termin?","typ":"boolean","pflicht":false},{"id":"termin_link","label":"Link zur Online-Terminbuchung (falls vorhanden)","typ":"url","pflicht":false}]},{"id":"kontakt","titel":"4. Kontakt","fragen":[{"id":"kontakt_telefon","label":"Telefonnummer für Kunden","typ":"tel","pflicht":false},{"id":"kontakt_email","label":"E-Mail-Adresse für Kunden","typ":"email","pflicht":false},{"id":"kontakt_formular","label":"Link zum Kontaktformular","typ":"url","pflicht":false},{"id":"kontakt_erreichbarkeit","label":"Wann sind Sie telefonisch erreichbar?","typ":"text","pflicht":false},{"id":"kontakt_antwortzeit","label":"Wie schnell antworten Sie auf Anfragen?","typ":"text","pflicht":false,"hilfe":"Nur angeben, was Sie sicher einhalten können."},{"id":"kontakt_social","label":"Social Media (ein Link pro Zeile)","typ":"list","pflicht":false}]},{"id":"faq","titel":"5. Häufige Fragen","fragen":[{"id":"faq","label":"Welche Fragen hören Sie oft, und was antworten Sie?","typ":"repeat","pflicht":true,"hilfe":"Je mehr echte Fragen hier stehen, desto besser hilft der Assistent.","felder":[{"id":"frage","label":"Frage"},{"id":"antwort","label":"Ihre Antwort"}]}]},{"id":"grenzen","titel":"6. Was der Assistent NICHT sagen darf","fragen":[{"id":"tabus","label":"Themen, zu denen der Assistent nichts sagen soll","typ":"list","pflicht":false,"beispiel":"Rabatte\nKonkurrenzbetriebe\nPersonalfragen"},{"id":"keine_versprechen","label":"Was darf er auf keinen Fall versprechen?","typ":"list","pflicht":false,"beispiel":"Liefertermine\nVerfügbarkeit einzelner Produkte"},{"id":"sonstige_regeln","label":"Weitere Regeln","typ":"textarea","pflicht":false}]},{"id":"weiterleitung","titel":"7. Weiterleitung an einen Menschen","fragen":[{"id":"weiterleiten_wenn","label":"Wann soll der Assistent an Sie verweisen?","typ":"list","pflicht":false,"beispiel":"Beschwerden\nGroßbestellungen\nAllergie-Fragen im Detail"},{"id":"ansprechpartner","label":"Ansprechpartner (Name, Rolle)","typ":"text","pflicht":false},{"id":"weiterleitung_weg","label":"Wie sollen Kunden Sie dann erreichen?","typ":"select","optionen":["Anruf","E-Mail","Kontaktformular","Vorbeikommen"],"pflicht":false},{"id":"assistent_ziel","label":"Wozu soll der Assistent Interessierte am Ende einladen? (optional)","typ":"text","pflicht":false,"beispiel":"zum kostenlosen Beratungsgespräch per Telefon","hilfe":"Freundlich anbieten, nicht drängen."}]},{"id":"tonfall","titel":"8. Tonfall","fragen":[{"id":"assistent_name","label":"Name des Assistenten","typ":"text","pflicht":false,"beispiel":"Lina","hilfe":"Leer lassen für „Ihr digitaler Assistent“."},{"id":"anrede","label":"Anrede","typ":"select","optionen":["Sie","Du"],"pflicht":true},{"id":"stil","label":"Stil","typ":"select","optionen":["freundlich und sachlich","herzlich und locker","förmlich"],"pflicht":true},{"id":"sprachen","label":"In welchen Sprachen darf er antworten?","typ":"list","pflicht":false,"beispiel":"Deutsch\nEnglisch"},{"id":"begruessung_chat","label":"Begrüßung im Chat (optional)","typ":"text","pflicht":false},{"id":"chat_vorschlaege","label":"Beispielfragen als Schnellknöpfe im Chat (optional, höchstens 4)","typ":"list","pflicht":false,"beispiel":"Wann haben Sie geöffnet?\nWas kostet …?"}]},{"id":"telefon","titel":"9. Telefonassistent (nur wenn gewünscht)","fragen":[{"id":"telefon_aktiv","label":"Möchten Sie einen KI-Telefonassistenten, der Anfragen aufnimmt?","typ":"boolean","pflicht":false,"hilfe":"Er nimmt Anrufe an, wenn niemand rangeht oder außerhalb der Öffnungszeiten, notiert Anliegen, Name und Rückrufnummer und schickt Ihnen eine Zusammenfassung. Er ruft nie selbst an und nennt am Telefon keine Preise."},{"id":"telefon_wann","label":"Wann soll er Anrufe annehmen?","typ":"select","optionen":["nur wenn niemand nach 20–25 Sekunden abnimmt","nur außerhalb der Öffnungszeiten","beides"],"pflicht":false},{"id":"telefon_begruessung","label":"Eigener Begrüßungssatz (optional)","typ":"text","pflicht":false,"hilfe":"Der Hinweis auf die KI, „das Gespräch wird nicht aufgenommen“ und der 112-Hinweis werden immer automatisch ergänzt und lassen sich nicht abschalten."},{"id":"telefon_ort_abfragen","label":"Soll der Assistent nach dem Ort fragen (z. B. weil Sie beim Kunden vor Ort arbeiten)?","typ":"boolean","pflicht":false},{"id":"telefon_nicht_im_angebot","label":"Was wird oft angefragt, das Sie NICHT anbieten?","typ":"list","pflicht":false,"beispiel":"Lieferung\nglutenfreie Backwaren"},{"id":"telefon_dringend","label":"Stichworte für dringende Fälle Ihres Betriebs","typ":"list","pflicht":false,"hilfe":"Dann wird die Anfrage als HOCH markiert und Sie bekommen zusätzlich eine Sofortnachricht.","beispiel":"Großbestellung morgen\nBaustelle offen"},{"id":"telefon_wasser_relevant","label":"Kann bei Ihnen ein Wasserschaden/Rohrbruch ein Thema sein?","typ":"boolean","pflicht":false,"hilfe":"z. B. Maler, Handwerk, Hausverwaltung. Dann gibt der Assistent einen Sicherheitshinweis (Hauptwasserhahn) und markiert dringend."},{"id":"telefon_gas_nummer","label":"Nummer des Gas-Entstörungsdienstes in Ihrer Region (bitte selbst prüfen)","typ":"tel","pflicht":false},{"id":"telefon_rueckruf_zusage","label":"Was darf der Assistent zum Rückruf zusagen?","typ":"text","pflicht":false,"beispiel":"Wir melden uns am nächsten Werktag.","hilfe":"Nur was Sie sicher einhalten. Kein fester Termin."},{"id":"telefon_empfaenger","label":"E-Mail für die Anruf-Zusammenfassungen","typ":"email","pflicht":false}]},{"id":"recht","titel":"10. Rechtliches","fragen":[{"id":"gesundheitsbezug","label":"Haben Ihre Produkte oder Leistungen einen Gesundheitsbezug?","typ":"boolean","pflicht":true,"hilfe":"z. B. Lebensmittel, Nahrungsergänzung, Vitalpilze, Kosmetik, Heilpraktik, Fitness. Dann gelten strenge Regeln für Werbeaussagen (Health-Claims-Verordnung, Heilmittelwerbegesetz)."},{"id":"erlaubte_aussagen","label":"Geprüfte, erlaubte Aussagen (wörtlich)","typ":"list","pflicht":false,"hilfe":"Nur Aussagen, die rechtlich geprüft oder offiziell zugelassen sind. Der Assistent macht sonst KEINE Aussagen über Wirkungen auf die Gesundheit."},{"id":"impressum_url","label":"Link zum Impressum","typ":"url","pflicht":true},{"id":"datenschutz_url","label":"Link zur Datenschutzerklärung","typ":"url","pflicht":true},{"id":"fragen_auswerten","label":"Dürfen gestellte Fragen anonymisiert für einen Monatsbericht gespeichert werden?","typ":"boolean","pflicht":false,"hilfe":"Telefonnummern und E-Mail-Adressen werden vorher entfernt. Muss in Ihrer Datenschutzerklärung stehen."}]},{"id":"technik","titel":"11. Technik (füllt meist JenAiSystems aus)","fragen":[{"id":"kunden_id","label":"Kurzname für die Technik (nur a–z, 0–9, Bindestrich)","typ":"text","pflicht":true,"beispiel":"baeckerei-muster"},{"id":"domains","label":"Website-Adressen, auf denen der Chat laufen darf","typ":"list","pflicht":true,"beispiel":"https://www.baeckerei-muster.de"},{"id":"farbe","label":"Hauptfarbe (Hex-Code)","typ":"text","pflicht":false,"beispiel":"#8a4b1f"},{"id":"limit_monat","label":"Maximale Chat-Anfragen pro Monat","typ":"text","pflicht":false,"beispiel":"1000"},{"id":"limit_minute","label":"Maximale Chat-Fragen pro Minute und Besucher","typ":"text","pflicht":false,"hilfe":"Leer = 8. Für Demo-Assistenten kleiner wählen."}]}]}</script>
+<!-- KATALOG:END -->
+<script>
+(function(){
+'use strict';
+var K = JSON.parse(document.getElementById('katalog').textContent);
+var TAGE = [['mo','Montag'],['di','Dienstag'],['mi','Mittwoch'],['do','Donnerstag'],['fr','Freitag'],['sa','Samstag'],['so','Sonntag']];
+var KEY = 'jenaisystems-fragebogen-v' + K.version;
+var form = document.getElementById('form');
+var answers = {};
+try { answers = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
+document.getElementById('titel').textContent = K.titel;
+document.getElementById('einleitung').textContent = K.einleitung;
+
+function el(tag, attrs, text){ var e=document.createElement(tag); for (var k in (attrs||{})) e.setAttribute(k, attrs[k]); if (text!=null) e.textContent=text; return e; }
+
+function render(){
+  form.textContent = '';
+  K.abschnitte.forEach(function(a){
+    var fs = el('fieldset'); fs.appendChild(el('legend', null, a.titel));
+    a.fragen.forEach(function(q){ fs.appendChild(frage(q)); });
+    form.appendChild(fs);
+  });
+  progress();
+}
+
+function kopf(wrap, q, forId){
+  var l = el(forId ? 'label' : 'div', forId ? {for: forId} : {class:'lbl', id: 'l-'+q.id}, q.label);
+  if (q.pflicht) { var s = el('span', {class:'req', 'aria-hidden':'true'}, ' *'); l.appendChild(s); }
+  wrap.appendChild(l);
+  if (q.hilfe || q.beispiel) wrap.appendChild(el('p', {class:'help', id:'h-'+q.id}, (q.hilfe||'') + (q.beispiel ? (q.hilfe?' ':'') + 'Beispiel: ' + q.beispiel.replace(/\n/g, ', ') : '')));
+}
+
+function frage(q){
+  var w = el('div', {class:'q'}), id = 'f-' + q.id, v = answers[q.id];
+  var desc = (q.hilfe||q.beispiel) ? {'aria-describedby':'h-'+q.id} : {};
+  if (['text','email','tel','url'].indexOf(q.typ) >= 0) {
+    kopf(w, q, id);
+    var i = el('input', Object.assign({type:q.typ, id:id, name:q.id}, desc)); if (q.pflicht) i.setAttribute('aria-required','true');
+    i.value = v || ''; i.addEventListener('input', function(){ set(q.id, i.value); }); w.appendChild(i);
+  } else if (q.typ === 'textarea' || q.typ === 'list') {
+    kopf(w, q, id);
+    var t = el('textarea', Object.assign({id:id, name:q.id}, desc)); if (q.pflicht) t.setAttribute('aria-required','true');
+    if (q.typ === 'list') t.setAttribute('placeholder', 'Ein Eintrag pro Zeile');
+    t.value = Array.isArray(v) ? v.join('\n') : (v || '');
+    t.addEventListener('input', function(){ set(q.id, q.typ === 'list' ? t.value.split('\n').map(function(s){return s.trim();}).filter(Boolean) : t.value); });
+    w.appendChild(t);
+  } else if (q.typ === 'boolean') {
+    kopf(w, q, null);
+    var g = el('div', {class:'yn', role:'radiogroup', 'aria-labelledby':'l-'+q.id});
+    [['ja',true],['nein',false]].forEach(function(o){
+      var lab = el('label'); var r = el('input', {type:'radio', name:q.id, value:o[0]});
+      r.checked = v === o[1]; r.addEventListener('change', function(){ set(q.id, o[1]); });
+      lab.appendChild(r); lab.appendChild(document.createTextNode(' ' + (o[1]?'Ja':'Nein'))); g.appendChild(lab);
+    });
+    w.appendChild(g);
+  } else if (q.typ === 'select') {
+    kopf(w, q, id);
+    var s = el('select', {id:id, name:q.id}); s.appendChild(el('option', {value:''}, 'Bitte wählen'));
+    q.optionen.forEach(function(o){ var op = el('option', {value:o}, o); if (v === o) op.selected = true; s.appendChild(op); });
+    s.addEventListener('change', function(){ set(q.id, s.value); }); w.appendChild(s);
+  } else if (q.typ === 'hours') {
+    kopf(w, q, null);
+    var h = el('div', {class:'hours'}); var val = v || {};
+    TAGE.forEach(function(d){
+      var hid = id + '-' + d[0];
+      h.appendChild(el('label', {for:hid}, d[1]));
+      var inp = el('input', {type:'text', id:hid, placeholder:'z. B. 08:00–18:00 oder leer = geschlossen'}); inp.value = val[d[0]] || '';
+      inp.addEventListener('input', function(){ var o = Object.assign({}, answers[q.id]||{}); o[d[0]] = inp.value.trim(); set(q.id, o); });
+      h.appendChild(inp);
+    });
+    w.appendChild(h);
+  } else if (q.typ === 'repeat') {
+    kopf(w, q, null);
+    var box = el('div'); var rows = Array.isArray(v) && v.length ? v : [{}];
+    answers[q.id] = rows;
+    function draw(){
+      box.textContent = '';
+      answers[q.id].forEach(function(row, idx){
+        var r = el('div', {class:'rep', role:'group', 'aria-label': q.label + ' ' + (idx+1)});
+        q.felder.forEach(function(f, fi){
+          var fid = id + '-' + idx + '-' + f.id; var c = el('div', q.felder.length===2 ? {class:'full'} : {});
+          c.appendChild(el('label', {for:fid}, f.label));
+          var long = f.id === 'antwort' || f.id === 'beschreibung';
+          var inp = el(long ? 'textarea' : 'input', long ? {id:fid} : {type:'text', id:fid}); if (long) inp.style.minHeight = '60px';
+          inp.value = row[f.id] || '';
+          inp.addEventListener('input', function(){ answers[q.id][idx][f.id] = inp.value; save(); });
+          c.appendChild(inp); r.appendChild(c);
+        });
+        if (answers[q.id].length > 1) { var d = el('button', {type:'button', class:'del'}, 'Eintrag entfernen'); d.addEventListener('click', function(){ answers[q.id].splice(idx,1); save(); draw(); }); r.appendChild(d); }
+        box.appendChild(r);
+      });
+    }
+    draw(); w.appendChild(box);
+    var add = el('button', {type:'button', class:'sec'}, '+ Weiterer Eintrag');
+    add.addEventListener('click', function(){ answers[q.id].push({}); save(); draw(); box.lastChild.querySelector('input,textarea').focus(); });
+    w.appendChild(add);
+  }
+  return w;
+}
+
+function set(k, v){ answers[k] = v; save(); }
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(answers)); } catch (e) {} progress(); }
+function leer(q, v){
+  if (q.typ === 'boolean') return typeof v !== 'boolean';
+  if (q.typ === 'repeat') return !Array.isArray(v) || !v.some(function(r){ return Object.keys(r).some(function(k){ return (r[k]||'').trim(); }); });
+  if (q.typ === 'hours') return !v || !Object.keys(v).some(function(k){ return v[k]; });
+  return v == null || v === '' || (Array.isArray(v) && !v.length);
+}
+function pflicht(){ var a=[]; K.abschnitte.forEach(function(s){ s.fragen.forEach(function(q){ if (q.pflicht) a.push(q); }); }); return a; }
+function progress(){
+  var p = pflicht(), ok = p.filter(function(q){ return !leer(q, answers[q.id]); }).length, pc = Math.round(ok / p.length * 100);
+  document.querySelector('.prog i').style.width = pc + '%';
+  document.querySelector('.prog').setAttribute('aria-valuenow', pc);
+  document.getElementById('progtext').textContent = pc + ' % der Pflichtfelder';
+}
+function msg(text, err){ var m = document.getElementById('msg'); m.textContent = text; m.className = 'msg' + (err?' err':''); m.style.display = 'block'; }
+
+function clean(){
+  var out = { _meta: { katalogVersion: K.version, exportiert: new Date().toISOString() } };
+  K.abschnitte.forEach(function(s){ s.fragen.forEach(function(q){
+    var v = answers[q.id];
+    if (q.typ === 'repeat') v = (v||[]).filter(function(r){ return Object.keys(r).some(function(k){ return (r[k]||'').trim(); }); });
+    if (v !== undefined) out[q.id] = v;
+  }); });
+  return out;
+}
+function exportJSON(){
+  var fehlt = pflicht().filter(function(q){ return leer(q, answers[q.id]); });
+  if (fehlt.length) msg('Hinweis: Noch offen sind ' + fehlt.length + ' Pflichtfelder (' + fehlt.slice(0,4).map(function(q){return q.label;}).join(', ') + (fehlt.length>4?' …':'') + '). Sie können trotzdem speichern und später weitermachen.', true);
+  else msg('Danke! Die Datei wurde heruntergeladen. Bitte schicken Sie sie an JenAiSystems.');
+  var name = (answers.betrieb_name || 'betrieb').toLowerCase().replace(/[^a-z0-9äöüß]+/g, '-').replace(/^-|-$/g, '');
+  var blob = new Blob([JSON.stringify(clean(), null, 2)], {type:'application/json'});
+  var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'jenaisystems-antworten-' + name + '.json';
+  document.body.appendChild(a); a.click(); setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 500);
+}
+document.getElementById('export').addEventListener('click', exportJSON);
+document.getElementById('export2').addEventListener('click', exportJSON);
+document.getElementById('import').addEventListener('click', function(){ document.getElementById('file').click(); });
+document.getElementById('file').addEventListener('change', function(e){
+  var f = e.target.files[0]; if (!f) return;
+  f.text().then(function(t){ answers = JSON.parse(t); delete answers._meta; save(); render(); msg('Antworten geladen. Sie können jetzt weitermachen.'); })
+   .catch(function(){ msg('Die Datei konnte nicht gelesen werden.', true); });
+});
+document.getElementById('reset').addEventListener('click', function(){ if (confirm('Wirklich alle Eingaben auf diesem Gerät löschen?')) { answers = {}; save(); render(); } });
+render();
+})();
+</script>
+</body>
+</html>

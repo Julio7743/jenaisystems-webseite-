@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JenAiSystems – Intelligente Systeme &amp; KI aus Jena</title>
+<meta name="description" content="JenAiSystems aus Jena – Beyond intelligence. Into action. Wir bauen intelligente Systeme, die denken, handeln und sich weiterentwickeln. Aktuelles Angebot: Websites mit KI-Assistent, Google-Profil, SEO und Werbung für kleine Unternehmen – per Videocall in DE, AT und CH, in Jena auch vor Ort.">
+<!--
+  ============================================================
+  JenAiSystems – Entwurf (noch NICHT veröffentlicht)
+  TODO Julian vor dem Livegang:
+   1. Domain festlegen (Vorschlag: jenaisystems.com) und alle "https://jenaisystems.com"-URLs hier, in sitemap.xml und robots.txt prüfen.
+   2. Preise & Pakete bestätigen (siehe Kommentar bei #preise).
+   3. Drohnenaufnahmen erst anbieten, wenn Führerschein + Versicherung vorliegen (siehe Kommentar bei #leistungen).
+   4. Kontaktformular an einen Formulardienst anschließen (siehe Kommentar bei #kontakt).
+   5. impressum.html und datenschutz.html mit einem Rechtstexte-Generator befüllen.
+   6. Entwurfs-Leiste (div class="draft") entfernen.
+   7. Abrechnung mit Firmenkunden in Österreich/Schweiz vorab mit Steuerberatung bzw. Finanzamt klären
+      (z. B. ob eine USt-IdNr. nötig ist und welcher Rechnungshinweis zur Steuerschuldnerschaft passt) – siehe FAQ.
+   8. Für Erstgespräche per Videocall ein Werkzeug festlegen (z. B. Jitsi, Zoom, Teams) und in der Datenschutzerklärung nennen.
+   9. KI-Chat: Worker veröffentlichen (siehe assistant/README.md), dann unten beim <script src="jenaisystems-chat.js">
+      data-endpoint auf die Worker-Adresse setzen. Chat und KI-Anbieter in der Datenschutzerklärung nennen.
+      Wissen des Assistenten: clients/jenaisystems/antworten.json (bei jeder Änderung der Seite mitpflegen).
+  Schriften: Bricolage Grotesque und Inter (SIL Open Font License), lokal eingebunden – keine Verbindung zu Google.
+  ============================================================
+-->
+<link rel="canonical" href="https://jenaisystems.com/">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0f1c2e">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="JenAiSystems">
+<meta property="og:title" content="JenAiSystems – Beyond intelligence. Into action.">
+<meta property="og:description" content="JenAiSystems aus Jena – Beyond intelligence. Into action. Wir bauen intelligente Systeme, die denken, handeln und sich weiterentwickeln. Aktuelles Angebot: Websites mit KI-Assistent, Google-Profil, SEO und Werbung für kleine Unternehmen – per Videocall in DE, AT und CH, in Jena auch vor Ort.">
+<meta property="og:url" content="https://jenaisystems.com/">
+<meta property="og:image" content="https://jenaisystems.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "JenAiSystems",
+  "description": "JenAiSystems aus Jena – Beyond intelligence. Into action. Wir bauen intelligente Systeme, die denken, handeln und sich weiterentwickeln. Aktuelles Angebot: Websites mit KI-Assistent, Google-Profil, SEO und Werbung für kleine Unternehmen – per Videocall in DE, AT und CH, in Jena auch vor Ort.",
+  "url": "https://jenaisystems.com/",
+  "email": "julian.koebele@gmail.com",
+  "image": "https://jenaisystems.com/og.png",
+  "address": {"@type": "PostalAddress", "addressLocality": "Jena", "addressRegion": "Thüringen", "addressCountry": "DE"},
+  "areaServed": [
+    {"@type": "City", "name": "Jena"},
+    {"@type": "Country", "name": "Deutschland", "identifier": "DE"},
+    {"@type": "Country", "name": "Österreich", "identifier": "AT"},
+    {"@type": "Country", "name": "Schweiz", "identifier": "CH"}
+  ],
+  "founder": {"@type": "Person", "name": "Julian Köbele"},
+  "knowsLanguage": "de"
+}
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ok" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="info" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4.5M12 16h.01"/></g></symbol>
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+  <symbol id="mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></g></symbol>
+  <symbol id="logo" viewBox="0 0 40 40"><rect width="40" height="40" rx="11" fill="#f3a83b"/><circle cx="28" cy="12.5" r="4.5" fill="#fffefa"/><path d="M16.5 34V13a3.5 3.5 0 0 1 7 0v21z" fill="#0f1c2e"/><path d="M20 4.5v5" stroke="#0f1c2e" stroke-width="1.8" stroke-linecap="round"/><path d="M5 34c4-4.6 7.6-6.4 11.5-6.6M23.5 27.4c3.9.2 7.5 2 11.5 6.6" stroke="#0f1c2e" stroke-width="2.2" fill="none" stroke-linecap="round"/></symbol>
+</svg>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+
+<!-- Entwurfs-Leiste: vor Veröffentlichung entfernen -->
+<div class="draft"><b>Entwurf</b> · noch nicht veröffentlicht<span class="d-long"> · Preise und Angebote werden noch final abgestimmt</span></div>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="JenAiSystems – zur Startseite"><svg aria-hidden="true"><use href="#logo"/></svg><span>Jen<i>AiSystems</i></span></a>
+    <nav id="menu" aria-label="Hauptnavigation">
+      <a href="#prinzipien">Ansatz</a>
+      <a href="#angebote">Angebote</a>
+      <a href="#demo">Live-Demo</a>
+      <a href="#preise">Preise</a>
+      <a href="#warum">Über uns</a>
+      <a href="#faq">Fragen</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <div class="nav-r">
+      <a class="btn btn-amber cta-top" href="#kontakt">Erstgespräch vereinbaren</a>
+      <button class="menu-btn" type="button" aria-controls="menu" aria-expanded="false" aria-label="Menü öffnen"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">JenAiSystems · Joint Evolution Network · Jena</span>
+      <h1><span lang="en">Beyond intelligence.</span> <em lang="en">Into action.</em></h1>
+      <p class="lead">Wir bauen intelligente Systeme, die denken, handeln und sich gemeinsam mit Ihnen weiterentwickeln – für Unternehmen, die KI in konkrete Ergebnisse verwandeln wollen. Unser erstes Angebot: Websites und KI-Assistenten für kleine Unternehmen.</p>
+      <div class="cycle" aria-label="Unsere drei Prinzipien"><a href="#prinzipien" lang="en">Judgment</a><i aria-hidden="true">→</i><a href="#prinzipien" lang="en">Execution</a><i aria-hidden="true">→</i><a href="#prinzipien" lang="en">Navigation</a></div>
+      <div class="btns">
+        <a class="btn btn-amber" href="#kontakt">Kostenloses Erstgespräch <svg aria-hidden="true"><use href="#arrow"/></svg></a>
+        <a class="btn btn-line" href="#angebote">Angebote ansehen</a>
+      </div>
+      <ul class="hero-points"><li><svg aria-hidden="true"><use href="#ok"/></svg><span>Aus Jena</span></li><li><svg aria-hidden="true"><use href="#ok"/></svg><span>Per Videocall in DE, AT &amp; CH</span></li><li><svg aria-hidden="true"><use href="#ok"/></svg><span>Fester Ansprechpartner</span></li></ul>
+    </div>
+
+    <div class="scene" role="img" aria-label="Kreislauf: Judgment, Execution, Navigation – und daraus Evolution im Joint Evolution Network"><svg viewBox="0 0 460 430" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto"><circle cx="230" cy="250" r="150" fill="none" stroke="#f3a83b" stroke-opacity=".4" stroke-width="2" stroke-dasharray="3 9"/><path d="M-7 -6 L5 0 L-7 6z" fill="#f3a83b" transform="translate(360 175) rotate(60)"/><path d="M-7 -6 L5 0 L-7 6z" fill="#f3a83b" transform="translate(230 400) rotate(180)"/><path d="M-7 -6 L5 0 L-7 6z" fill="#f3a83b" transform="translate(100 175) rotate(-60)"/><circle cx="230" cy="100" r="34" fill="#18293f" stroke="#f3a83b" stroke-width="2"/><text x="230" y="106" text-anchor="middle" fill="#f3a83b" style="font:600 18px var(--display)">01</text><text x="230" y="40" text-anchor="middle" fill="#fff" style="font:600 20px var(--display)">Judgment</text><text x="230" y="59" text-anchor="middle" fill="#aab5c4" style="font:400 13px var(--sans)">Understand &amp; decide</text><circle cx="360" cy="325" r="34" fill="#18293f" stroke="#f3a83b" stroke-width="2"/><text x="360" y="331" text-anchor="middle" fill="#f3a83b" style="font:600 18px var(--display)">02</text><text x="360" y="382" text-anchor="middle" fill="#fff" style="font:600 20px var(--display)">Execution</text><text x="360" y="401" text-anchor="middle" fill="#aab5c4" style="font:400 13px var(--sans)">Build &amp; act</text><circle cx="100" cy="325" r="34" fill="#18293f" stroke="#f3a83b" stroke-width="2"/><text x="100" y="331" text-anchor="middle" fill="#f3a83b" style="font:600 18px var(--display)">03</text><text x="100" y="382" text-anchor="middle" fill="#fff" style="font:600 20px var(--display)">Navigation</text><text x="100" y="401" text-anchor="middle" fill="#aab5c4" style="font:400 13px var(--sans)">Adapt &amp; evolve</text><text x="230" y="250" text-anchor="middle" fill="#fff" style="font:600 40px var(--display)">JEN</text><text x="230" y="276" text-anchor="middle" fill="#aab5c4" style="font:400 13px var(--sans)">Joint Evolution Network</text><text x="230" y="300" text-anchor="middle" fill="#f3a83b" style="font:600 13px var(--display);letter-spacing:.12em">EVOLUTION</text></svg></div>
+  </div>
+
+  <!-- Jena-Silhouette (vereinfacht): Kernberge mit Fuchsturm, Stadtkirche, Planetarium, JenTower -->
+  <svg class="skyline" viewBox="0 0 1440 160" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <path fill="#13223a" d="M0 112 C140 86 250 72 360 80 S560 106 680 96 S900 52 1040 58 S1290 92 1440 72 V160 H0z"/>
+    <g fill="#13223a"><rect x="1063" y="34" width="6" height="28"/><rect x="1059" y="29" width="14" height="8" rx="2"/></g>
+    <g fill="#1b2f4b">
+      <rect x="380" y="110" width="54" height="50"/><rect x="440" y="100" width="40" height="60"/>
+      <path d="M500 160V108h18V86l9-34 9 34v22h18v52z"/>
+      <rect x="566" y="114" width="48" height="46"/>
+      <path d="M626 160v-30a34 34 0 0 1 68 0v30z"/><rect x="657" y="90" width="6" height="7" rx="1"/>
+      <rect x="706" y="106" width="40" height="54"/>
+      <path d="M760 160V44c0-13 8-21 22-21s22 8 22 21v116z"/><rect x="780" y="4" width="4" height="21" rx="2"/>
+      <rect x="816" y="100" width="52" height="60"/><rect x="874" y="112" width="40" height="48"/>
+      <rect x="926" y="94" width="34" height="66"/><rect x="966" y="116" width="60" height="44"/>
+    </g>
+    <g fill="#f3a83b">
+      <circle cx="782" cy="4" r="2.6"/>
+      <rect x="770" y="52" width="24" height="2" opacity=".55"/><rect x="770" y="66" width="24" height="2" opacity=".35"/><rect x="770" y="80" width="24" height="2" opacity=".55"/><rect x="770" y="94" width="24" height="2" opacity=".3"/>
+      <rect x="392" y="122" width="6" height="6" opacity=".7"/><rect x="452" y="114" width="6" height="6" opacity=".45"/><rect x="834" y="114" width="6" height="6" opacity=".7"/><rect x="848" y="128" width="6" height="6" opacity=".4"/><rect x="936" y="106" width="6" height="6" opacity=".6"/><rect x="986" y="128" width="6" height="6" opacity=".5"/><rect x="580" y="126" width="6" height="6" opacity=".5"/><rect x="718" y="118" width="6" height="6" opacity=".6"/>
+    </g>
+    <path fill="#f6f4ef" d="M0 146 C360 132 1080 132 1440 146 V160 H0z"/>
+  </svg>
+</div>
+
+<!--
+  LEISTUNGEN – Hinweis für Julian zu Drohnenaufnahmen:
+  Drohnenfotos erst aktiv anbieten und Aufträge zusagen, wenn Folgendes vorliegt:
+   - EU-Kompetenznachweis A1/A3 (Online-Prüfung beim Luftfahrt-Bundesamt); für viele Aufnahmen in Ortsnähe zusätzlich das EU-Fernpilotenzeugnis A2,
+   - Registrierung als Betreiber beim Luftfahrt-Bundesamt (e-ID an der Drohne),
+   - Drohnen-Haftpflichtversicherung, die gewerbliche Nutzung abdeckt,
+   - ggf. Genehmigung in geografischen Gebieten. In Jena u. a.: Umfeld Flugplatz Jena-Schöngleina, Kliniken/Krankenhäuser,
+     Naturschutzgebiete, Menschenansammlungen, Wohngrundstücke (Datenschutz). Vor jedem Flug z. B. in der dipul-Karte prüfen.
+  Bis dahin bleibt der Zusatz "auf Anfrage" stehen.
+-->
+<section id="prinzipien" class="alt"><div class="wrap"><div class="sec-head"><span class="eyebrow">Mission · Joint Evolution Network</span><h2><span lang="en">Turn intelligence into action.</span></h2><p class="lead">Wir verwandeln künstliche Intelligenz in wirksame Systeme, die denken, handeln und sich kontinuierlich verbessern – keine isolierten KI-Tools, sondern intelligente Systeme und Automatisierung als zusammenhängendes Ganzes.</p></div><p class="guide"><span>Leitgedanke</span><b lang="en">Intelligence that moves things forward.</b></p><div class="cycle" aria-label="Kreislauf"><span lang="en">Judgment</span><i aria-hidden="true">→</i><span lang="en">Execution</span><i aria-hidden="true">→</i><span lang="en">Navigation</span><i aria-hidden="true">→</i><span lang="en">Evolution</span></div><div class="reasons"><div class="reason"><div class="ic" aria-hidden="true">01</div><h3><span lang="en">Judgment</span> – <span lang="en">Understand &amp; decide</span></h3><p>Unsere Systeme analysieren Informationen, erkennen Zusammenhänge und bewerten Handlungsoptionen. Nicht jede Aufgabe braucht mehr Automatisierung – sie braucht die richtige Entscheidung.</p></div><div class="reason"><div class="ic" aria-hidden="true">02</div><h3><span lang="en">Execution</span> – <span lang="en">Build &amp; act</span></h3><p>Wir bringen KI aus der Theorie in die Praxis. Durch integrierte Systeme, autonome Workflows und intelligente Automatisierung werden aus Entscheidungen konkrete Ergebnisse.</p></div><div class="reason"><div class="ic" aria-hidden="true">03</div><h3><span lang="en">Navigation</span> – <span lang="en">Adapt &amp; evolve</span></h3><p>Wir gestalten Systeme, die Abläufe koordinieren, Ergebnisse beobachten und auf veränderte Bedingungen reagieren. So werden Lösungen nicht nur automatisiert, sondern anpassungsfähig.</p></div></div><p class="small" style="margin-top:28px">Wie das konkret aussieht, zeigt unser erstes Angebot. <a href="#angebote"><b>Zu den Angeboten →</b></a></p></div></section>
+
+<section id="angebote"><div class="wrap"><div class="sec-head"><span class="eyebrow">Angebote</span><h2>Ein Ansatz, mehrere Angebote.</h2><p class="lead">Wir beginnen dort, wo sich KI am direktesten in Ergebnisse übersetzen lässt – und bauen das Angebot Schritt für Schritt aus.</p></div><div class="offers"><article class="svc"><span class="tag live">Verfügbar</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2.5"/><path d="M3 8.5h18M8 21h8M12 18v3"/></svg></div><h3>Websites &amp; KI-Assistenten für kleine Unternehmen</h3><p>Moderne Websites mit optionalem KI-Assistenten, gepflegtem Google-Profil, SEO und gezielter Werbung – für kleine Unternehmen in Deutschland, Österreich und der Schweiz.</p><ul><li><svg aria-hidden="true"><use href="#ok"/></svg><span>Website, KI-Assistent, Google-Profil, SEO und Werbung</span></li><li><svg aria-hidden="true"><use href="#ok"/></svg><span>Festpreis vorab, Betreuung monatlich kündbar</span></li><li><svg aria-hidden="true"><use href="#ok"/></svg><span>Per Videocall in DE, AT &amp; CH, in Jena auch vor Ort</span></li></ul><p class="note"><span><a href="#website-ki">Leistungen, Preise und Ablauf ansehen →</a></span></p></article><article class="svc soon"><span class="tag">In Vorbereitung</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div><h3>Weitere Angebote</h3><p>Weitere Systeme und Lösungen kommen dazu. Haben Sie ein Thema, bei dem KI, Automatisierung und Systeme zusammenspielen sollen? Sprechen Sie uns gern an.</p><p class="note"><span><a href="#kontakt">Thema besprechen →</a></span></p></article></div></div></section>
+
+<section id="website-ki" class="offer-head"><div class="wrap"><span class="eyebrow">Angebot · Websites &amp; KI-Assistenten</span><h2>Websites &amp; KI-Assistenten für kleine Unternehmen</h2><p class="lead">Unser aktuelles Angebot im Detail: Leistungen, Live-Demo, Ablauf und Preise.</p></div></section>
+
+<section class="for" aria-label="Für wen">
+  <div class="wrap for-in">
+    <p>Für kleine Unternehmen in Deutschland, Österreich und der Schweiz:</p>
+    <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg>Handwerk</span>
+    <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17M8 3v3M12 3v3"/></svg>Cafés &amp; Gastronomie</span>
+    <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg>Praxen &amp; Studios</span>
+    <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h16l-1.5 10h-13z"/><path d="M8 10l4-6 4 6"/></svg>Läden &amp; Onlineshops</span>
+    <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20h12M8 20c-1-4 0-8 4-11 4 3 5 7 4 11"/></svg>Werkstätten &amp; Manufakturen</span>
+    <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 0 6 1.8 6 5.5"/></svg>Selbstständige &amp; Vereine</span>
+  </div>
+</section>
+
+<section id="leistungen">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Leistungen</span>
+      <h2>Alles, was Ihr Betrieb online braucht – aus einer Hand.</h2>
+      <p class="lead">Sie kümmern sich um Ihre Kundschaft, ich kümmere mich darum, dass man Sie findet und gern bei Ihnen anfragt – egal, ob Ihr Unternehmen in Jena, Hamburg, Wien oder Zürich sitzt. Sie bekommen nur, was wirklich zu Ihnen passt.</p>
+    </div>
+
+    <div class="svc-main">
+      <article class="svc">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2.5"/><path d="M3 8.5h18M8 21h8M12 18v3"/></svg></div>
+        <h3>Websites, die einfach funktionieren</h3>
+        <p>Schnell, gut lesbar auf dem Handy und modern gestaltet. Mit klaren Texten, die erklären, was Sie anbieten – und einem Knopf, über den Kundinnen und Kunden direkt anrufen, schreiben oder buchen.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Optimiert für Smartphones und kurze Ladezeiten</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Neu erstellt oder Ihre alte Seite überarbeitet</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Barrierearm und ohne unnötige Tracker</span></li>
+        </ul>
+      </article>
+
+      <article class="svc">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/><path d="M12 7.6l.9 1.9 1.9.6-1.9.6-.9 1.9-.9-1.9-1.9-.6 1.9-.6z" fill="currentColor"/></svg></div>
+        <h3>KI-Assistent für Ihre Website <span class="tag">optional</span></h3>
+        <p>Ein freundlicher Chat-Assistent beantwortet rund um die Uhr häufige Fragen – zu Öffnungszeiten, Preisen, Anfahrt oder Leistungen – und führt Interessierte direkt zur Terminbuchung oder Anfrage.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Antwortet nur auf Grundlage Ihrer eigenen Angaben</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Klar als KI gekennzeichnet, Sie behalten die Kontrolle</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Datenschutzfreundlich eingebunden</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Auch als Telefonassistent, der Anrufe annimmt, wenn niemand rangehen kann – <b>auf Anfrage</b></span></li>
+        </ul>
+        <p class="note"><span>Probieren Sie es aus: Der Chat unten rechts ist selbst so ein Assistent. <a href="#demo">Zur Live-Demo</a></span></p>
+      </article>
+
+      <article class="svc">
+        <div class="ic"><svg aria-hidden="true"><use href="#pin"/></svg></div>
+        <h3>Google-Profil &amp; lokale Sichtbarkeit</h3>
+        <p>Wer „Friseur Leipzig“ oder „Tischler in der Nähe“ sucht, sieht zuerst die Einträge auf Google Maps. Ich richte Ihr Google-Unternehmensprofil vollständig ein, pflege es regelmäßig und optimiere Ihre Website für die Suche in Ihrer Stadt und Region (Local SEO) – komplett online, egal wo Sie sitzen.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Öffnungszeiten, Fotos, Leistungen und Beiträge aktuell</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Suchmaschinenoptimierung (SEO) für Ihre wichtigsten Begriffe</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Einheitliche Angaben in Branchenverzeichnissen</span></li>
+        </ul>
+        <p class="note"><span>Ehrlich gesagt: Feste Platzierungen bei Google kann niemand seriös garantieren. Ich sorge dafür, dass Ihr Auftritt die wichtigen Voraussetzungen erfüllt, und zeige Ihnen die Entwicklung jeden Monat.</span></p>
+      </article>
+
+      <article class="svc">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></div>
+        <!-- TODO Julian: Fotografen-Partner außerhalb von Jena jeweils pro Auftrag anfragen; deren Honorar steht vorab im Angebot. -->
+        <h3>Echte Fotos – in Jena auch von oben</h3>
+        <p>Echte Bilder von Ihrem Unternehmen, Ihrem Team und Ihrer Arbeit wirken stärker als jedes Stockfoto. In Jena und Umgebung komme ich selbst vorbei, fotografiere in Ruhe und bearbeite die Bilder passend für Website, Google und Social Media.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Jena &amp; Umgebung: Fotos persönlich vor Ort</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Anderswo: Ihre eigenen Fotos – oder ich vermittle eine Fotografin bzw. einen Fotografen in Ihrer Nähe</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Bearbeitet und in passenden Formaten geliefert</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Drohnenaufnahmen in Jena &amp; Umgebung <b>auf Anfrage</b></span></li>
+        </ul>
+        <p class="note"><span>Drohnenflüge nur dort, wo sie erlaubt sind – mit den nötigen Nachweisen, Versicherung und, wo erforderlich, Genehmigung. Ob Ihr Standort infrage kommt, klären wir vorab.</span></p>
+      </article>
+    </div>
+
+    <div class="svc-more">
+      <h3>Und außerdem</h3>
+      <p>Bausteine, die Sie einzeln dazubuchen oder in der Betreuung kombinieren können.</p>
+      <div class="mini-grid">
+        <div class="mini"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l15-6v14L3 13z"/><path d="M7 13v5h3"/></svg>Werbung schalten</h4><p>Google Ads und Anzeigen auf Instagram &amp; Facebook – eingerichtet, betreut und ehrlich ausgewertet.</p></div>
+        <div class="mini"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="16.8" cy="7.2" r=".6" fill="currentColor"/></svg>Social-Media-Beiträge</h4><p>Regelmäßige Beiträge für Instagram, Facebook und Ihr Google-Profil – Sie geben nur noch frei.</p></div>
+        <div class="mini"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Online-Terminbuchung</h4><p>Termine, Tische oder Kurse direkt über die Website buchen lassen – mit Erinnerung per E-Mail.</p></div>
+        <div class="mini"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1.2 12H6.2z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>Online-Shop &amp; Gutscheine</h4><p>Ein kleiner Shop oder digitale Gutscheine – oder Ihr bestehender Shop, sauber eingebunden.</p></div>
+        <div class="mini"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.5 5.2 5.7.8-4.1 4 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg>Bewertungsmanagement</h4><p>Zufriedene Kunden einfach um eine Bewertung bitten – und auf jede freundlich und professionell antworten.</p></div>
+        <div class="mini"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg>Texte</h4><p>Verständliche Texte für Website, Flyer und Speisekarte, die zeigen, was Sie besonders macht.</p></div>
+        <div class="mini"><h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16h16"/><path d="M8 15l3-4 3 2 5-6"/></svg>Monatlicher Bericht</h4><p>Kurz und verständlich: Wie oft Sie gefunden, angerufen oder angefragt wurden.</p></div>
+        <div class="mini"><h4><svg aria-hidden="true"><use href="#mail"/></svg>Domain, E-Mail &amp; Technik</h4><p>Eigene Adresse wie info@ihr-betrieb.de, Hosting, Updates und Sicherheit – alles erledigt.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="zusammenarbeit" class="area">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Online &amp; vor Ort</span>
+      <h2>Aus Jena – für Unternehmen im ganzen deutschsprachigen Raum.</h2>
+      <p class="lead">Für eine gute Website muss niemand im selben Raum sitzen. Wir arbeiten per Videocall, Telefon und E-Mail zusammen – und wenn Sie in der Nähe sind, auch gern bei Ihnen vor Ort.</p>
+    </div>
+    <div class="svc-main">
+      <article class="svc">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.9 5.6 3.9 9s-1.3 6.4-3.9 9c-2.6-2.6-3.9-5.6-3.9-9S9.4 5.6 12 3z"/></svg></div>
+        <h3>Online in Deutschland, Österreich und der Schweiz</h3>
+        <p>Website, KI-Assistent, Google-Profil, SEO, Werbung und Betreuung funktionieren komplett aus der Ferne. Sie sehen jeden Entwurf per Link im Browser und geben ihn frei, wenn er passt.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Erstgespräch und Abstimmungen per Videocall oder Telefon</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Vorschau-Link statt Termin vor Ort</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Fotos von Ihnen oder von einer Fotografin bzw. einem Fotografen in Ihrer Nähe</span></li>
+        </ul>
+      </article>
+      <article class="svc local">
+        <div class="ic"><svg aria-hidden="true"><use href="#pin"/></svg></div>
+        <h3>Persönlich in Jena &amp; Umgebung</h3>
+        <p>Hier bin ich zu Hause. Für Unternehmen aus der Region komme ich auch persönlich vorbei – zum Kennenlernen, für Fotos oder wenn Sie etwas lieber direkt besprechen.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Treffen bei Ihnen vor Ort</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Fotos von mir selbst aufgenommen</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Drohnenaufnahmen auf Anfrage</span></li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="check" aria-labelledby="check-h">
+  <div class="wrap">
+    <div class="check-card">
+      <div class="badge-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2M8.5 11l1.8 1.8 3.4-3.6"/></svg></div>
+      <div>
+        <h3 id="check-h">Kostenloser Website-Check</h3>
+        <p>Schicken Sie mir den Namen Ihres Unternehmens. Ich schaue mir Ihre Website und Ihren Google-Eintrag an und sende Ihnen die fünf wichtigsten Verbesserungen – kostenlos und unverbindlich.</p>
+      </div>
+      <a class="btn btn-night" href="mailto:julian.koebele@gmail.com?subject=Kostenloser%20Website-Check&amp;body=Hallo%20Herr%20K%C3%B6bele%2C%0A%0Aich%20h%C3%A4tte%20gern%20einen%20kostenlosen%20Website-Check.%0A%0AName%20des%20Unternehmens%3A%20%0AWebsite%20(falls%20vorhanden)%3A%20%0A%0AViele%20Gr%C3%BC%C3%9Fe">Check anfordern</a>
+    </div>
+  </div>
+</section>
+
+<section id="demo" class="demo-sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Live-Demo</span>
+      <h2>So würde der Assistent für Ihren Betrieb antworten.</h2>
+      <p class="lead">Unten rechts beantwortet der JenAiSystems-Assistent Ihre Fragen zu meinen Leistungen. Mit einem Klick wechseln Sie zur Demo einer erfundenen Bäckerei – so sähe der Chat auf Ihrer eigenen Website aus.</p>
+    </div>
+    <div class="demo-grid">
+      <article class="demo-card dark">
+        <div class="demo-top"><h3>Chat-Assistent</h3><span class="tag">zum Ausprobieren</span></div>
+        <p>Der Assistent kennt nur die Angaben, die der Betrieb freigibt – Leistungen, Preise, Öffnungszeiten, häufige Fragen. Was er nicht weiß, sagt er ehrlich und verweist auf Anruf oder E-Mail.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Klar als KI gekennzeichnet, mit Hinweis vor dem ersten Satz</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Schnellfragen, damit Besucher sofort loslegen</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Farbe, Name und Tonfall passend zu Ihrem Betrieb</span></li>
+        </ul>
+        <div class="try">
+          <small>Zum Ausprobieren – ein Klick stellt die Frage:</small>
+          <div class="try-chips">
+            <button type="button" class="try-chip" data-jenaisystems-open="demo" data-jenaisystems-ask="Habt ihr glutenfreies Brot?"><span>Bäckerei-Demo</span>Habt ihr glutenfreies Brot?</button>
+            <button type="button" class="try-chip" data-jenaisystems-open="demo" data-jenaisystems-ask="Kann man eine Torte bestellen?"><span>Bäckerei-Demo</span>Kann man eine Torte bestellen?</button>
+            <button type="button" class="try-chip" data-jenaisystems-open="main" data-jenaisystems-ask="Was kostet eine Website?"><span>JenAiSystems</span>Was kostet eine Website?</button>
+            <button type="button" class="try-chip" data-jenaisystems-open="main" data-jenaisystems-ask="Arbeiten Sie auch außerhalb von Jena?"><span>JenAiSystems</span>Arbeiten Sie auch außerhalb von Jena?</button>
+          </div>
+        </div>
+        <div class="demo-btns">
+          <button class="btn btn-amber" type="button" data-jenaisystems-open="demo">Bäckerei-Demo starten <svg aria-hidden="true"><use href="#arrow"/></svg></button>
+          <button class="btn btn-line" type="button" data-jenaisystems-open="main">JenAiSystems-Assistent fragen</button>
+        </div>
+        <p class="demo-note">Die „Beispiel-Bäckerei Sonnenkorn“ gibt es nicht – alle Angaben in der Demo sind erfunden.</p>
+      </article>
+
+      <article class="demo-card" id="telefon-demo">
+        <div class="demo-top"><h3>Telefon-Demo</h3><span class="tag">Text-Simulation</span></div>
+        <p>Der KI-Telefonassistent nimmt Anrufe an, wenn gerade niemand rangehen kann, notiert das Anliegen und schickt dem Betrieb eine Zusammenfassung. Hier sehen Sie den Ablauf als Text – im echten Betrieb wird gesprochen.</p>
+        <div class="tel-tabs" role="group" aria-label="Beispielanruf wählen"></div>
+        <div class="tel-log" aria-live="polite"></div>
+        <details class="tel-sum"><summary>Zusammenfassung an den Betrieb ansehen</summary><pre></pre></details>
+        <p class="demo-note">Erfundene Beispiel-Bäckerei · erzeugt mit der Offline-Version des Telefonassistenten · nichts wird aufgenommen oder versendet.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="ablauf">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">So läuft es ab</span>
+      <h2>In vier Schritten zu Ihrem neuen Auftritt.</h2>
+      <p class="lead">Ohne Fachchinesisch und ohne Überraschungen – und ohne dass Sie dafür Ihr Büro verlassen müssen. Sie wissen bei jedem Schritt, was passiert und was es kostet.</p>
+    </div>
+    <ol class="steps">
+      <li class="step"><div class="num">1</div><h3>Erstgespräch per Videocall</h3><p>Rund 30 Minuten per Videocall oder Telefon – in Jena und Umgebung gern auch bei Ihnen vor Ort. Wir besprechen, was Sie brauchen und was nicht.</p><small>Kostenlos &amp; unverbindlich</small></li>
+      <li class="step"><div class="num">2</div><h3>Vorschau &amp; Angebot</h3><p>Sie bekommen einen ersten Entwurf als Link zum Anschauen im Browser und ein klares Angebot mit Festpreis.</p><small>Erst dann entscheiden Sie</small></li>
+      <li class="step"><div class="num">3</div><h3>Umsetzung</h3><p>Ich baue Website, Google-Profil und alles Weitere. Abgestimmt wird per E-Mail, Telefon oder Videocall – Sie geben Texte und Fotos frei, fertig.</p><small>Kurze Wege – auch aus der Ferne</small></li>
+      <li class="step"><div class="num">4</div><h3>Betreuung</h3><p>Auf Wunsch kümmere ich mich laufend um Änderungen, Beiträge und Bewertungen und schicke Ihnen jeden Monat einen kurzen Bericht.</p><small>Monatlich kündbar</small></li>
+    </ol>
+  </div>
+</section>
+
+<!--
+  PREISE – ENTWURF, bitte bestätigen, Julian!
+  - "Website Start" ab 490 € einmalig und "Rundum betreut" ab 69 €/Monat stammen aus online-business-optionen.md.
+  - "Sichtbar wachsen" ab 199 €/Monat ist ein neuer Vorschlag (Werbe- und Social-Media-Betreuung), Werbebudget kommt extra.
+  - Alles als "ab"-Preise. Hinweis nach § 19 UStG nur so lange stehen lassen, wie Sie Kleinunternehmer sind.
+  - Optional: Einführungspreis für die ersten Kunden, wenn Sie sie dafür als Referenz nennen dürfen.
+-->
+<section id="preise" class="alt">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Pakete &amp; Preise</span>
+      <h2>Faire Preise, klar vereinbart.</h2>
+      <p class="lead">Vorab bekommen Sie ein Angebot mit Festpreis. Die Betreuung ist monatlich kündbar – Sie bleiben, weil es sich lohnt, nicht wegen eines Vertrags.</p>
+    </div>
+    <div class="plans">
+      <article class="plan">
+        <h3>Website Start</h3>
+        <p class="for-who">Ihr professioneller Auftritt – einmal richtig aufgesetzt.</p>
+        <div class="price"><span class="ab">ab</span><b>490&nbsp;€</b><span>einmalig</span></div>
+        <p class="sub">ohne Umsatzsteuer*</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Website mit 1–5 Seiten, fürs Handy optimiert</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Texte und Bildbearbeitung inklusive</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Google-Unternehmensprofil einrichten oder überarbeiten</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Grundlegende Suchmaschinenoptimierung</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Kontaktformular und Einbindung Ihrer Rechtstexte</span></li>
+        </ul>
+        <a class="btn btn-ghost" href="#kontakt">Anfragen</a>
+      </article>
+
+      <article class="plan feat">
+        <span class="pill">Empfohlen</span>
+        <h3>Rundum betreut</h3>
+        <p class="for-who">Ihr Auftritt bleibt aktuell – ohne dass Sie sich darum kümmern müssen.</p>
+        <div class="price"><span class="ab">ab</span><b>69&nbsp;€</b><span>pro Monat</span></div>
+        <p class="sub">ohne USt.* · monatlich kündbar</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Hosting, Updates und Sicherheit</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Kleine Änderungen jederzeit per Nachricht</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>2 Beiträge pro Monat auf Ihrem Google-Profil</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Antworten auf Bewertungen – vorbereitet zur Freigabe</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Kurzer Monatsbericht in verständlicher Sprache</span></li>
+        </ul>
+        <a class="btn btn-amber" href="#kontakt">Erstgespräch vereinbaren</a>
+      </article>
+
+      <article class="plan">
+        <h3>Sichtbar wachsen</h3>
+        <p class="for-who">Für Betriebe, die aktiv neue Kundschaft gewinnen möchten.</p>
+        <div class="price"><span class="ab">ab</span><b>199&nbsp;€</b><span>pro Monat</span></div>
+        <p class="sub">ohne USt.* · zzgl. Werbebudget · monatlich kündbar</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Alles aus „Rundum betreut“</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Google Ads oder Instagram-/Facebook-Werbung betreut</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>4 Social-Media-Beiträge pro Monat</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>Laufende Suchmaschinenoptimierung</span></li>
+          <li><svg aria-hidden="true"><use href="#ok"/></svg><span>KI-Assistent für Ihre Website inklusive</span></li>
+        </ul>
+        <a class="btn btn-ghost" href="#kontakt">Anfragen</a>
+      </article>
+    </div>
+
+    <div class="extra"><b>Einzeln buchbar:</b> Fotos vor Ort in Jena &amp; Umgebung, Vermittlung von Fotografinnen und Fotografen in Ihrer Region, Drohnenaufnahmen in Jena &amp; Umgebung (auf Anfrage), Online-Terminbuchung, Shop- und Gutschein-Einbindung, Texte, KI-Assistent. Preis nach Aufwand – Sie erhalten immer vorher ein Angebot.</div>
+
+    <div class="price-notes">
+      <p><svg aria-hidden="true"><use href="#info"/></svg><span>* Kleinunternehmer gemäß §&nbsp;19 UStG: Es wird keine Umsatzsteuer berechnet – die Preise sind netto und zugleich Endpreise in Euro. Das gilt auch für Rechnungen an Unternehmen in Österreich und der Schweiz.</span></p>
+      <p><svg aria-hidden="true"><use href="#info"/></svg><span>Domain und Werbebudget zahlen Sie direkt beim Anbieter – so gehören sie auch Ihnen.</span></p>
+      <p><svg aria-hidden="true"><use href="#info"/></svg><span>Der genaue Preis hängt vom Umfang ab und steht vor Beginn schriftlich fest.</span></p>
+    </div>
+  </div>
+</section>
+
+<section id="warum">
+  <div class="wrap why-grid">
+    <div>
+      <span class="eyebrow">Über uns</span>
+      <h2>Ein fester Ansprechpartner – aus Jena, für Sie erreichbar.</h2>
+      <p class="lead" style="margin-top:16px">Keine Agentur mit Ticketsystem und Warteschleife. Sie haben einen festen Ansprechpartner – per Videocall, Telefon oder E-Mail und in Jena und Umgebung auch persönlich.</p>
+      <div class="me">
+        <div class="me-h">
+          <!-- TODO Julian: hier gern ein echtes Foto von Ihnen statt der Initialen einsetzen -->
+          <div class="mono" aria-hidden="true">JK</div>
+          <div><b>Julian Köbele</b><span>Gründer von JenAiSystems · Jena</span></div>
+        </div>
+        <p>Ich helfe kleinen Unternehmen – in Jena und im ganzen deutschsprachigen Raum –, online so gut auszusehen, wie sie wirklich sind. Dafür nutze ich moderne Werkzeuge – auch künstliche Intelligenz –, damit gute Ergebnisse schnell und bezahlbar entstehen.</p>
+        <p>Jedes Ergebnis prüfe ich selbst, bevor es online geht. Und ich sage Ihnen ehrlich, wenn sich etwas für Ihren Betrieb nicht lohnt.</p>
+        <div class="refs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg><span><b>Referenzen:</b> Die ersten Projekte sind in Arbeit. Möchten Sie zu den Ersten gehören? Sprechen Sie mich gern an.</span></div>
+      </div>
+    </div>
+    <div class="reasons">
+      <div class="reason"><div class="ic"><svg aria-hidden="true"><use href="#pin"/></svg></div><h3>Online &amp; vor Ort</h3><p>Per Videocall in Deutschland, Österreich und der Schweiz – und in Jena und Umgebung auch persönlich bei Ihnen.</p></div>
+      <div class="reason"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div><h3>Persönlich</h3><p>Ein fester Ansprechpartner, der zuhört und erklärt – verständlich und ohne Fachchinesisch.</p></div>
+      <div class="reason"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v10H4z"/><circle cx="12" cy="12" r="2.5"/><path d="M7 10v4M17 10v4"/></svg></div><h3>Fair</h3><p>Festpreise vorab, keine versteckten Kosten. Sie zahlen nur, was Sie wirklich brauchen.</p></div>
+      <div class="reason"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L5 13h6l-1 8 8-10h-6z"/></svg></div><h3>Schnell</h3><p>Kurze Wege und schnelle Entwürfe – Sie sehen früh, wie Ihr Auftritt aussehen wird.</p></div>
+      <div class="reason"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.8-1.2"/></svg></div><h3>Keine Knebelverträge</h3><p>Die Betreuung ist monatlich kündbar. Kein Jahresvertrag, keine Mindestlaufzeit.</p></div>
+      <div class="reason"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Alles gehört Ihnen</h3><p>Domain, Inhalte und Zugänge laufen auf Ihren Namen. Wenn Sie wechseln, nehmen Sie alles mit.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="alt">
+  <div class="wrap faq-grid">
+    <div>
+      <span class="eyebrow">Häufige Fragen</span>
+      <h2>Gut zu wissen.</h2>
+      <p class="lead" style="margin-top:16px">Ihre Frage ist nicht dabei? Schreiben Sie mir einfach – ich antworte persönlich.</p>
+    </div>
+    <div class="faq">
+      <details><summary>Was bedeutet JenAiSystems – und wofür stehen Judgment, Execution und Navigation?</summary><p>JEN steht für Joint Evolution Network. Die Mission von JenAiSystems lautet „Turn intelligence into action.“: Wir verwandeln künstliche Intelligenz in wirksame Systeme, die denken, handeln und sich kontinuierlich verbessern. Der Leitgedanke ist „Intelligence that moves things forward.“ Drei Prinzipien tragen das: Judgment steht für verstehen und entscheiden, Execution für bauen und handeln, Navigation für anpassen und weiterentwickeln.</p></details>
+      <details><summary>Welche Angebote gibt es bei JenAiSystems?</summary><p>Aktuell bieten wir Websites und KI-Assistenten für kleine Unternehmen an, inklusive Google-Profil, SEO und Werbung. Weitere Angebote sind in Vorbereitung. Wenn Sie ein Thema haben, bei dem KI, Automatisierung und Systeme zusammenspielen sollen, schreiben Sie uns gern.</p></details>
+      <details><summary>Was kostet eine Website bei JenAiSystems?</summary><p>Eine Website mit bis zu fünf Seiten gibt es ab 490 € einmalig, die laufende Betreuung ab 69 € im Monat. Nach dem kostenlosen Erstgespräch bekommen Sie ein Angebot mit Festpreis – erst dann entscheiden Sie.</p></details>
+      <details><summary>Muss ich mich um die Technik kümmern?</summary><p>Nein. Hosting, Updates, Sicherheit und Änderungen übernehme ich. Sie schicken mir einfach eine Nachricht, wenn sich etwas ändert – etwa Öffnungszeiten oder Preise.</p></details>
+      <details><summary>Wie lange bin ich gebunden?</summary><p>Die Betreuung ist monatlich kündbar. Ihre Domain und Ihre Inhalte gehören Ihnen – auch wenn Sie die Zusammenarbeit beenden.</p></details>
+      <details><summary>Was genau macht der KI-Assistent?</summary><p>Er beantwortet auf Ihrer Website häufige Fragen, zum Beispiel zu Öffnungszeiten, Leistungen oder Anfahrt, und leitet zur Buchung oder Anfrage weiter. Er nutzt nur die Informationen, die Sie freigeben, ist klar als KI gekennzeichnet und wird datenschutzfreundlich eingebunden.</p></details>
+      <details><summary>Kann ich den KI-Assistenten hier ausprobieren?</summary><p>Ja. Der Chat unten rechts ist selbst ein Beispiel. Über „Demo“ im Chatfenster oder im Abschnitt <a href="#demo">Live-Demo</a> wechseln Sie zu einer erfundenen Beispiel-Bäckerei und sehen, wie der Assistent für einen Betrieb antworten würde. Dort gibt es auch eine Telefon-Demo als Text-Simulation.</p></details>
+      <details><summary>Garantieren Sie Platz 1 bei Google?</summary><p>Nein – und seien Sie vorsichtig bei Anbietern, die das versprechen. Ich sorge dafür, dass Ihr Google-Profil und Ihre Website die wichtigen Voraussetzungen erfüllen, und zeige Ihnen jeden Monat, wie sich Aufrufe und Anfragen entwickeln.</p></details>
+      <details><summary>Schreiben Sie auch Impressum und Datenschutzerklärung?</summary><p>Rechtstexte erstellen Sie am besten mit einem spezialisierten Rechtstexte-Generator oder lassen sie anwaltlich prüfen. Ich baue sie anschließend sauber in Ihre Website ein und achte darauf, dass keine unnötigen Tracker laufen.</p></details>
+      <details><summary>Arbeiten Sie auch außerhalb von Jena?</summary><p>Ja. Websites, KI-Assistent, Google-Profil, SEO, Werbung und Betreuung biete ich für Unternehmen in ganz Deutschland, Österreich und der Schweiz an – die Zusammenarbeit läuft online. Persönlich vor Ort bin ich in Jena und Umgebung.</p></details>
+      <details><summary>Wie läuft die Zusammenarbeit aus der Ferne?</summary><p>Wir starten mit einem kostenlosen Erstgespräch per Videocall oder Telefon. Entwürfe bekommen Sie als Link und sehen sie direkt im Browser. Rückfragen und Freigaben klären wir per E-Mail, Telefon oder kurzem Videocall – ganz wie es Ihnen lieber ist. Sie brauchen dafür nur einen Computer oder ein Smartphone.</p></details>
+      <details><summary>Was ist mit Fotos, wenn ich nicht in Jena bin?</summary><p>Dann gibt es zwei Wege: Sie schicken mir eigene Fotos, und ich wähle aus, bearbeite sie und sage Ihnen, welche Motive noch fehlen. Oder ich vermittle Ihnen eine Fotografin bzw. einen Fotografen in Ihrer Nähe – die Kosten dafür stehen vorher im Angebot.</p></details>
+      <details><summary>Sind Drohnenaufnahmen überall möglich?</summary><p>Nein. Drohnenaufnahmen biete ich auf Anfrage in Jena und Umgebung an. In der Nähe von Flugplätzen, Kliniken und Naturschutzgebieten oder über Wohngrundstücken gelten strenge Regeln – vorab prüfe ich, ob und wie Ihr Standort aufgenommen werden darf.</p></details>
+      <details><summary>Wie rechnen Sie mit Unternehmen in Österreich und der Schweiz ab?</summary><p>Ich bin Kleinunternehmer nach §&nbsp;19 UStG und stelle Rechnungen ohne Umsatzsteuer aus – auch an Unternehmen in Österreich und der Schweiz. Bezahlt wird in Euro per Überweisung. Ob in Ihrem Land eine Steuer auf die Leistung anfällt (z.&nbsp;B. im Reverse-Charge-Verfahren), klären Sie bitte mit Ihrer Steuerberatung.</p></details>
+    </div>
+  </div>
+</section>
+
+<!--
+  KONTAKT – TODO Julian:
+  - Das Formular öffnet derzeit nur das E-Mail-Programm der Besucher (mailto-Fallback, es wird nichts an einen Server gesendet).
+    Für echte Formular-Nachrichten einen Dienst anschließen, z. B. Web3Forms oder Formspree:
+      <form action="https://api.web3forms.com/submit" method="POST"> plus <input type="hidden" name="access_key" value="IHR-SCHLÜSSEL">
+    Dann den Dienst in der Datenschutzerklärung nennen und den mailto-Teil im Script unten entfernen.
+  - "innerhalb von einem Werktag" nur stehen lassen, wenn Sie das zusagen können.
+-->
+<section id="kontakt" class="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="eyebrow">Kostenloses Erstgespräch</span>
+      <h2>Lassen Sie uns über Ihr Unternehmen sprechen.</h2>
+      <p class="lead">Erzählen Sie mir kurz, worum es geht. Ich melde mich persönlich – in der Regel innerhalb eines Werktags – und wir vereinbaren einen Termin per Videocall oder Telefon; in Jena und Umgebung gern auch bei Ihnen vor Ort.</p>
+      <ul class="c-list">
+        <li><span class="ic"><svg aria-hidden="true"><use href="#mail"/></svg></span><div><small>E-Mail</small><a href="mailto:julian.koebele@gmail.com">julian.koebele@gmail.com</a></div></li>
+        <li><span class="ic"><svg aria-hidden="true"><use href="#pin"/></svg></span><div><small>Vor Ort</small><b>Jena &amp; Umgebung</b></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10.5l5-3v9l-5-3z"/></svg></span><div><small>Online</small><b>Deutschland · Österreich · Schweiz</b></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><small>Erstgespräch</small><b>ca. 30 Minuten · kostenlos · per Videocall</b></div></li>
+      </ul>
+    </div>
+
+    <form id="contact-form" novalidate>
+      <div class="f-row">
+        <div class="f"><label for="f-name">Ihr Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="f"><label for="f-firma">Unternehmen <span>(optional)</span></label><input id="f-firma" name="betrieb" autocomplete="organization"></div>
+      </div>
+      <div class="f-row">
+        <div class="f"><label for="f-mail">E-Mail</label><input id="f-mail" name="email" type="email" autocomplete="email" required></div>
+        <div class="f"><label for="f-tel">Telefon <span>(optional)</span></label><input id="f-tel" name="telefon" type="tel" autocomplete="tel"></div>
+      </div>
+      <div class="f"><label for="f-topic">Worum geht es?</label>
+        <select id="f-topic" name="thema">
+          <option>Kostenloses Erstgespräch</option>
+          <option>Kostenloser Website-Check</option>
+          <option>Neue Website</option>
+          <option>Google-Profil &amp; lokale Sichtbarkeit</option>
+          <option>KI-Assistent</option>
+          <option>Fotos / Drohnenaufnahmen</option>
+          <option>Werbung &amp; Social Media</option>
+          <option>Etwas anderes</option>
+        </select>
+      </div>
+      <div class="f"><label for="f-msg">Ihre Nachricht</label><textarea id="f-msg" name="nachricht" placeholder="z. B. Wir sind ein Café in Leipzig und haben noch keine eigene Website …"></textarea></div>
+      <label class="consent"><input type="checkbox" id="f-ok" required><span>Ich bin einverstanden, dass meine Angaben zur Bearbeitung meiner Anfrage verwendet werden. Mehr dazu in der <a href="datenschutz.html">Datenschutzerklärung</a>.</span></label>
+      <button class="btn btn-amber" type="submit">Anfrage senden <svg aria-hidden="true"><use href="#arrow"/></svg></button>
+      <p class="f-note" id="f-note" role="status">Öffnet Ihr E-Mail-Programm mit einer vorbereiteten Nachricht.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <a class="brand" href="#top"><svg aria-hidden="true"><use href="#logo"/></svg><span>Jen<i>AiSystems</i></span></a>
+        <p>Websites, Google-Profil und Online-Marketing aus Jena – für kleine Unternehmen in Deutschland, Österreich und der Schweiz.</p>
+      </div>
+      <nav class="f-links" aria-label="Fußzeile">
+        <a href="#leistungen">Leistungen</a><a href="#preise">Preise</a><a href="#faq">Fragen</a><a href="#kontakt">Kontakt</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a>
+      </nav>
+    </div>
+    <div class="f-bottom"><span>© <span id="y">2026</span> JenAiSystems · Julian Köbele, Jena</span><span>Kleinunternehmer gemäß § 19 UStG</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b=document.querySelector('.menu-btn'),m=document.getElementById('menu');
+  b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Menü schließen':'Menü öffnen')});
+  m.addEventListener('click',function(e){if(e.target.tagName==='A'){m.classList.remove('open');b.setAttribute('aria-expanded','false')}});
+  document.getElementById('y').textContent=new Date().getFullYear();
+  // mailto-Fallback – ersetzen, sobald ein Formulardienst angeschlossen ist (siehe TODO im HTML)
+  var f=document.getElementById('contact-form'),n=document.getElementById('f-note');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var g=function(id){return document.getElementById(id).value.trim()};
+    if(!g('f-name')||!/^\S+@\S+\.\S+$/.test(g('f-mail'))){n.textContent='Bitte geben Sie Ihren Namen und eine gültige E-Mail-Adresse an.';n.style.color='#b3261e';return}
+    if(!document.getElementById('f-ok').checked){n.textContent='Bitte bestätigen Sie kurz den Hinweis zum Datenschutz.';n.style.color='#b3261e';return}
+    var body='Name: '+g('f-name')+'\nUnternehmen: '+g('f-firma')+'\nE-Mail: '+g('f-mail')+'\nTelefon: '+g('f-tel')+'\n\n'+g('f-msg');
+    location.href='mailto:julian.koebele@gmail.com?subject='+encodeURIComponent('Anfrage über JenAiSystems: '+g('f-topic'))+'&body='+encodeURIComponent(body);
+    n.style.color='';n.textContent='Ihr E-Mail-Programm sollte sich jetzt öffnen. Falls nicht, schreiben Sie direkt an julian.koebele@gmail.com.';
+  });
+})();
+</script>
+<script type="application/json" id="telefon-demo-daten">{"betrieb":"Beispiel-Bäckerei Sonnenkorn","szenarien":[{"id":"baeckerei","titel":"Tortenbestellung","verlauf":[{"rolle":"bot","text":"Guten Tag, Sie sind bei Beispiel-Bäckerei Sonnenkorn in Beispielstadt. Ich bin der digitale Telefon-Assistent – eine künstliche Intelligenz. Gerade ist leider niemand persönlich erreichbar. Ich notiere Ihr Anliegen schriftlich für das Team, das Gespräch wird nicht aufgenommen. Infos zum Datenschutz finden Sie auf beispiel-baeckerei.example/datenschutz. Bei Lebensgefahr wählen Sie bitte sofort die 112. Worum geht es bei Ihnen?"},{"rolle":"anrufer","text":"Ich würde gern eine Geburtstagstorte für Samstag bestellen."},{"rolle":"bot","text":"Wie ist Ihr Name?"},{"rolle":"anrufer","text":"Ich bin Max Muster"},{"rolle":"bot","text":"Unter welcher Nummer erreichen wir Sie am besten?"},{"rolle":"anrufer","text":"0176 1234567"},{"rolle":"bot","text":"Gibt es einen Wunschzeitraum?"},{"rolle":"anrufer","text":"Samstag Vormittag"},{"rolle":"bot","text":"Ich fasse zusammen: Ich würde gern eine Geburtstagstorte für Samstag bestellen, Name Max Muster, Rückruf unter 0176 12 34 56 7. Stimmt das so?"},{"rolle":"anrufer","text":"ja"},{"rolle":"bot","text":"Vielen Dank! Wir melden uns am nächsten Werktag. Auf Wiederhören."}],"zusammenfassung":"Betreff: [Telefon] normal – Ich würde gern eine Geburtstagstorte für Samstag b – Max Muster\n\nNeuer Anruf über den Telefon-Assistenten\nDringlichkeit: normal\nAnliegen: Ich würde gern eine Geburtstagstorte für Samstag bestellen\nOrt: –\nName: Max Muster\nRückruf: 0176 12 34 56 7 (bestätigt)\nWunschzeitraum: Samstag Vormittag\nNicht im Angebot: nein\nKI abgelehnt: nein\nNotfall-Hinweis gegeben: nein\nGesprächsende: fertig\n---\nKein Audio gespeichert. Transkript wird nach 30 Tagen gelöscht. Der Assistent ruft nie selbst zurück."},{"id":"notfall","titel":"Notfall: 112-Hinweis","verlauf":[{"rolle":"bot","text":"Guten Tag, Sie sind bei Beispiel-Bäckerei Sonnenkorn in Beispielstadt. Ich bin der digitale Telefon-Assistent – eine künstliche Intelligenz. Gerade ist leider niemand persönlich erreichbar. Ich notiere Ihr Anliegen schriftlich für das Team, das Gespräch wird nicht aufgenommen. Infos zum Datenschutz finden Sie auf beispiel-baeckerei.example/datenschutz. Bei Lebensgefahr wählen Sie bitte sofort die 112. Worum geht es bei Ihnen?"},{"rolle":"anrufer","text":"Hilfe, es brennt in der Küche!"},{"rolle":"bot","text":"Bitte legen Sie sofort auf und wählen Sie die 112. Ich gebe dem Team Bescheid, dass Sie angerufen haben."}],"zusammenfassung":"Betreff: [Telefon] NOTFALL – Anruf ohne Anliegen – ohne Namen\n\nNeuer Anruf über den Telefon-Assistenten\nDringlichkeit: NOTFALL – 112/Entstörung empfohlen\nAnliegen: –\nOrt: –\nName: –\nRückruf: –\nWunschzeitraum: –\nNicht im Angebot: nein\nKI abgelehnt: nein\nNotfall-Hinweis gegeben: ja\nGesprächsende: notfall_extern\n---\nKein Audio gespeichert. Transkript wird nach 30 Tagen gelöscht. Der Assistent ruft nie selbst zurück."},{"id":"keine_ki","titel":"Möchte nicht mit einer KI sprechen","verlauf":[{"rolle":"bot","text":"Guten Tag, Sie sind bei Beispiel-Bäckerei Sonnenkorn in Beispielstadt. Ich bin der digitale Telefon-Assistent – eine künstliche Intelligenz. Gerade ist leider niemand persönlich erreichbar. Ich notiere Ihr Anliegen schriftlich für das Team, das Gespräch wird nicht aufgenommen. Infos zum Datenschutz finden Sie auf beispiel-baeckerei.example/datenschutz. Bei Lebensgefahr wählen Sie bitte sofort die 112. Worum geht es bei Ihnen?"},{"rolle":"anrufer","text":"Ich will mit keiner KI reden."},{"rolle":"bot","text":"Kein Problem. Sie können es zu unseren Bürozeiten wieder versuchen: Montag 06:30 bis 18:00, Dienstag 06:30 bis 18:00, Mittwoch 06:30 bis 18:00, Donnerstag 06:30 bis 18:00, Freitag 06:30 bis 18:00, Samstag 07:00 bis 13:00. Oder Sie nennen mir nur Ihren Namen und Ihre Rückrufnummer, dann meldet sich das Team."},{"rolle":"anrufer","text":"Max Muster"},{"rolle":"bot","text":"Unter welcher Nummer erreichen wir Sie am besten?"},{"rolle":"anrufer","text":"0176 1234567"},{"rolle":"bot","text":"Ich fasse zusammen: Name Max Muster, Rückruf unter 0176 12 34 56 7. Stimmt das so?"},{"rolle":"anrufer","text":"Ja"},{"rolle":"bot","text":"Vielen Dank! Wir melden uns am nächsten Werktag. Auf Wiederhören."}],"zusammenfassung":"Betreff: [Telefon] normal – Anruf ohne Anliegen – Max Muster\n\nNeuer Anruf über den Telefon-Assistenten\nDringlichkeit: normal\nAnliegen: –\nOrt: –\nName: Max Muster\nRückruf: 0176 12 34 56 7 (bestätigt)\nWunschzeitraum: –\nNicht im Angebot: nein\nKI abgelehnt: ja\nNotfall-Hinweis gegeben: nein\nGesprächsende: fertig\n---\nKein Audio gespeichert. Transkript wird nach 30 Tagen gelöscht. Der Assistent ruft nie selbst zurück."}]}</script>
+<script>
+// Telefon-Demo: spielt Beispielanrufe der Offline-Engine (P0) als Text ab. Daten: scripts/build-site.mjs
+(function(){
+  var box=document.getElementById('telefon-demo'); if(!box) return;
+  var data; try{data=JSON.parse(document.getElementById('telefon-demo-daten').textContent)}catch(e){return}
+  var tabs=box.querySelector('.tel-tabs'),log=box.querySelector('.tel-log'),sum=box.querySelector('.tel-sum'),pre=sum.querySelector('pre');
+  var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,timer;
+  function line(m){var d=document.createElement('div');d.className='tl '+(m.rolle==='bot'?'bot':'caller');var w=document.createElement('small');w.textContent=m.rolle==='bot'?'KI-Telefonassistent':'Anrufer (Beispiel)';var t=document.createElement('p');t.textContent=m.text;d.appendChild(w);d.appendChild(t);log.appendChild(d);log.scrollTop=log.scrollHeight}
+  function show(sc,animate){
+    clearTimeout(timer);log.textContent='';pre.textContent=sc.zusammenfassung;sum.open=false;sum.hidden=true;
+    [].forEach.call(tabs.children,function(b){b.setAttribute('aria-pressed',b.dataset.id===sc.id?'true':'false')});
+    var i=0;(function next(){if(i>=sc.verlauf.length){sum.hidden=false;if(!animate)log.scrollTop=0;return}line(sc.verlauf[i++]);if(animate&&!still)timer=setTimeout(next,i===1?900:1100);else next()})();
+  }
+  data.szenarien.forEach(function(sc){var b=document.createElement('button');b.type='button';b.className='tel-tab';b.dataset.id=sc.id;b.textContent=sc.titel;b.addEventListener('click',function(){show(sc,true)});tabs.appendChild(b)});
+  show(data.szenarien[0],false);
+})();
+</script>
+<!-- KI-Chat (JenAiSystems-Assistent + Demo-Modus mit erfundener Bäckerei). data-endpoint="" = gleiche Adresse (lokaler Testserver).
+     TODO vor Livegang: data-endpoint="https://<worker>.workers.dev" setzen (siehe assistant/README.md). -->
+<script src="jenaisystems-chat.js" data-client="jenaisystems" data-endpoint="" data-demo="beispiel" data-main-label="JenAiSystems" data-demo-label="Demo: Bäckerei" data-contact="#kontakt" data-privacy="datenschutz.html#chat" defer></script>
+</body>
+</html>

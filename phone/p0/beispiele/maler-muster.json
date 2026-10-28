@@ -1,0 +1,57 @@
+{
+  "id": "maler-muster",
+  "firma": "Malerbetrieb Muster",
+  "ort": "Jena",
+  "oeffnungszeiten": "Montag bis Freitag von 7 bis 16 Uhr",
+  "datenschutz_url": "maler-muster.de/datenschutz",
+  "leistungen": [
+    "streichen",
+    "tapezieren",
+    "lackieren",
+    "fassade",
+    "spachteln",
+    "decke",
+    "wand"
+  ],
+  "nicht_im_angebot": [
+    "laminat",
+    "fliesen",
+    "parkett",
+    "elektro",
+    "heizung",
+    "sanitär"
+  ],
+  "gas_entstoerung_nummer": "[Gas-Entstörungsnummer – vom Betrieb eintragen]",
+  "notfall": {
+    "extern_112": [
+      "feuer",
+      "brennt",
+      "rauch",
+      "verletzt",
+      "bewusstlos",
+      "notarzt",
+      "lebensgefahr"
+    ],
+    "gas": [
+      "gasgeruch",
+      "nach gas",
+      "gas riecht",
+      "gasleitung"
+    ],
+    "wasser": [
+      "rohrbruch",
+      "wasserschaden",
+      "wasser läuft",
+      "überschwemm"
+    ],
+    "betrieb_dringend": [
+      "gerüst",
+      "baustelle offen",
+      "nach ihren arbeiten"
+    ]
+  },
+  "empfaenger_email": "anfragen@maler-muster.de",
+  "transkript_aufbewahrung_tage": 30,
+  "_hinweis": "Fiktiver Beispielbetrieb (Kopie aus ki-assistent/telefon-bot/demo, ergänzt um rueckruf_zusage).",
+  "rueckruf_zusage": "Das Team meldet sich am nächsten Werktag bei Ihnen."
+}

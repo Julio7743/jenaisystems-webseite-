@@ -1,0 +1,3 @@
+# Kopieren nach .dev.vars (wird NICHT eingecheckt) für "npx wrangler dev".
+LLM_API_KEY=
+ADMIN_TOKEN=

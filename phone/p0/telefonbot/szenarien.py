@@ -1,0 +1,21 @@
+"""Gesprächs-Szenarien (Text) für Demo und Abnahmetests; die ersten stammen aus der Referenz-Demo."""
+SZENARIEN = {
+    "standard": ["Ich möchte mein Wohnzimmer streichen lassen, ca. 20 Quadratmeter.", "In Jena, 07743, Musterweg 5.",
+                 "Mein Name ist Max Muster", "0176 1234567", "Am liebsten im November", "Ja, stimmt."],
+    "notfall": ["Hilfe, es brennt in der Küche!", "Mein Name ist Max Muster", "0176 1234567"],
+    "gas": ["Hier riecht es nach Gas im Flur"],
+    "wasser": ["Wir hatten einen Rohrbruch, jetzt ist ein Wasserfleck an der Decke im Bad, der muss gestrichen werden.",
+               "In Jena 07745", "Ich bin Erika Beispiel", "Unter 0176 7654321", "Nächste zwei Wochen", "Ja genau"],
+    "preis": ["Was kostet es ungefähr, eine Fassade zu streichen?", "Aus Isserstedt, 07751", "Hier ist Paul Probe",
+              "03641 123456", "Frühjahr", "ja"],
+    "laminat": ["Können Sie Laminat verlegen?", "In Jena 07749", "Mein Name ist Lea Test", "0151 2223334", "egal", "ja"],
+    "keine_ki": ["Ich will mit keiner KI reden.", "Max Muster", "0176 1234567", "Ja"],
+    "korrektur": ["Ich möchte mein Wohnzimmer streichen lassen.", "07743 Jena", "Mein Name ist Max Muster", "0176 1234567",
+                  "nein", "Nein, 0176 7654321", "Ja, jetzt stimmt es."],
+    "sensibel": ["Ich möchte die Küche streichen lassen, ich habe Diabetes und meine IBAN ist DE89 3704 0044 0532 0130 00.",
+                 "In Jena 07743", "Ich bin Max Muster", "0176 1234567", "egal", "ja"],
+    "stille": ["", ""],
+    "spam": ["Du blöde Maschine!", "Halt die Klappe, Idiot"],
+    "baeckerei": ["Ich würde gern eine Geburtstagstorte für Samstag bestellen.", "Ich bin Max Muster",
+                  "0176 1234567", "Samstag Vormittag", "ja"],
+}

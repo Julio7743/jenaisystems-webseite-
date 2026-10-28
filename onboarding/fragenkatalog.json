@@ -1,0 +1,507 @@
+{
+  "version": 1,
+  "titel": "JenAiSystems Fragenkatalog für Ihren KI-Assistenten",
+  "einleitung": "Mit Ihren Antworten richten wir den Chat-Assistenten auf Ihrer Website und auf Wunsch den Telefonassistenten ein. Der Assistent antwortet später NUR mit dem, was hier steht. Was fehlt, beantwortet er nicht, sondern verweist auf Sie. Pflichtfelder sind mit * markiert.",
+  "abschnitte": [
+    {
+      "id": "betrieb",
+      "titel": "1. Ihr Betrieb",
+      "fragen": [
+        {
+          "id": "betrieb_name",
+          "label": "Name des Betriebs",
+          "typ": "text",
+          "pflicht": true,
+          "beispiel": "Bäckerei Muster"
+        },
+        {
+          "id": "betrieb_branche",
+          "label": "Branche",
+          "typ": "text",
+          "pflicht": true,
+          "beispiel": "Bäckerei und Café"
+        },
+        {
+          "id": "betrieb_beschreibung",
+          "label": "Beschreiben Sie Ihren Betrieb in 2–4 Sätzen",
+          "typ": "textarea",
+          "pflicht": true,
+          "hilfe": "So, wie Sie es einem neuen Kunden am Telefon erzählen würden."
+        },
+        {
+          "id": "betrieb_adresse",
+          "label": "Adresse",
+          "typ": "textarea",
+          "pflicht": false
+        },
+        {
+          "id": "betrieb_anfahrt",
+          "label": "Anfahrt, Parken, Barrierefreiheit",
+          "typ": "textarea",
+          "pflicht": false,
+          "beispiel": "Haltestelle Markt (Linie 3), 2 Parkplätze im Hof, Eingang ebenerdig"
+        },
+        {
+          "id": "betrieb_gebiet",
+          "label": "Für welches Gebiet sind Sie tätig?",
+          "typ": "text",
+          "pflicht": false,
+          "beispiel": "Lieferung im Umkreis von 10 km"
+        },
+        {
+          "id": "betrieb_besonderheiten",
+          "label": "Was macht Sie besonders?",
+          "typ": "list",
+          "pflicht": false,
+          "hilfe": "Ein Punkt pro Zeile. Nur Dinge, die nachweisbar stimmen."
+        }
+      ]
+    },
+    {
+      "id": "leistungen",
+      "titel": "2. Leistungen und Preise",
+      "fragen": [
+        {
+          "id": "leistungen",
+          "label": "Ihre Leistungen oder Produkte",
+          "typ": "repeat",
+          "pflicht": true,
+          "felder": [
+            {
+              "id": "name",
+              "label": "Leistung / Produkt"
+            },
+            {
+              "id": "beschreibung",
+              "label": "Kurze Beschreibung"
+            },
+            {
+              "id": "preis",
+              "label": "Preis (leer lassen, wenn der Assistent keinen Preis nennen soll)"
+            },
+            {
+              "id": "hinweis",
+              "label": "Hinweis (z. B. nur auf Vorbestellung)"
+            }
+          ]
+        },
+        {
+          "id": "preise_hinweis",
+          "label": "Allgemeiner Hinweis zu Preisen",
+          "typ": "text",
+          "pflicht": false,
+          "beispiel": "Alle Preise inkl. MwSt., Stand Oktober 2026"
+        },
+        {
+          "id": "preise_nennen",
+          "label": "Darf der Assistent die oben genannten Preise nennen?",
+          "typ": "boolean",
+          "pflicht": true
+        },
+        {
+          "id": "zahlungsarten",
+          "label": "Zahlungsarten",
+          "typ": "list",
+          "pflicht": false,
+          "beispiel": "Bar\nEC-Karte"
+        },
+        {
+          "id": "bestellung",
+          "label": "Wie kann man bestellen, buchen oder reservieren?",
+          "typ": "textarea",
+          "pflicht": false
+        },
+        {
+          "id": "lieferung",
+          "label": "Lieferung / Versand / Abholung",
+          "typ": "textarea",
+          "pflicht": false
+        }
+      ]
+    },
+    {
+      "id": "zeiten",
+      "titel": "3. Öffnungszeiten und Termine",
+      "fragen": [
+        {
+          "id": "oeffnungszeiten_keine",
+          "label": "Keine festen Öffnungszeiten (z. B. nur nach Vereinbarung oder reiner Online-Betrieb)",
+          "typ": "boolean",
+          "pflicht": false,
+          "hilfe": "Wenn ja, bleiben die Öffnungszeiten leer. Erklären Sie unter „Sonderzeiten“, wie man Sie erreicht."
+        },
+        {
+          "id": "oeffnungszeiten",
+          "label": "Öffnungszeiten",
+          "typ": "hours",
+          "pflicht": true,
+          "hilfe": "Format z. B. 08:00–18:00. Leer = geschlossen. Mehrere Zeiten mit Komma trennen."
+        },
+        {
+          "id": "sonderzeiten",
+          "label": "Feiertage, Urlaub, Sonderzeiten",
+          "typ": "textarea",
+          "pflicht": false,
+          "hilfe": "Bitte bei Änderungen Bescheid geben, damit der Assistent aktuell bleibt."
+        },
+        {
+          "id": "termin_noetig",
+          "label": "Braucht man einen Termin?",
+          "typ": "boolean",
+          "pflicht": false
+        },
+        {
+          "id": "termin_link",
+          "label": "Link zur Online-Terminbuchung (falls vorhanden)",
+          "typ": "url",
+          "pflicht": false
+        }
+      ]
+    },
+    {
+      "id": "kontakt",
+      "titel": "4. Kontakt",
+      "fragen": [
+        {
+          "id": "kontakt_telefon",
+          "label": "Telefonnummer für Kunden",
+          "typ": "tel",
+          "pflicht": false
+        },
+        {
+          "id": "kontakt_email",
+          "label": "E-Mail-Adresse für Kunden",
+          "typ": "email",
+          "pflicht": false
+        },
+        {
+          "id": "kontakt_formular",
+          "label": "Link zum Kontaktformular",
+          "typ": "url",
+          "pflicht": false
+        },
+        {
+          "id": "kontakt_erreichbarkeit",
+          "label": "Wann sind Sie telefonisch erreichbar?",
+          "typ": "text",
+          "pflicht": false
+        },
+        {
+          "id": "kontakt_antwortzeit",
+          "label": "Wie schnell antworten Sie auf Anfragen?",
+          "typ": "text",
+          "pflicht": false,
+          "hilfe": "Nur angeben, was Sie sicher einhalten können."
+        },
+        {
+          "id": "kontakt_social",
+          "label": "Social Media (ein Link pro Zeile)",
+          "typ": "list",
+          "pflicht": false
+        }
+      ]
+    },
+    {
+      "id": "faq",
+      "titel": "5. Häufige Fragen",
+      "fragen": [
+        {
+          "id": "faq",
+          "label": "Welche Fragen hören Sie oft, und was antworten Sie?",
+          "typ": "repeat",
+          "pflicht": true,
+          "hilfe": "Je mehr echte Fragen hier stehen, desto besser hilft der Assistent.",
+          "felder": [
+            {
+              "id": "frage",
+              "label": "Frage"
+            },
+            {
+              "id": "antwort",
+              "label": "Ihre Antwort"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "grenzen",
+      "titel": "6. Was der Assistent NICHT sagen darf",
+      "fragen": [
+        {
+          "id": "tabus",
+          "label": "Themen, zu denen der Assistent nichts sagen soll",
+          "typ": "list",
+          "pflicht": false,
+          "beispiel": "Rabatte\nKonkurrenzbetriebe\nPersonalfragen"
+        },
+        {
+          "id": "keine_versprechen",
+          "label": "Was darf er auf keinen Fall versprechen?",
+          "typ": "list",
+          "pflicht": false,
+          "beispiel": "Liefertermine\nVerfügbarkeit einzelner Produkte"
+        },
+        {
+          "id": "sonstige_regeln",
+          "label": "Weitere Regeln",
+          "typ": "textarea",
+          "pflicht": false
+        }
+      ]
+    },
+    {
+      "id": "weiterleitung",
+      "titel": "7. Weiterleitung an einen Menschen",
+      "fragen": [
+        {
+          "id": "weiterleiten_wenn",
+          "label": "Wann soll der Assistent an Sie verweisen?",
+          "typ": "list",
+          "pflicht": false,
+          "beispiel": "Beschwerden\nGroßbestellungen\nAllergie-Fragen im Detail"
+        },
+        {
+          "id": "ansprechpartner",
+          "label": "Ansprechpartner (Name, Rolle)",
+          "typ": "text",
+          "pflicht": false
+        },
+        {
+          "id": "weiterleitung_weg",
+          "label": "Wie sollen Kunden Sie dann erreichen?",
+          "typ": "select",
+          "optionen": [
+            "Anruf",
+            "E-Mail",
+            "Kontaktformular",
+            "Vorbeikommen"
+          ],
+          "pflicht": false
+        },
+        {
+          "id": "assistent_ziel",
+          "label": "Wozu soll der Assistent Interessierte am Ende einladen? (optional)",
+          "typ": "text",
+          "pflicht": false,
+          "beispiel": "zum kostenlosen Beratungsgespräch per Telefon",
+          "hilfe": "Freundlich anbieten, nicht drängen."
+        }
+      ]
+    },
+    {
+      "id": "tonfall",
+      "titel": "8. Tonfall",
+      "fragen": [
+        {
+          "id": "assistent_name",
+          "label": "Name des Assistenten",
+          "typ": "text",
+          "pflicht": false,
+          "beispiel": "Lina",
+          "hilfe": "Leer lassen für „Ihr digitaler Assistent“."
+        },
+        {
+          "id": "anrede",
+          "label": "Anrede",
+          "typ": "select",
+          "optionen": [
+            "Sie",
+            "Du"
+          ],
+          "pflicht": true
+        },
+        {
+          "id": "stil",
+          "label": "Stil",
+          "typ": "select",
+          "optionen": [
+            "freundlich und sachlich",
+            "herzlich und locker",
+            "förmlich"
+          ],
+          "pflicht": true
+        },
+        {
+          "id": "sprachen",
+          "label": "In welchen Sprachen darf er antworten?",
+          "typ": "list",
+          "pflicht": false,
+          "beispiel": "Deutsch\nEnglisch"
+        },
+        {
+          "id": "begruessung_chat",
+          "label": "Begrüßung im Chat (optional)",
+          "typ": "text",
+          "pflicht": false
+        },
+        {
+          "id": "chat_vorschlaege",
+          "label": "Beispielfragen als Schnellknöpfe im Chat (optional, höchstens 4)",
+          "typ": "list",
+          "pflicht": false,
+          "beispiel": "Wann haben Sie geöffnet?\nWas kostet …?"
+        }
+      ]
+    },
+    {
+      "id": "telefon",
+      "titel": "9. Telefonassistent (nur wenn gewünscht)",
+      "fragen": [
+        {
+          "id": "telefon_aktiv",
+          "label": "Möchten Sie einen KI-Telefonassistenten, der Anfragen aufnimmt?",
+          "typ": "boolean",
+          "pflicht": false,
+          "hilfe": "Er nimmt Anrufe an, wenn niemand rangeht oder außerhalb der Öffnungszeiten, notiert Anliegen, Name und Rückrufnummer und schickt Ihnen eine Zusammenfassung. Er ruft nie selbst an und nennt am Telefon keine Preise."
+        },
+        {
+          "id": "telefon_wann",
+          "label": "Wann soll er Anrufe annehmen?",
+          "typ": "select",
+          "optionen": [
+            "nur wenn niemand nach 20–25 Sekunden abnimmt",
+            "nur außerhalb der Öffnungszeiten",
+            "beides"
+          ],
+          "pflicht": false
+        },
+        {
+          "id": "telefon_begruessung",
+          "label": "Eigener Begrüßungssatz (optional)",
+          "typ": "text",
+          "pflicht": false,
+          "hilfe": "Der Hinweis auf die KI, „das Gespräch wird nicht aufgenommen“ und der 112-Hinweis werden immer automatisch ergänzt und lassen sich nicht abschalten."
+        },
+        {
+          "id": "telefon_ort_abfragen",
+          "label": "Soll der Assistent nach dem Ort fragen (z. B. weil Sie beim Kunden vor Ort arbeiten)?",
+          "typ": "boolean",
+          "pflicht": false
+        },
+        {
+          "id": "telefon_nicht_im_angebot",
+          "label": "Was wird oft angefragt, das Sie NICHT anbieten?",
+          "typ": "list",
+          "pflicht": false,
+          "beispiel": "Lieferung\nglutenfreie Backwaren"
+        },
+        {
+          "id": "telefon_dringend",
+          "label": "Stichworte für dringende Fälle Ihres Betriebs",
+          "typ": "list",
+          "pflicht": false,
+          "hilfe": "Dann wird die Anfrage als HOCH markiert und Sie bekommen zusätzlich eine Sofortnachricht.",
+          "beispiel": "Großbestellung morgen\nBaustelle offen"
+        },
+        {
+          "id": "telefon_wasser_relevant",
+          "label": "Kann bei Ihnen ein Wasserschaden/Rohrbruch ein Thema sein?",
+          "typ": "boolean",
+          "pflicht": false,
+          "hilfe": "z. B. Maler, Handwerk, Hausverwaltung. Dann gibt der Assistent einen Sicherheitshinweis (Hauptwasserhahn) und markiert dringend."
+        },
+        {
+          "id": "telefon_gas_nummer",
+          "label": "Nummer des Gas-Entstörungsdienstes in Ihrer Region (bitte selbst prüfen)",
+          "typ": "tel",
+          "pflicht": false
+        },
+        {
+          "id": "telefon_rueckruf_zusage",
+          "label": "Was darf der Assistent zum Rückruf zusagen?",
+          "typ": "text",
+          "pflicht": false,
+          "beispiel": "Wir melden uns am nächsten Werktag.",
+          "hilfe": "Nur was Sie sicher einhalten. Kein fester Termin."
+        },
+        {
+          "id": "telefon_empfaenger",
+          "label": "E-Mail für die Anruf-Zusammenfassungen",
+          "typ": "email",
+          "pflicht": false
+        }
+      ]
+    },
+    {
+      "id": "recht",
+      "titel": "10. Rechtliches",
+      "fragen": [
+        {
+          "id": "gesundheitsbezug",
+          "label": "Haben Ihre Produkte oder Leistungen einen Gesundheitsbezug?",
+          "typ": "boolean",
+          "pflicht": true,
+          "hilfe": "z. B. Lebensmittel, Nahrungsergänzung, Vitalpilze, Kosmetik, Heilpraktik, Fitness. Dann gelten strenge Regeln für Werbeaussagen (Health-Claims-Verordnung, Heilmittelwerbegesetz)."
+        },
+        {
+          "id": "erlaubte_aussagen",
+          "label": "Geprüfte, erlaubte Aussagen (wörtlich)",
+          "typ": "list",
+          "pflicht": false,
+          "hilfe": "Nur Aussagen, die rechtlich geprüft oder offiziell zugelassen sind. Der Assistent macht sonst KEINE Aussagen über Wirkungen auf die Gesundheit."
+        },
+        {
+          "id": "impressum_url",
+          "label": "Link zum Impressum",
+          "typ": "url",
+          "pflicht": true
+        },
+        {
+          "id": "datenschutz_url",
+          "label": "Link zur Datenschutzerklärung",
+          "typ": "url",
+          "pflicht": true
+        },
+        {
+          "id": "fragen_auswerten",
+          "label": "Dürfen gestellte Fragen anonymisiert für einen Monatsbericht gespeichert werden?",
+          "typ": "boolean",
+          "pflicht": false,
+          "hilfe": "Telefonnummern und E-Mail-Adressen werden vorher entfernt. Muss in Ihrer Datenschutzerklärung stehen."
+        }
+      ]
+    },
+    {
+      "id": "technik",
+      "titel": "11. Technik (füllt meist JenAiSystems aus)",
+      "fragen": [
+        {
+          "id": "kunden_id",
+          "label": "Kurzname für die Technik (nur a–z, 0–9, Bindestrich)",
+          "typ": "text",
+          "pflicht": true,
+          "beispiel": "baeckerei-muster"
+        },
+        {
+          "id": "domains",
+          "label": "Website-Adressen, auf denen der Chat laufen darf",
+          "typ": "list",
+          "pflicht": true,
+          "beispiel": "https://www.baeckerei-muster.de"
+        },
+        {
+          "id": "farbe",
+          "label": "Hauptfarbe (Hex-Code)",
+          "typ": "text",
+          "pflicht": false,
+          "beispiel": "#8a4b1f"
+        },
+        {
+          "id": "limit_monat",
+          "label": "Maximale Chat-Anfragen pro Monat",
+          "typ": "text",
+          "pflicht": false,
+          "beispiel": "1000"
+        },
+        {
+          "id": "limit_minute",
+          "label": "Maximale Chat-Fragen pro Minute und Besucher",
+          "typ": "text",
+          "pflicht": false,
+          "hilfe": "Leer = 8. Für Demo-Assistenten kleiner wählen."
+        }
+      ]
+    }
+  ]
+}

@@ -9,6 +9,8 @@ der KI-Telefonassistent und der Fragebogen, mit dem ein neuer Kunde eingerichtet
 ## Marke
 
 - **Name:** JenAiSystems (JEN = Joint Evolution Network)
+- **Mission:** Turn intelligence into action.
+- **Leitgedanke:** Intelligence that moves things forward.
 - **Claim:** Beyond intelligence. Into action.
 - **Prinzipien:** Judgment · Execution · Navigation
 - Markenstrategie und Texte: `brand/` und `content/`

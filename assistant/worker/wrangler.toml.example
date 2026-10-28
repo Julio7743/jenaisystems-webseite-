@@ -1,0 +1,25 @@
+# Vorlage. Kopieren nach wrangler.toml, dann anpassen. Kein Geheimnis in diese Datei schreiben!
+# Geheimnisse setzen mit:  npx wrangler secret put LLM_API_KEY
+name = "jenaisystems-assistant"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+# Liefert das Chat-Widget unter https://IHR-WORKER/jenaisystems-chat.js aus.
+[assets]
+directory = "../widget"
+
+[vars]
+LLM_BASE_URL = "https://api.mistral.ai/v1"   # jeder OpenAI-kompatible Anbieter
+LLM_MODEL = "mistral-small-latest"
+GLOBAL_MONTHLY_CAP = "5000"                   # harte Obergrenze über alle Kunden zusammen
+LOG_QUESTIONS = "false"                       # anonymes Fragen-Log nur mit "true" UND logQuestions beim Kunden
+
+# Optional: KV für Monatszähler (empfohlen) und anonymes Fragen-Log.
+# Anlegen mit: npx wrangler kv namespace create USAGE   und die ID hier eintragen.
+# [[kv_namespaces]]
+# binding = "USAGE"
+# id = "HIER_KV_ID"
+
+# Geheimnisse (über wrangler secret put, NICHT hier):
+#   LLM_API_KEY         Schlüssel des Sprachmodell-Anbieters
+#   ADMIN_TOKEN         für /api/report

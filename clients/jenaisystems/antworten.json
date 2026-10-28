@@ -1,0 +1,288 @@
+{
+  "_hinweis": "JenAiSystems selbst. Alle Angaben stammen ausschließlich von der JenAiSystems-Website (site/index.html, Stand 28.10.2026, Entwurf). Was dort nicht steht, ist hier nicht eingetragen – der Assistent verweist dann auf „bitte direkt anfragen“. Bei Änderungen an der Website diese Datei anpassen und neu generieren.",
+  "_meta": {
+    "katalogVersion": 1,
+    "exportiert": "2026-10-24T04:00:00+02:00"
+  },
+  "betrieb_name": "JenAiSystems",
+  "betrieb_branche": "Intelligente Systeme und KI. Aktuelles Angebot: Websites mit KI-Assistent, Google-Profil, SEO und Online-Marketing für kleine Unternehmen",
+  "betrieb_beschreibung": "JenAiSystems (JEN steht für Joint Evolution Network) baut intelligente Systeme, die denken, handeln und sich weiterentwickeln – Mission: „Turn intelligence into action.“ Leitgedanke: „Intelligence that moves things forward.“ Claim: „Beyond intelligence. Into action.“ Das aktuelle Angebot richtet sich an kleine Unternehmen in Deutschland, Österreich und der Schweiz: online gefunden werden mit modernen Websites mit optionalem KI-Assistenten, einem gepflegten Google-Eintrag, SEO und gezielter Werbung. Weitere Angebote sind in Vorbereitung. Die Zusammenarbeit läuft per Videocall, Telefon und E-Mail; in Jena und Umgebung auch persönlich vor Ort. Gründer und fester Ansprechpartner ist Julian Köbele aus Jena. Er nutzt moderne Werkzeuge, auch künstliche Intelligenz, und prüft jedes Ergebnis selbst, bevor es online geht.",
+  "betrieb_adresse": "Jena",
+  "betrieb_anfahrt": "",
+  "betrieb_gebiet": "Online für Unternehmen in ganz Deutschland, Österreich und der Schweiz; persönlich vor Ort in Jena und Umgebung",
+  "betrieb_besonderheiten": [
+    "Klarer Ansatz statt isolierter KI-Tools: Judgment (verstehen und entscheiden), Execution (bauen und handeln), Navigation (anpassen und weiterentwickeln)",
+    "Ein fester Ansprechpartner statt Ticketsystem und Warteschleife – per Videocall, Telefon oder E-Mail, in Jena und Umgebung auch persönlich",
+    "Festpreise vorab, keine versteckten Kosten",
+    "Betreuung monatlich kündbar: kein Jahresvertrag, keine Mindestlaufzeit",
+    "Domain, Inhalte und Zugänge laufen auf den Namen des Kunden; bei einem Wechsel nimmt der Kunde alles mit",
+    "Kurze Wege und schnelle Entwürfe: Entwürfe kommen als Vorschau-Link zum Anschauen im Browser",
+    "Für kleine Unternehmen wie Handwerk, Cafés und Gastronomie, Praxen und Studios, Läden und Onlineshops, Werkstätten und Manufakturen, Selbstständige und Vereine",
+    "Referenzen: Die ersten Projekte sind in Arbeit."
+  ],
+  "leistungen": [
+    {
+      "name": "Paket „Website Start“",
+      "beschreibung": "Website mit 1–5 Seiten, fürs Handy optimiert; Texte und Bildbearbeitung inklusive; Google-Unternehmensprofil einrichten oder überarbeiten; grundlegende Suchmaschinenoptimierung; Kontaktformular und Einbindung der Rechtstexte des Kunden",
+      "preis": "ab 490 € einmalig",
+      "hinweis": "Der genaue Festpreis steht nach dem kostenlosen Erstgespräch schriftlich im Angebot"
+    },
+    {
+      "name": "Paket „Rundum betreut“ (empfohlen)",
+      "beschreibung": "Hosting, Updates und Sicherheit; kleine Änderungen jederzeit per Nachricht; 2 Beiträge pro Monat auf dem Google-Profil; Antworten auf Bewertungen, vorbereitet zur Freigabe; kurzer Monatsbericht in verständlicher Sprache",
+      "preis": "ab 69 € pro Monat",
+      "hinweis": "monatlich kündbar"
+    },
+    {
+      "name": "Paket „Sichtbar wachsen“",
+      "beschreibung": "Für Betriebe, die aktiv neue Kundschaft gewinnen möchten: alles aus „Rundum betreut“; Google Ads oder Instagram-/Facebook-Werbung betreut; 4 Social-Media-Beiträge pro Monat; laufende Suchmaschinenoptimierung; KI-Assistent für die Website inklusive",
+      "preis": "ab 199 € pro Monat",
+      "hinweis": "zzgl. Werbebudget, monatlich kündbar"
+    },
+    {
+      "name": "Websites",
+      "beschreibung": "Schnell, gut lesbar auf dem Handy und modern gestaltet, mit klaren Texten und einem Knopf zum direkten Anrufen, Schreiben oder Buchen. Neu erstellt oder die alte Seite überarbeitet. Barrierearm und ohne unnötige Tracker.",
+      "preis": "",
+      "hinweis": "siehe Paket „Website Start“"
+    },
+    {
+      "name": "KI-Assistent für die Website (Chat)",
+      "beschreibung": "Beantwortet rund um die Uhr häufige Fragen, zum Beispiel zu Öffnungszeiten, Preisen, Anfahrt oder Leistungen, und führt Interessierte zur Terminbuchung oder Anfrage. Antwortet nur auf Grundlage der Angaben des Betriebs, ist klar als KI gekennzeichnet und wird datenschutzfreundlich eingebunden. Diesen Chat hier können Besucher als Beispiel ausprobieren, auch im Demo-Modus mit einer erfundenen Bäckerei.",
+      "preis": "",
+      "hinweis": "Im Paket „Sichtbar wachsen“ inklusive, sonst einzeln buchbar – Preis nach Aufwand, mit Angebot vorab"
+    },
+    {
+      "name": "KI-Telefonassistent",
+      "beschreibung": "Nimmt Anrufe an, wenn gerade niemand rangehen kann, notiert Anliegen, Name und Rückrufnummer und schickt dem Betrieb eine Zusammenfassung. Klar als KI gekennzeichnet, das Gespräch wird nicht aufgenommen, er ruft nie selbst an. Auf der Website gibt es dazu eine Telefon-Demo als Text-Simulation.",
+      "preis": "",
+      "hinweis": "auf Anfrage"
+    },
+    {
+      "name": "Google-Unternehmensprofil und lokale Sichtbarkeit (Local SEO)",
+      "beschreibung": "Google-Unternehmensprofil vollständig einrichten und regelmäßig pflegen (Öffnungszeiten, Fotos, Leistungen und Beiträge aktuell), Website für die Suche in Stadt und Region optimieren, einheitliche Angaben in Branchenverzeichnissen – komplett online, egal wo der Betrieb sitzt",
+      "preis": "",
+      "hinweis": "Feste Platzierungen bei Google kann niemand seriös garantieren; die Entwicklung wird jeden Monat gezeigt"
+    },
+    {
+      "name": "Suchmaschinenoptimierung (SEO)",
+      "beschreibung": "Optimierung für die wichtigsten Suchbegriffe des Betriebs",
+      "preis": "",
+      "hinweis": "Grundlegende SEO in „Website Start“, laufende SEO in „Sichtbar wachsen“"
+    },
+    {
+      "name": "Fotos in Jena und Umgebung",
+      "beschreibung": "Julian Köbele kommt selbst vorbei, fotografiert Unternehmen, Team und Arbeit und bearbeitet die Bilder passend für Website, Google und Social Media",
+      "preis": "",
+      "hinweis": "einzeln buchbar, Preis nach Aufwand mit Angebot vorab"
+    },
+    {
+      "name": "Fotos außerhalb von Jena",
+      "beschreibung": "Der Kunde schickt eigene Fotos (Auswahl, Bearbeitung und Hinweis auf fehlende Motive durch JenAiSystems) oder JenAiSystems vermittelt eine Fotografin bzw. einen Fotografen in der Nähe",
+      "preis": "",
+      "hinweis": "Kosten für die Fotografin bzw. den Fotografen stehen vorher im Angebot"
+    },
+    {
+      "name": "Drohnenaufnahmen in Jena und Umgebung",
+      "beschreibung": "Nur dort, wo Drohnenflüge erlaubt sind – mit den nötigen Nachweisen, Versicherung und, wo erforderlich, Genehmigung. In der Nähe von Flugplätzen, Kliniken und Naturschutzgebieten oder über Wohngrundstücken gelten strenge Regeln; ob ein Standort infrage kommt, wird vorab geprüft",
+      "preis": "",
+      "hinweis": "auf Anfrage"
+    },
+    {
+      "name": "Werbung schalten",
+      "beschreibung": "Google Ads und Anzeigen auf Instagram und Facebook – eingerichtet, betreut und ehrlich ausgewertet",
+      "preis": "",
+      "hinweis": "Im Paket „Sichtbar wachsen“ betreut; das Werbebudget zahlt der Kunde direkt beim Anbieter"
+    },
+    {
+      "name": "Social-Media-Beiträge",
+      "beschreibung": "Regelmäßige Beiträge für Instagram, Facebook und das Google-Profil – der Kunde gibt nur noch frei",
+      "preis": "",
+      "hinweis": "4 Beiträge pro Monat im Paket „Sichtbar wachsen“"
+    },
+    {
+      "name": "Online-Terminbuchung",
+      "beschreibung": "Termine, Tische oder Kurse direkt über die Website buchen lassen – mit Erinnerung per E-Mail",
+      "preis": "",
+      "hinweis": "einzeln buchbar, Preis nach Aufwand mit Angebot vorab"
+    },
+    {
+      "name": "Online-Shop und Gutscheine",
+      "beschreibung": "Ein kleiner Shop oder digitale Gutscheine – oder ein bestehender Shop, sauber eingebunden",
+      "preis": "",
+      "hinweis": "einzeln buchbar, Preis nach Aufwand mit Angebot vorab"
+    },
+    {
+      "name": "Bewertungsmanagement",
+      "beschreibung": "Zufriedene Kunden einfach um eine Bewertung bitten und auf jede freundlich und professionell antworten",
+      "preis": "",
+      "hinweis": "Antworten auf Bewertungen sind in „Rundum betreut“ enthalten (vorbereitet zur Freigabe)"
+    },
+    {
+      "name": "Texte",
+      "beschreibung": "Verständliche Texte für Website, Flyer und Speisekarte, die zeigen, was den Betrieb besonders macht",
+      "preis": "",
+      "hinweis": "einzeln buchbar, Preis nach Aufwand mit Angebot vorab"
+    },
+    {
+      "name": "Monatlicher Bericht",
+      "beschreibung": "Kurz und verständlich: wie oft der Betrieb gefunden, angerufen oder angefragt wurde",
+      "preis": "",
+      "hinweis": "in „Rundum betreut“ enthalten"
+    },
+    {
+      "name": "Domain, E-Mail und Technik",
+      "beschreibung": "Eigene Adresse wie info@ihr-betrieb.de, Hosting, Updates und Sicherheit",
+      "preis": "",
+      "hinweis": "Die Domain zahlt der Kunde direkt beim Anbieter, damit sie ihm gehört"
+    },
+    {
+      "name": "Kostenloser Website-Check",
+      "beschreibung": "Der Kunde schickt den Namen seines Unternehmens; Julian Köbele schaut sich Website und Google-Eintrag an und sendet die fünf wichtigsten Verbesserungen",
+      "preis": "kostenlos und unverbindlich",
+      "hinweis": "anfordern per E-Mail an julian.koebele@gmail.com (Betreff „Kostenloser Website-Check“) oder über das Kontaktformular auf der Website"
+    },
+    {
+      "name": "Erstgespräch",
+      "beschreibung": "Rund 30 Minuten per Videocall oder Telefon, in Jena und Umgebung gern auch vor Ort. Besprochen wird, was der Betrieb braucht und was nicht",
+      "preis": "kostenlos und unverbindlich",
+      "hinweis": ""
+    }
+  ],
+  "preise_hinweis": "Kleinunternehmer gemäß § 19 UStG: Es wird keine Umsatzsteuer berechnet – die Preise sind netto und zugleich Endpreise in Euro. Das gilt auch für Rechnungen an Unternehmen in Österreich und der Schweiz. Domain und Werbebudget zahlt der Kunde direkt beim Anbieter, so gehören sie auch ihm. Der genaue Preis hängt vom Umfang ab und steht vor Beginn schriftlich fest. Einzeln buchbare Leistungen (Fotos, Vermittlung von Fotografen, Drohnenaufnahmen, Online-Terminbuchung, Shop und Gutscheine, Texte, KI-Assistent): Preis nach Aufwand, immer mit Angebot vorab.",
+  "preise_nennen": true,
+  "zahlungsarten": [],
+  "bestellung": "So läuft es ab: 1. Kostenloses Erstgespräch per Videocall oder Telefon (in Jena und Umgebung gern vor Ort). 2. Vorschau und Angebot: erster Entwurf als Link zum Anschauen im Browser und ein klares Angebot mit Festpreis – erst dann entscheidet der Kunde. 3. Umsetzung: Website, Google-Profil und alles Weitere; abgestimmt wird per E-Mail, Telefon oder Videocall, der Kunde gibt Texte und Fotos frei. 4. Betreuung auf Wunsch: laufende Änderungen, Beiträge, Bewertungen und ein kurzer Monatsbericht, monatlich kündbar. Anfragen per E-Mail an julian.koebele@gmail.com oder über das Kontaktformular unten auf der Website.",
+  "lieferung": "",
+  "oeffnungszeiten_keine": true,
+  "oeffnungszeiten": {
+    "mo": "",
+    "di": "",
+    "mi": "",
+    "do": "",
+    "fr": "",
+    "sa": "",
+    "so": ""
+  },
+  "sonderzeiten": "Keine festen Öffnungszeiten. Das Erstgespräch wird nach Anfrage vereinbart, per Videocall oder Telefon; in Jena und Umgebung auch vor Ort.",
+  "termin_noetig": null,
+  "termin_link": "",
+  "kontakt_telefon": "",
+  "kontakt_email": "julian.koebele@gmail.com",
+  "kontakt_formular": "",
+  "kontakt_erreichbarkeit": "",
+  "kontakt_antwortzeit": "Julian Köbele meldet sich persönlich, in der Regel innerhalb eines Werktags.",
+  "kontakt_social": [],
+  "faq": [
+    {
+      "frage": "Was bedeutet JenAiSystems – und wofür stehen Judgment, Execution und Navigation?",
+      "antwort": "JEN steht für Joint Evolution Network. Die Mission von JenAiSystems lautet „Turn intelligence into action.“: Wir verwandeln künstliche Intelligenz in wirksame Systeme, die denken, handeln und sich kontinuierlich verbessern. Der Leitgedanke ist „Intelligence that moves things forward.“ Drei Prinzipien tragen das: Judgment steht für verstehen und entscheiden, Execution für bauen und handeln, Navigation für anpassen und weiterentwickeln."
+    },
+    {
+      "frage": "Welche Angebote gibt es bei JenAiSystems?",
+      "antwort": "Aktuell bieten wir Websites und KI-Assistenten für kleine Unternehmen an, inklusive Google-Profil, SEO und Werbung. Weitere Angebote sind in Vorbereitung. Wenn Sie ein Thema haben, bei dem KI, Automatisierung und Systeme zusammenspielen sollen, schreiben Sie uns gern."
+    },
+    {
+      "frage": "Was kostet eine Website bei JenAiSystems?",
+      "antwort": "Eine Website mit bis zu fünf Seiten gibt es ab 490 € einmalig, die laufende Betreuung ab 69 € im Monat. Nach dem kostenlosen Erstgespräch bekommen Sie ein Angebot mit Festpreis – erst dann entscheiden Sie. Alle Preise ohne Umsatzsteuer (Kleinunternehmer gemäß § 19 UStG)."
+    },
+    {
+      "frage": "Muss ich mich um die Technik kümmern?",
+      "antwort": "Nein. Hosting, Updates, Sicherheit und Änderungen übernimmt JenAiSystems. Sie schicken einfach eine Nachricht, wenn sich etwas ändert – etwa Öffnungszeiten oder Preise."
+    },
+    {
+      "frage": "Wie lange bin ich gebunden?",
+      "antwort": "Die Betreuung ist monatlich kündbar. Ihre Domain und Ihre Inhalte gehören Ihnen – auch wenn Sie die Zusammenarbeit beenden."
+    },
+    {
+      "frage": "Was genau macht der KI-Assistent?",
+      "antwort": "Er beantwortet auf Ihrer Website häufige Fragen, zum Beispiel zu Öffnungszeiten, Leistungen oder Anfahrt, und leitet zur Buchung oder Anfrage weiter. Er nutzt nur die Informationen, die Sie freigeben, ist klar als KI gekennzeichnet und wird datenschutzfreundlich eingebunden."
+    },
+    {
+      "frage": "Kann ich den KI-Assistenten hier ausprobieren?",
+      "antwort": "Ja. Dieser Chat ist selbst ein Beispiel. Über „Demo“ im Chatfenster oder im Abschnitt „Live-Demo“ auf der Website können Sie zu einer erfundenen Beispiel-Bäckerei wechseln und sehen, wie der Assistent für einen Betrieb antworten würde. Dort gibt es auch eine Telefon-Demo als Text-Simulation."
+    },
+    {
+      "frage": "Garantieren Sie Platz 1 bei Google?",
+      "antwort": "Nein – und seien Sie vorsichtig bei Anbietern, die das versprechen. JenAiSystems sorgt dafür, dass Ihr Google-Profil und Ihre Website die wichtigen Voraussetzungen erfüllen, und zeigt Ihnen jeden Monat, wie sich Aufrufe und Anfragen entwickeln."
+    },
+    {
+      "frage": "Schreiben Sie auch Impressum und Datenschutzerklärung?",
+      "antwort": "Rechtstexte erstellen Sie am besten mit einem spezialisierten Rechtstexte-Generator oder lassen sie anwaltlich prüfen. JenAiSystems baut sie anschließend sauber in Ihre Website ein und achtet darauf, dass keine unnötigen Tracker laufen."
+    },
+    {
+      "frage": "Arbeiten Sie auch außerhalb von Jena?",
+      "antwort": "Ja. Websites, KI-Assistent, Google-Profil, SEO, Werbung und Betreuung gibt es für Unternehmen in ganz Deutschland, Österreich und der Schweiz – die Zusammenarbeit läuft online. Persönlich vor Ort ist JenAiSystems in Jena und Umgebung."
+    },
+    {
+      "frage": "Wie läuft die Zusammenarbeit aus der Ferne?",
+      "antwort": "Es beginnt mit einem kostenlosen Erstgespräch per Videocall oder Telefon. Entwürfe bekommen Sie als Link und sehen sie direkt im Browser. Rückfragen und Freigaben laufen per E-Mail, Telefon oder kurzem Videocall – ganz wie es Ihnen lieber ist. Sie brauchen dafür nur einen Computer oder ein Smartphone."
+    },
+    {
+      "frage": "Was ist mit Fotos, wenn ich nicht in Jena bin?",
+      "antwort": "Dann gibt es zwei Wege: Sie schicken eigene Fotos, und JenAiSystems wählt aus, bearbeitet sie und sagt Ihnen, welche Motive noch fehlen. Oder JenAiSystems vermittelt Ihnen eine Fotografin bzw. einen Fotografen in Ihrer Nähe – die Kosten dafür stehen vorher im Angebot."
+    },
+    {
+      "frage": "Sind Drohnenaufnahmen überall möglich?",
+      "antwort": "Nein. Drohnenaufnahmen gibt es auf Anfrage in Jena und Umgebung. In der Nähe von Flugplätzen, Kliniken und Naturschutzgebieten oder über Wohngrundstücken gelten strenge Regeln – vorab wird geprüft, ob und wie Ihr Standort aufgenommen werden darf."
+    },
+    {
+      "frage": "Wie rechnen Sie mit Unternehmen in Österreich und der Schweiz ab?",
+      "antwort": "JenAiSystems ist Kleinunternehmer nach § 19 UStG und stellt Rechnungen ohne Umsatzsteuer aus – auch an Unternehmen in Österreich und der Schweiz. Bezahlt wird in Euro per Überweisung. Ob in Ihrem Land eine Steuer auf die Leistung anfällt (z. B. im Reverse-Charge-Verfahren), klären Sie bitte mit Ihrer Steuerberatung."
+    },
+    {
+      "frage": "Was ist der kostenlose Website-Check?",
+      "antwort": "Sie schicken den Namen Ihres Unternehmens. Julian Köbele schaut sich Ihre Website und Ihren Google-Eintrag an und sendet Ihnen die fünf wichtigsten Verbesserungen – kostenlos und unverbindlich. Anfordern per E-Mail an julian.koebele@gmail.com oder über das Kontaktformular auf der Website."
+    }
+  ],
+  "tabus": [
+    "Preise für Leistungen, bei denen im Wissen kein Preis steht (dann: Preis nach Aufwand, Angebot vorab, bitte direkt anfragen)",
+    "andere Agenturen oder Mitbewerber",
+    "Referenzen, Kundennamen oder Erfolgszahlen, die nicht im Wissen stehen"
+  ],
+  "keine_versprechen": [
+    "Platzierungen bei Google (z. B. Platz 1)",
+    "feste Termine, Fertigstellungsdaten oder Bearbeitungszeiten",
+    "Drohnenaufnahmen an einem bestimmten Ort (das wird vorab geprüft)",
+    "Rabatte oder Sonderpreise"
+  ],
+  "sonstige_regeln": "Wenn etwas nicht im Wissen steht (z. B. Preise einzeln buchbarer Leistungen, Referenzen, Dauer eines Projekts, technische Details, das Videocall-Werkzeug), sag ehrlich, dass du das nicht sicher weißt, und schreibe: „Das bitte direkt anfragen“ – mit der E-Mail julian.koebele@gmail.com oder dem Kontaktformular unten auf dieser Seite. Es gibt keine Telefonnummer; nenne nie eine. Steuer- und Rechtsfragen (z. B. Reverse-Charge, Inhalt von Impressum oder Datenschutzerklärung) beantwortest du nicht selbst, sondern verweist wie im Wissen beschrieben auf Steuerberatung, Rechtstexte-Generator oder anwaltliche Prüfung. Wenn jemand fragt, ob er gerade mit einem Menschen schreibt: Nein, du bist eine KI; persönliche Antworten gibt Julian Köbele per E-Mail.",
+  "weiterleiten_wenn": [
+    "konkretes Angebot oder Festpreis für ein Projekt",
+    "Terminwunsch für das Erstgespräch",
+    "Fragen zu einem laufenden Projekt",
+    "Beschwerden"
+  ],
+  "ansprechpartner": "Julian Köbele (Gründer von JenAiSystems, Jena)",
+  "weiterleitung_weg": "E-Mail",
+  "assistent_ziel": "zum kostenlosen Website-Check oder zum kostenlosen Erstgespräch (E-Mail an julian.koebele@gmail.com oder Kontaktformular unten auf dieser Seite)",
+  "assistent_name": "JenAiSystems-Assistent",
+  "anrede": "Sie",
+  "stil": "freundlich und sachlich",
+  "sprachen": [
+    "Deutsch",
+    "Englisch"
+  ],
+  "begruessung_chat": "Hallo! Ich bin der KI-Assistent von JenAiSystems – eine KI, kein Mensch. Fragen Sie mich gern zu Leistungen, Preisen, Ablauf und unserem Ansatz. Unter „Demo“ sehen Sie, wie ein Assistent für Ihren Betrieb antworten würde.",
+  "chat_vorschlaege": [
+    "Wofür steht JenAiSystems?",
+    "Welche Angebote gibt es?",
+    "Was kostet eine Website?",
+    "Was macht der KI-Assistent?"
+  ],
+  "telefon_aktiv": false,
+  "gesundheitsbezug": false,
+  "erlaubte_aussagen": [],
+  "impressum_url": "https://jenaisystems.com/impressum.html",
+  "datenschutz_url": "https://jenaisystems.com/datenschutz.html",
+  "fragen_auswerten": false,
+  "kunden_id": "jenaisystems",
+  "domains": [
+    "https://jenaisystems.com",
+    "https://www.jenaisystems.com",
+    "http://localhost:8787",
+    "http://127.0.0.1:8787"
+  ],
+  "farbe": "#0f1c2e",
+  "limit_monat": "1000",
+  "limit_minute": "8"
+}
