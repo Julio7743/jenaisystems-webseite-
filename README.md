@@ -18,6 +18,22 @@ der KI-Telefonassistent und der Fragebogen, mit dem ein neuer Kunde eingerichtet
 ## Veröffentlichung der Website
 
 Nur der Ordner `site/` wird veröffentlicht (GitHub Pages, Workflow `.github/workflows/pages.yml`, Domain `jenaisystems.com` in `site/CNAME`).
+
+> **Achtung (Stand 31.10.2026):** Die Live-Seite jenaisystems.com wird derzeit aus dem **Hauptordner** des Repos ausgeliefert
+> (GitHub-Pages-Einstellung „Deploy from a branch“), nicht aus `site/`. Deshalb liegen `index.html`, `style.css`,
+> `jenaisystems-chat.js`, `fonts/`, `og.png`, `impressum.html` und `datenschutz.html` als **Kopie** auch im Hauptordner.
+> Nach jeder Änderung in `site/` bitte kopieren: `cp site/index.html site/style.css site/jenaisystems-chat.js site/impressum.html site/datenschutz.html . && cp -r site/fonts site/og.png .`
+> Besser: In GitHub unter Settings → Pages als Quelle „GitHub Actions“ wählen. Dann gilt nur noch `site/`, und die Kopien
+> im Hauptordner können weg. Nebeneffekt der jetzigen Einstellung: Auch README, Kundenordner usw. sind unter jenaisystems.com abrufbar.
+
+### Vor dem offiziellen Start (Launch-Liste)
+
+- Entwurfs-Leiste (`div class="draft"`) in `site/index.html` entfernen.
+- Impressum und Datenschutzerklärung mit echten Angaben füllen (derzeit Platzhalter). Web3Forms als Empfänger nennen.
+- Web3Forms-Schlüssel ist eingetragen (`WEB3FORMS_ACCESS_KEY` im Script am Ende von `site/index.html`). Einmal eine Testnachricht schicken.
+- Foto `site/img/julian.jpg` ablegen (echtes Foto, quadratisch).
+- KI-Chat: Worker veröffentlichen und `data-endpoint` setzen (siehe `assistant/README.md`).
+- E-Mail, Telefon und Formular stehen gesammelt in den KONTAKT-Einstellungen am Ende von `site/index.html`.
 Alles andere im Repo (Kunden, Preise, Telefon-Doku, Rechtsfragen) wird **nicht** ausgeliefert, ist aber sichtbar, wenn das Repo öffentlich ist.
 
 ## Was liegt wo?

@@ -86,6 +86,8 @@
     '.foot a{color:inherit}',
     '.lk{background:none;border:0;padding:0;color:inherit;font:inherit;text-decoration:underline;cursor:pointer}',
     '.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}',
+    // Kompakt auf dem Handy (data-compact-mobile="true"): nur ein rundes Symbol, erscheint erst nach dem Scrollen.
+    '@media (max-width:760px){:host([data-compact]) .fab{width:52px;height:52px;padding:0;justify-content:center}:host([data-compact]) .fl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}:host([data-compact]) .fab{transition:opacity .2s,transform .2s}:host([data-compact][data-away]) .fab{opacity:0;transform:translateY(12px);pointer-events:none}}',
     '@media (max-width:520px){.wrap{right:12px;left:auto;bottom:12px}.panel{position:fixed;inset:0;width:auto;max-width:none;height:auto;max-height:none;border-radius:0}}',
     '@media (prefers-reduced-motion:no-preference){.panel{animation:pop .18s ease-out}@keyframes pop{from{opacity:0;transform:translateY(8px)}}}'
   ].join('\n');
@@ -268,6 +270,19 @@
   }
 
   fab.addEventListener('click', function () { open(); });
+  if (ds.compactMobile === 'true') {
+    host.setAttribute('data-compact', '');
+    var covered = false;
+    var away = function () { if (covered || window.scrollY < window.innerHeight * 0.6) host.setAttribute('data-away', ''); else host.removeAttribute('data-away'); };
+    // Über Formularen und Knöpfen mit data-jenaisystems-hide ausblenden, damit nichts verdeckt wird
+    var hideEls = document.querySelectorAll('[data-jenaisystems-hide]');
+    if (hideEls.length && window.IntersectionObserver) {
+      var seen = new Set();
+      var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) seen.add(e.target); else seen.delete(e.target); }); covered = seen.size > 0; away(); });
+      [].forEach.call(hideEls, function (el) { io.observe(el); });
+    }
+    away(); window.addEventListener('scroll', away, { passive: true });
+  }
   $('.x').addEventListener('click', close);
   modes.addEventListener('click', function (e) { var b = e.target.closest && e.target.closest('.mode'); if (b) setMode(b.getAttribute('data-mode')); });
   panel.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });

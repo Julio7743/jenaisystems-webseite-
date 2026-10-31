@@ -68,13 +68,13 @@ test('Kunden-Config: Domains, Limits, Log standardmäßig aus', () => {
   assert.ok(pruefeAntworten(katalog, { ...beispiel, limit_minute: 'viele' }).fehler.some((f) => f.includes('limit_minute')));
 });
 
-test('JenAiSystems selbst: gültig, nur Angaben von der Website, keine Telefonnummer', () => {
+test('JenAiSystems selbst: gültig, nur Angaben von der Website, nur die freigegebene Telefonnummer', () => {
   const { fehler } = pruefeAntworten(katalog, jenaisystems);
   assert.deepEqual(fehler, []);
   const w = baueWissen(jenaisystems);
-  for (const re of [/ab 490 € einmalig/, /ab 69 € pro Monat/, /ab 199 € pro Monat/, /§ 19 UStG/, /julian\.koebele@gmail\.com/, /Österreich und der Schweiz/, /Drohnenaufnahmen.*auf Anfrage/, /Website-Check/, /Feste Öffnungszeiten: keine/]) assert.match(w, re);
-  assert.doesNotMatch(w, /Montag|Telefon: /, 'keine erfundenen Öffnungszeiten oder Telefonnummern');
-  assert.doesNotMatch(w, /\+49|\b0\d{3,}[\s/-]?\d{3,}/, 'keine Telefonnummer');
+  for (const re of [/ab 490 € einmalig/, /ab 69 € pro Monat/, /ab 199 € pro Monat/, /§ 19 UStG/, /jenaisystems@protonmail\.com/, /\+49 157 34425980/, /Österreich und der Schweiz/, /Drohnenaufnahmen.*auf Anfrage/, /Website-Check/, /Feste Öffnungszeiten: keine/]) assert.match(w, re);
+  assert.doesNotMatch(w, /Montag/, 'keine erfundenen Öffnungszeiten');
+  assert.equal((w.match(/\+49 ?\d[\d ]+/g) || []).filter((t) => t.trim() !== '+49 157 34425980').length, 0, 'nur die von Julian freigegebene Telefonnummer');
   const p = baueChatPrompt(jenaisystems, w);
   assert.match(p, /KI, kein Mensch/);
   assert.match(p, /einladen: zum kostenlosen Website-Check/);
@@ -84,7 +84,7 @@ test('JenAiSystems selbst: gültig, nur Angaben von der Website, keine Telefonnu
   assert.equal(c.id, 'jenaisystems');
   assert.equal(c.beispiel, false);
   assert.equal(c.phone, null);
-  assert.equal(c.widget.phone, '');
+  assert.equal(c.widget.phone, '+49 157 34425980');
   assert.ok(c.allowedOrigins.includes('https://jenaisystems.com'));
   assert.ok(c.widget.suggestions.length > 0 && c.widget.suggestions.length <= 4);
 });
