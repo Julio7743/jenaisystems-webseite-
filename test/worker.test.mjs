@@ -205,3 +205,11 @@ test('Prompt JenAiSystems: Kontakt, Preise, § 19, keine Datensammlung; Demo als
   for (const re of [/jenaisystems@protonmail\.com/, /\+49 157 34425980/, /490 €/, /69 €/, /199 €/, /§ 19 UStG/, /Website-Check/, /keine personenbezogenen Daten/, /Keine Rechts-, Steuer-/, /„Sie“/]) assert.match(p, re);
   assert.match(CLIENTS.beispiel.chat.systemPrompt, /ERFUNDEN/);
 });
+
+test('Worker: Cloudflare-Rate-Limit-Binding blockt mit 429', async () => {
+  const { default: worker } = await import('../assistant/worker/src/index.js');
+  const env = { LLM_PROVIDER: 'workers-ai', AI: { run: async () => ({ response: 'ok' }) }, RATE_LIMITER: { limit: async () => ({ success: false }) } };
+  const req = new Request('https://w.example/api/chat?client=jenaisystems', { method: 'POST', headers: { 'Content-Type': 'application/json', Origin: 'https://jenaisystems.com', 'CF-Connecting-IP': '203.0.113.9' }, body: JSON.stringify({ client: 'jenaisystems', messages: [{ role: 'user', content: 'Hallo' }] }) });
+  const res = await worker.fetch(req, env, {});
+  assert.equal(res.status, 429);
+});

@@ -13,7 +13,7 @@
     "build:site": "node scripts/build-site.mjs",
     "build:fragebogen": "node scripts/build-fragebogen.mjs",
     "dev": "node scripts/dev-server.mjs",
-    "test": "node --test \"test/*.test.mjs\" && npm run test:telefon",
+    "test": "node --test test/*.test.mjs && npm run test:telefon",
     "test:telefon": "cd phone/p0 && python3 -m unittest"
   }
 }

@@ -42,9 +42,10 @@ test('Impressum und Datenschutz sind verlinkt und vorhanden, Datenschutz hat Cha
   }
   const ds = read('site/datenschutz.html');
   assert.match(ds, /id="chat"/);
-  assert.match(ds, /Mistral/);
+  assert.match(ds, /Cloudflare Workers AI/);
+  assert.match(ds, /nicht zum Trainieren/);
   assert.match(ds, /Cloudflare/);
-  assert.match(ds, /KI, kein Mensch/);
+  assert.match(ds, /künstliche Intelligenz, kein Mensch/);
 });
 
 test('Übungs-Modell: Preisfrage an JenAiSystems, Demo-Frage an die Bäckerei', () => {

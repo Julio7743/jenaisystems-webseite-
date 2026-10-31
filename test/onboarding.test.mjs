@@ -79,7 +79,7 @@ test('JenAiSystems selbst: gültig, nur Angaben von der Website, nur die freigeg
   assert.match(p, /KI, kein Mensch/);
   assert.match(p, /einladen: zum kostenlosen Website-Check/);
   assert.match(p, /bitte direkt anfragen/i);
-  assert.match(p, /nenne nie eine/);
+  assert.match(p, /Nenne keine andere Telefonnummer/);
   const c = baueKundenConfig(jenaisystems, p, '');
   assert.equal(c.id, 'jenaisystems');
   assert.equal(c.beispiel, false);

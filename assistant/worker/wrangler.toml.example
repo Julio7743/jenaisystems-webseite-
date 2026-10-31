@@ -32,3 +32,10 @@ LOG_QUESTIONS = "false"                       # anonymes Fragen-Log nur mit "tru
 # Geheimnisse (über wrangler secret put, NICHT hier):
 #   LLM_API_KEY         nur für LLM_PROVIDER = "openai": Schlüssel des Anbieters
 #   ADMIN_TOKEN         für /api/report
+
+# Limit pro Besucher (IP) und Minute über alle Cloudflare-Instanzen (kostenlos).
+# Zusätzlich gilt das Limit pro Kunde aus client.json im Speicher.
+[[ratelimits]]
+name = "RATE_LIMITER"
+namespace_id = "1001"
+simple = { limit = 6, period = 60 }

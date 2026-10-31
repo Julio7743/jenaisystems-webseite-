@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<!-- Sicherheit: GitHub Pages kann keine HTTP-Header setzen, daher als meta. Wird der KI-Chat-Worker veröffentlicht, dessen Adresse (z. B. https://<name>.workers.dev) bei connect-src ergänzen. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<!-- Sicherheit: GitHub Pages kann keine HTTP-Header setzen, daher als meta. connect-src enthält Web3Forms (Formular) und den KI-Chat-Worker (Adresse wie CHAT_ENDPOINT in main.js). -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.web3forms.com https://jenaisystems-assistant.jenaisystems.workers.dev; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Datenschutzerklärung – JenAiSystems</title>
 <meta name="robots" content="noindex,follow">
@@ -23,21 +23,17 @@
     <h1>Datenschutzerklärung</h1>
     <!-- TODO Julian: Platzhalter. Datenschutzerklärung mit einem Rechtstexte-Generator erstellen und hier einfügen. -->
     <div class="todo"><b>Platzhalter – vor Veröffentlichung ausfüllen.</b> Die Datenschutzerklärung wird mit einem Rechtstexte-Generator erstellt und hier eingefügt. Dabei angeben:
-      <ul><li>Verantwortlicher: Julian Köbele, Anschrift in Jena, E-Mail</li><li>Hosting-Anbieter der Website (z. B. Cloudflare Pages oder Netlify)</li><li>Kontaktaufnahme per E-Mail bzw. Kontaktformular – und ggf. der Formulardienst (z. B. Web3Forms/Formspree)</li><li>Das genutzte Videokonferenz-Werkzeug für Erstgespräche und Abstimmungen (z. B. Jitsi, Zoom oder Microsoft Teams)</li><li>Schriften werden lokal geladen, es gibt keine Analyse- oder Werbe-Tracker und keine Cookies</li></ul>
+      <ul><li>Verantwortlicher: Julian Köbele, Anschrift in Jena, E-Mail</li><li>Hosting-Anbieter der Website: GitHub Pages (GitHub, Inc., USA)</li><li>Kontaktaufnahme per E-Mail bzw. Kontaktformular – und ggf. der Formulardienst (z. B. Web3Forms/Formspree)</li><li>Das genutzte Videokonferenz-Werkzeug für Erstgespräche und Abstimmungen (z. B. Jitsi, Zoom oder Microsoft Teams)</li><li>Schriften werden lokal geladen, es gibt keine Analyse- oder Werbe-Tracker und keine Cookies</li></ul>
     </div>
     <h2 id="kontaktformular">Kontaktformular (Web3Forms)</h2>
     <p>Wenn Sie das Kontaktformular auf dieser Website nutzen, werden Ihre Angaben (Name, Unternehmen, E-Mail-Adresse, Telefonnummer, Thema und Nachricht – soweit Sie sie eintragen) über den Formulardienst Web3Forms an unser Postfach jenaisystems@protonmail.com weitergeleitet. Web3Forms verarbeitet die Daten dabei in unserem Auftrag. Nach eigenen Angaben arbeitet Web3Forms von Indien aus und nutzt Server von Amazon Web Services; die Daten können also in ein Land außerhalb der EU übermittelt werden. Wir verwenden Ihre Angaben nur, um Ihre Anfrage zu bearbeiten. Mehr dazu in der <a href="https://web3forms.com/privacy" target="_blank" rel="noopener">Datenschutzerklärung von Web3Forms</a>. Wenn Sie das nicht möchten, schreiben Sie uns einfach direkt per E-Mail oder rufen Sie an.</p>
-    <!-- TODO Julian: KI-Chat. Erst ausfüllen, wenn Worker und KI-Anbieter feststehen (siehe assistant/README.md). Der Chat-Knopf auf der Startseite verlinkt hierher (#chat). -->
-    <div class="todo" id="chat"><b>Platzhalter KI-Chat – vor Veröffentlichung ausfüllen.</b> In die Datenschutzerklärung gehört ein eigener Abschnitt zum Chat-Assistenten. Dabei angeben:
-      <ul>
-        <li>Zweck: Beantwortung von Fragen zu den Leistungen von JenAiSystems (und zur Demo mit einem erfundenen Beispiel-Betrieb); Rechtsgrundlage mit dem Rechtstexte-Generator bzw. anwaltlich klären</li>
-        <li>KI-Hinweis: Im Chat antwortet eine KI, kein Mensch (Hinweis erscheint vor der ersten Nachricht, Art. 50 KI-Verordnung)</li>
-        <li>Empfänger: Die Nachrichten werden an einen KI-Anbieter übertragen (voreingestellt: Mistral AI, Frankreich) – Serverstandort und Auftragsverarbeitungsvertrag (AVV) vor dem Start prüfen und hier nennen</li>
-        <li>Technik: Weiterleitung über Cloudflare Workers (Cloudflare, Inc.) – Datenübermittlung in die USA/Drittland und AVV prüfen und hier nennen</li>
-        <li>Speicherung: JenAiSystems speichert die Chat-Inhalte nicht; keine Cookies, nichts im Browser gespeichert. Kurzfristige Zähler für Missbrauchs- und Kostenschutz (Anfragen pro Minute und Monat) ohne Inhalte. Speicherdauer beim KI-Anbieter laut dessen Bedingungen angeben</li>
-        <li>Hinweis an Besucher: bitte keine sensiblen Daten (z. B. Gesundheits- oder Bankdaten) in den Chat schreiben</li>
-      </ul>
-    </div>
+    <h2 id="chat">KI-Chat (Cloudflare Workers AI)</h2>
+    <p><b>Zweck:</b> Auf dieser Website können Sie einem Chat-Assistenten Fragen zu den Leistungen von JenAiSystems stellen. Im Demo-Modus antwortet der Assistent für eine erfundene Beispiel-Bäckerei, damit Sie sehen, wie so ein Chat für einen Betrieb aussehen kann. Der Chat ist freiwillig; Sie können uns jederzeit auch per E-Mail oder Telefon erreichen.</p>
+    <p><b>KI-Hinweis:</b> Im Chat antwortet eine künstliche Intelligenz, kein Mensch. Darauf weist der Chat auch vor der ersten Nachricht hin. Die Antworten können Fehler enthalten; verbindlich sind nur Auskünfte von uns persönlich.</p>
+    <p><b>Wer verarbeitet Ihre Nachrichten:</b> Wenn Sie eine Frage absenden, werden Ihr Text und der bisherige Chatverlauf dieser Sitzung über einen Cloudflare Worker an Cloudflare Workers AI übertragen und dort von einem KI-Sprachmodell beantwortet. Anbieter ist Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA. Dabei werden auch technische Daten wie Ihre IP-Adresse und die Adresse dieser Website übermittelt. Nach Angaben von Cloudflare werden Ihre Eingaben und die Antworten nicht zum Trainieren von KI-Modellen verwendet und nach der Beantwortung nicht gespeichert; Cloudflare kann aber Betriebsdaten ohne Inhalte speichern (z. B. Zeitpunkt, Datenmenge, genutztes Modell, Herkunft der Anfrage). Mehr dazu in den <a href="https://developers.cloudflare.com/workers-ai/platform/data-usage/" target="_blank" rel="noopener">Angaben von Cloudflare zur Datennutzung bei Workers AI</a> und in der <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Datenschutzerklärung von Cloudflare</a>.</p>
+    <p><b>Übermittlung in die USA:</b> Cloudflare kann die Daten außerhalb der EU, insbesondere in den USA, verarbeiten. Cloudflare ist nach dem EU-U.S. Data Privacy Framework zertifiziert (<a href="https://www.dataprivacyframework.gov/participant/5666" target="_blank" rel="noopener">Eintrag auf dataprivacyframework.gov</a>). Cloudflare stellt dafür außerdem einen <a href="https://www.cloudflare.com/cloudflare-customer-dpa/" target="_blank" rel="noopener">Auftragsverarbeitungsvertrag (Data Processing Addendum)</a> bereit.</p>
+    <p><b>Was wir speichern:</b> Wir speichern die Inhalte Ihrer Chat-Nachrichten nicht. Der Chat setzt keine Cookies und legt nichts in Ihrem Browser ab. Wir zählen nur, wie viele Fragen pro Tag und Monat gestellt werden, um Missbrauch und Kosten zu begrenzen – ohne Inhalte und ohne IP-Adresse. Ihre IP-Adresse wird nur kurz verwendet, um die Zahl der Anfragen pro Minute zu begrenzen.</p>
+    <p><b>Bitte beachten Sie:</b> Schreiben Sie keine sensiblen Daten in den Chat, zum Beispiel Gesundheitsdaten, Bankdaten, Passwörter oder Ausweisnummern. Für persönliche Anliegen schreiben Sie uns lieber direkt an jenaisystems@protonmail.com oder rufen Sie an: +49 157 34425980.</p>
   </div>
 </main>
 <footer>

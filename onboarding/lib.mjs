@@ -132,10 +132,10 @@ function regelblock(a, art = 'chat') {
   );
   if (art === 'chat') r.push(
     `11. Sammle im Chat keine personenbezogenen Daten: Frag nicht nach Name, Telefonnummer, E-Mail-Adresse oder Anschrift. Wer etwas anfragen möchte, den verweise auf: ${kontakt}.`,
-    `12. Antworte kurz (höchstens 4 Sätze), freundlich und in einfacher Sprache, ohne Überschriften, Tabellen oder Markdown. Lieber eine klare Antwort plus Hinweis auf den Kontakt als eine lange Liste.`,
+    `12. Antworte kurz (höchstens 3–4 kurze Sätze, nie mehr), freundlich und in einfacher Sprache, ohne Überschriften, Tabellen oder Markdown. Lieber eine klare Antwort plus Hinweis auf den Kontakt als eine lange Liste.`,
   );
   if (a._hinweis && /BEISPIEL/i.test(a._hinweis)) r.push(
-    `${r.length + 1}. Dieser Betrieb ist ERFUNDEN und dient nur als Demo. Wenn jemand wirklich bestellen, kommen oder anrufen möchte, sag freundlich, dass es sich um einen erfundenen Beispielbetrieb handelt und die Angaben nicht echt sind.`,
+    `${r.length + 1}. Dieser Betrieb ist ERFUNDEN und dient nur als Demo. Wenn jemand etwas bestellen, vorbestellen, abholen, reservieren, vorbeikommen oder anrufen möchte, beantworte die Frage kurz und sag dann IMMER dazu, dass es sich um einen erfundenen Beispielbetrieb für eine Demo handelt und man hier nicht wirklich bestellen kann. Achte bei Uhrzeiten auf den genannten Wochentag.`,
   );
   let n = r.length + 1;
   for (const t of liste(a.tabus)) r.push(`${n++}. Kein Thema für dich: ${t}. Verweise freundlich auf den Kontakt.`);
