@@ -25,3 +25,5 @@ phone/p0/ausgang/
 *.mp3
 *.flac
 *.opus
+
+.dev.vars*

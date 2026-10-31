@@ -75,3 +75,17 @@ test('Datenschutz: vollständig, ohne Platzhalter, passt zur Seite', () => {
   for (const f of ['site/main.js', 'site/jenaisystems-chat.js']) assert.doesNotMatch(read(f), /localStorage|sessionStorage|document\.cookie/, f);
   assert.doesNotMatch(read('site/style.css') + read('site/index.html'), /fonts\.googleapis|fonts\.gstatic/);
 });
+
+test('Chat-Widget: keine Anfrage an den Chat-Dienst beim Seitenaufruf, erst beim Öffnen', () => {
+  const w = read('assistant/widget/jenaisystems-chat.js');
+  assert.equal(read('site/jenaisystems-chat.js'), w, 'site/ nutzt die aktuelle Widget-Version');
+  // Einzige Stelle, die Einstellungen lädt, ist ensureCfg(); sie wird nur aus open()/nach dem KI-Hinweis aufgerufen.
+  assert.match(w, /function ensureCfg\(\)/);
+  assert.match(w, /function open\(key, question\) \{\s*ensureCfg\(\);/);
+  const start = w.slice(w.lastIndexOf('var cfgPromise = null;'));
+  assert.match(start, /overrides\(\); applyCfg\(\); document\.body\.appendChild\(host\);/);
+  // Fetch-Aufrufe nur in load() und ask()
+  assert.equal((w.match(/fetch\(/g) || []).length, 2);
+  assert.match(read('site/datenschutz.html'), /Solange Sie den Chat nicht öffnen, werden keine Daten an den Chat-Dienst übertragen/);
+  assert.doesNotMatch(read('site/index.html'), /Videocall/i);
+});

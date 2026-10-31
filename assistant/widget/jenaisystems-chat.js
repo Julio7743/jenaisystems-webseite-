@@ -14,6 +14,7 @@
  *   mit Frage: <button data-jenaisystems-open="demo" data-jenaisystems-ask="Habt ihr glutenfreies Brot?">…</button>
  *   oder per Script: window.JenAiSystemsChat.open('demo' | 'main', 'Frage …')
  * Es werden keine Cookies gesetzt und nichts im Browser gespeichert. Der Verlauf existiert nur, solange die Seite offen ist.
+ * Beim Seitenaufruf geht keine Anfrage an den Chat-Dienst; Einstellungen werden erst beim Öffnen des Chats geladen.
  */
 (function () {
   'use strict';
@@ -219,9 +220,11 @@
     var b = document.createElement('button'); b.type = 'button'; b.className = 'btn'; b.textContent = 'Verstanden, Chat starten';
     b.addEventListener('click', function () {
       consent = true; box.remove(); form.hidden = false;
-      greet(active);
-      if (pending) { var q = pending; pending = null; ask(active, q); }
-      input.focus();
+      ensureCfg().then(function () {
+        greet(active);
+        if (pending) { var q = pending; pending = null; ask(active, q); }
+        input.focus();
+      });
     });
     box.appendChild(b); active.log.appendChild(box);
     setTimeout(function () { b.focus(); }, 30);
@@ -238,13 +241,14 @@
     }
     applyCfg();
     sendBtn.disabled = active.busy;
-    if (consent) { greet(active); if (!panel.hidden) input.focus(); }
+    if (consent) ensureCfg().then(function () { greet(active); if (!panel.hidden) input.focus(); });
   }
 
   function open(key, question) {
+    ensureCfg(); // erst jetzt Kontakt zum Chat-Dienst – vorher keine Anfrage
     if (key) setMode(key);
     panel.hidden = false; fab.hidden = true; fab.setAttribute('aria-expanded', 'true');
-    if (question) { if (consent) ask(active, String(question).slice(0, 800)); else pending = String(question).slice(0, 800); }
+    if (question) { var qq = String(question).slice(0, 800); if (consent) ensureCfg().then(function () { ask(active, qq); }); else pending = qq; }
     if (!consent && !root.querySelector('.consent')) showConsent(); else if (consent) input.focus();
   }
   function close() { panel.hidden = true; fab.hidden = false; fab.setAttribute('aria-expanded', 'false'); fab.focus(); }
@@ -306,19 +310,28 @@
     window.JenAiSystemsChat.open(el.getAttribute('data-jenaisystems-open') || 'main', el.getAttribute('data-jenaisystems-ask'));
   });
 
-  // Einstellungen vom Server laden; data-Attribute haben Vorrang (nur für den Haupt-Assistenten).
+  // Einstellungen vom Server laden – erst, wenn jemand den Chat öffnet (Datenschutz: beim Seitenaufruf
+  // geht keine Anfrage an den Chat-Dienst). data-Attribute haben Vorrang (nur für den Haupt-Assistenten).
   function load(st) {
     return fetch(endpoint + '/api/config?client=' + encodeURIComponent(st.id))
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (c) { if (c) Object.keys(c).forEach(function (k) { if (c[k] !== '' && c[k] != null) st.cfg[k] = c[k]; }); })
       .catch(function () {});
   }
-  Promise.all([load(states.main), states.demo ? load(states.demo) : null]).then(function () {
+  function overrides() {
     var cfg = states.main.cfg;
     if (ds.name) cfg.assistantName = ds.name; if (ds.color) cfg.color = ds.color;
     if (ds.phone) cfg.phone = ds.phone; if (ds.email) cfg.email = ds.email; if (ds.privacy) cfg.privacyUrl = ds.privacy;
     if (ds.contact) cfg.contactUrl = ds.contact;
     if (states.demo) states.demo.cfg.beispiel = true; // Demo ist immer als erfunden gekennzeichnet
-    applyCfg(); document.body.appendChild(host);
-  });
+  }
+  var cfgPromise = null;
+  function ensureCfg() {
+    if (!cfgPromise) {
+      cfgPromise = Promise.all([load(states.main), states.demo ? load(states.demo) : null])
+        .then(function () { overrides(); applyCfg(); });
+    }
+    return cfgPromise;
+  }
+  overrides(); applyCfg(); document.body.appendChild(host);
 })();

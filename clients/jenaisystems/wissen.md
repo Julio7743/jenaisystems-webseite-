@@ -3,10 +3,10 @@
 ## Betrieb
 - Name: JenAiSystems
 - Branche: Websites mit KI-Assistent, Google-Profil, SEO und Online-Marketing für kleine Unternehmen
-- Beschreibung: JenAiSystems hilft kleinen Unternehmen in Deutschland, Österreich und der Schweiz, online gefunden zu werden: mit modernen Websites, optionalem KI-Assistenten, einem gepflegten Google-Eintrag, SEO und gezielter Werbung. Die Zusammenarbeit läuft per Videocall, Telefon und E-Mail; in Jena und Umgebung auch persönlich vor Ort. Gründer und fester Ansprechpartner ist Julian Köbele aus Jena. Er nutzt moderne Werkzeuge, auch künstliche Intelligenz, und prüft jedes Ergebnis selbst, bevor es online geht.
+- Beschreibung: JenAiSystems hilft kleinen Unternehmen in Deutschland, Österreich und der Schweiz, online gefunden zu werden: mit modernen Websites, optionalem KI-Assistenten, einem gepflegten Google-Eintrag, SEO und gezielter Werbung. Die Zusammenarbeit läuft per Telefon und E-Mail; in Jena und Umgebung auch persönlich vor Ort. Gründer und fester Ansprechpartner ist Julian Köbele aus Jena. Er nutzt moderne Werkzeuge, auch künstliche Intelligenz, und prüft jedes Ergebnis selbst, bevor es online geht.
 - Adresse: Jena
 - Gebiet: Online für Unternehmen in ganz Deutschland, Österreich und der Schweiz; persönlich vor Ort in Jena und Umgebung
-- Besonderheit: Ein fester Ansprechpartner statt Ticketsystem und Warteschleife – per Videocall, Telefon oder E-Mail, in Jena und Umgebung auch persönlich
+- Besonderheit: Ein fester Ansprechpartner statt Ticketsystem und Warteschleife – per Telefon oder E-Mail, in Jena und Umgebung auch persönlich
 - Besonderheit: Festpreise vorab, keine versteckten Kosten
 - Besonderheit: Betreuung monatlich kündbar: kein Jahresvertrag, keine Mindestlaufzeit
 - Besonderheit: Domain, Inhalte und Zugänge laufen auf den Namen des Kunden; bei einem Wechsel nimmt der Kunde alles mit
@@ -35,15 +35,15 @@
 - Monatlicher Bericht: Kurz und verständlich: wie oft der Betrieb gefunden, angerufen oder angefragt wurde | Preis: nicht hinterlegt (auf Kontakt verweisen) | Hinweis: in „Rundum betreut“ enthalten
 - Domain, E-Mail und Technik: Eigene Adresse wie info@ihr-betrieb.de, Hosting, Updates und Sicherheit | Preis: nicht hinterlegt (auf Kontakt verweisen) | Hinweis: Die Domain zahlt der Kunde direkt beim Anbieter, damit sie ihm gehört
 - Kostenloser Website-Check: Der Kunde schickt den Namen seines Unternehmens; Julian Köbele schaut sich Website und Google-Eintrag an und sendet die fünf wichtigsten Verbesserungen | Preis: kostenlos und unverbindlich | Hinweis: anfordern per E-Mail an jenaisystems@protonmail.com (Betreff „Kostenloser Website-Check“) oder über das Kontaktformular auf der Website
-- Erstgespräch: Rund 30 Minuten per Videocall oder Telefon, in Jena und Umgebung gern auch vor Ort. Besprochen wird, was der Betrieb braucht und was nicht | Preis: kostenlos und unverbindlich
+- Erstgespräch: Rund 30 Minuten am Telefon, in Jena und Umgebung gern auch vor Ort. Besprochen wird, was der Betrieb braucht und was nicht | Preis: kostenlos und unverbindlich
 
 ## Preise, Bezahlung, Bestellung
 - Hinweis zu Preisen: Kleinunternehmer gemäß § 19 UStG: Es wird keine Umsatzsteuer berechnet – die Preise sind netto und zugleich Endpreise in Euro. Das gilt auch für Rechnungen an Unternehmen in Österreich und der Schweiz. Domain und Werbebudget zahlt der Kunde direkt beim Anbieter, so gehören sie auch ihm. Der genaue Preis hängt vom Umfang ab und steht vor Beginn schriftlich fest. Einzeln buchbare Leistungen (Fotos, Vermittlung von Fotografen, Drohnenaufnahmen, Online-Terminbuchung, Shop und Gutscheine, Texte, KI-Assistent): Preis nach Aufwand, immer mit Angebot vorab.
-- Bestellen/Buchen: So läuft es ab: 1. Kostenloses Erstgespräch per Videocall oder Telefon (in Jena und Umgebung gern vor Ort). 2. Vorschau und Angebot: erster Entwurf als Link zum Anschauen im Browser und ein klares Angebot mit Festpreis – erst dann entscheidet der Kunde. 3. Umsetzung: Website, Google-Profil und alles Weitere; abgestimmt wird per E-Mail, Telefon oder Videocall, der Kunde gibt Texte und Fotos frei. 4. Betreuung auf Wunsch: laufende Änderungen, Beiträge, Bewertungen und ein kurzer Monatsbericht, monatlich kündbar. Anfragen per E-Mail an jenaisystems@protonmail.com oder über das Kontaktformular unten auf der Website.
+- Bestellen/Buchen: So läuft es ab: 1. Kostenloses Erstgespräch am Telefon (in Jena und Umgebung gern vor Ort). 2. Vorschau und Angebot: erster Entwurf als Link zum Anschauen im Browser und ein klares Angebot mit Festpreis – erst dann entscheidet der Kunde. 3. Umsetzung: Website, Google-Profil und alles Weitere; abgestimmt wird per E-Mail oder Telefon, der Kunde gibt Texte und Fotos frei. 4. Betreuung auf Wunsch: laufende Änderungen, Beiträge, Bewertungen und ein kurzer Monatsbericht, monatlich kündbar. Anfragen per E-Mail an jenaisystems@protonmail.com oder über das Kontaktformular unten auf der Website.
 
 ## Erreichbarkeit
 - Feste Öffnungszeiten: keine
-- Sonderzeiten: Keine festen Öffnungszeiten. Das Erstgespräch wird nach Anfrage vereinbart, per Videocall oder Telefon; in Jena und Umgebung auch vor Ort.
+- Sonderzeiten: Keine festen Öffnungszeiten. Das Erstgespräch wird nach Anfrage vereinbart, am Telefon; in Jena und Umgebung auch vor Ort.
 
 ## Kontakt
 - Telefon: +49 157 34425980
@@ -73,7 +73,7 @@
 - Frage: Arbeiten Sie auch außerhalb von Jena?
   Antwort: Ja. Websites, KI-Assistent, Google-Profil, SEO, Werbung und Betreuung gibt es für Unternehmen in ganz Deutschland, Österreich und der Schweiz – die Zusammenarbeit läuft online. Persönlich vor Ort ist JenAiSystems in Jena und Umgebung.
 - Frage: Wie läuft die Zusammenarbeit aus der Ferne?
-  Antwort: Es beginnt mit einem kostenlosen Erstgespräch per Videocall oder Telefon. Entwürfe bekommen Sie als Link und sehen sie direkt im Browser. Rückfragen und Freigaben laufen per E-Mail, Telefon oder kurzem Videocall – ganz wie es Ihnen lieber ist. Sie brauchen dafür nur einen Computer oder ein Smartphone.
+  Antwort: Es beginnt mit einem kostenlosen Erstgespräch am Telefon. Entwürfe bekommen Sie als Link und sehen sie direkt im Browser. Rückfragen und Freigaben laufen per E-Mail oder Telefon – ganz wie es Ihnen lieber ist. Sie brauchen dafür nur einen Computer oder ein Smartphone.
 - Frage: Was ist mit Fotos, wenn ich nicht in Jena bin?
   Antwort: Dann gibt es zwei Wege: Sie schicken eigene Fotos, und JenAiSystems wählt aus, bearbeitet sie und sagt Ihnen, welche Motive noch fehlen. Oder JenAiSystems vermittelt Ihnen eine Fotografin bzw. einen Fotografen in Ihrer Nähe – die Kosten dafür stehen vorher im Angebot.
 - Frage: Sind Drohnenaufnahmen überall möglich?
