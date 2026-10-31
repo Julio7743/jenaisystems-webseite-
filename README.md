@@ -27,7 +27,6 @@ Nur der Ordner `site/` wird veröffentlicht (GitHub Pages, Workflow `.github/wor
 - Entwurfs-Leiste (`div class="draft"`) in `site/index.html` entfernen.
 - Impressum und Datenschutzerklärung mit echten Angaben füllen (derzeit Platzhalter). Web3Forms als Empfänger nennen.
 - Web3Forms-Schlüssel ist eingetragen (`WEB3FORMS_ACCESS_KEY` in `site/main.js`). Einmal eine Testnachricht schicken.
-- Foto `site/img/julian.jpg` ablegen (echtes Foto, quadratisch).
 - KI-Chat: Worker veröffentlichen und `data-endpoint` setzen (siehe `assistant/README.md`).
 - E-Mail, Telefon und Formular stehen gesammelt in den KONTAKT-Einstellungen oben in `site/main.js`.
 Alles andere im Repo (Kunden, Preise, Telefon-Doku, Rechtsfragen) wird **nicht** ausgeliefert, ist aber sichtbar, wenn das Repo öffentlich ist.
