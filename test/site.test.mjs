@@ -66,3 +66,12 @@ test('KI-Chat: Worker-Adresse steht an einer Stelle (main.js) und ist in der CSP
   if (m[1]) assert.ok(connect.split(/\s+/).includes(new URL(m[1]).origin), `connect-src muss ${new URL(m[1]).origin} enthalten`);
   assert.ok(html.indexOf('src="main.js"') < html.indexOf('src="jenaisystems-chat.js"'), 'main.js muss vor dem Chat-Widget geladen werden');
 });
+
+test('Datenschutz: vollständig, ohne Platzhalter, passt zur Seite', () => {
+  const ds = read('site/datenschutz.html');
+  assert.doesNotMatch(ds, /class="todo"|Platzhalter|TODO/);
+  for (const s of ['Berggasse 2', 'GitHub', 'Proton AG', 'Web3Forms', 'Cloudflare Workers AI', 'keine Cookies', 'TLfDI', 'Häßlerstraße 8', 'Art. 15', 'Art. 21', 'Stand: Oktober 2026']) assert.ok(ds.includes(s), s);
+  // Behauptung "keine Cookies / kein Local Storage" muss stimmen
+  for (const f of ['site/main.js', 'site/jenaisystems-chat.js']) assert.doesNotMatch(read(f), /localStorage|sessionStorage|document\.cookie/, f);
+  assert.doesNotMatch(read('site/style.css') + read('site/index.html'), /fonts\.googleapis|fonts\.gstatic/);
+});
