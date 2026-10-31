@@ -4,6 +4,11 @@ export const MAX_HISTORY = 8;          // so viele letzte Nachrichten gehen an d
 export const MAX_MESSAGE_CHARS = 800;  // längere Nachrichten werden abgeschnitten
 export const MAX_ANSWER_TOKENS = 350;
 
+// Cloudflare Workers AI (kostenloses Kontingent: 10.000 Neurons pro Tag, Stand Okt. 2026).
+// Mistral Small 3.1: gut auf Deutsch, günstig bei Antworten (≈ 31.876 Neurons/M Eingabe, 50.488/M Ausgabe).
+export const DEFAULT_WORKERS_AI_MODEL = '@cf/mistralai/mistral-small-3.1-24b-instruct';
+export const FALLBACK_WORKERS_AI_MODEL = '@cf/meta/llama-3.3-70b-instruct-fp8-fast';
+
 /** CORS: nur Domains aus der Kunden-Konfiguration. */
 export function corsHeaders(origin, client) {
   const h = { 'Vary': 'Origin' };
@@ -88,12 +93,58 @@ export async function checkCaps(counter, client, env, month = monthKey()) {
     const g = await counter.get(`cap:_global:${month}`);
     if (g >= globalCap) return { ok: false, reason: 'global' };
   }
+  // Tagesgrenze über alle Kunden: hält das kostenlose Workers-AI-Kontingent ein (Reset 00:00 UTC).
+  const dailyCap = Number.parseInt(env.GLOBAL_DAILY_CAP || '0', 10);
+  if (dailyCap > 0) {
+    const d = await counter.get(`cap:_day:${dayKey()}`);
+    if (d >= dailyCap) return { ok: false, reason: 'daily' };
+  }
   return { ok: true };
 }
 
-export async function countRequest(counter, client, month = monthKey()) {
+export async function countRequest(counter, client, month = monthKey(), day = dayKey()) {
   await counter.incr(`cap:${client.id}:${month}`);
   await counter.incr(`cap:_global:${month}`);
+  await counter.incr(`cap:_day:${day}`);
+}
+
+export function dayKey(date = new Date()) {
+  return date.toISOString().slice(0, 10); // z. B. 2026-10-31 (UTC, wie das Workers-AI-Tageskontingent)
+}
+
+/** Welcher Anbieter? LLM_PROVIDER="workers-ai" (Cloudflare, Binding env.AI) oder "openai" (OpenAI-kompatibel, z. B. Mistral). */
+export function llmProvider(env) {
+  const p = String(env.LLM_PROVIDER || (env.AI ? 'workers-ai' : 'openai')).toLowerCase();
+  return p === 'workers-ai' ? 'workers-ai' : 'openai';
+}
+
+export function llmConfigured(env) {
+  return llmProvider(env) === 'workers-ai' ? Boolean(env.AI && typeof env.AI.run === 'function') : Boolean(env.LLM_API_KEY);
+}
+
+/** Einheitlicher Aufruf für beide Anbieter. */
+export async function callAI(env, messages, fetchImpl = fetch) {
+  return llmProvider(env) === 'workers-ai' ? callWorkersAI(env, messages) : callLLM(env, messages, fetchImpl);
+}
+
+/** Cloudflare Workers AI über das Binding env.AI. Fällt bei einem Fehler einmal auf das Ersatzmodell zurück. */
+export async function callWorkersAI(env, messages) {
+  if (!env.AI || typeof env.AI.run !== 'function') throw new Error('Workers-AI-Binding fehlt');
+  const max_tokens = Number.parseInt(env.LLM_MAX_TOKENS || '', 10) || MAX_ANSWER_TOKENS;
+  const models = [env.WORKERS_AI_MODEL || DEFAULT_WORKERS_AI_MODEL];
+  const fb = env.WORKERS_AI_FALLBACK_MODEL === '' ? null : (env.WORKERS_AI_FALLBACK_MODEL || FALLBACK_WORKERS_AI_MODEL);
+  if (fb && fb !== models[0]) models.push(fb);
+  let last;
+  for (const model of models) {
+    try {
+      const out = await env.AI.run(model, { messages, max_tokens, temperature: 0.2 });
+      let text = out?.response ?? out?.choices?.[0]?.message?.content ?? (typeof out === 'string' ? out : '');
+      if (Array.isArray(text)) text = text.filter((c) => c && c.type === 'text').map((c) => c.text).join('');
+      if (typeof text === 'string' && text.trim()) return text.trim();
+      last = new Error('Leere Antwort vom Modell');
+    } catch (e) { last = e; }
+  }
+  throw last || new Error('Workers-AI-Fehler');
 }
 
 /** Ruft ein OpenAI-kompatibles Chat-API auf (Mistral, OpenAI, Gemini-OpenAI-Endpunkt, ...). */

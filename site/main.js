@@ -12,6 +12,12 @@
               Klappt das Senden nicht, springt das Formular automatisch auf mailto zurück.
               WICHTIG: Web3Forms als Empfänger/Auftragsverarbeiter in der Datenschutzerklärung nennen.
    ============================================================ */
+/* KI-CHAT – Adresse des Cloudflare-Workers (nur hier eintragen, z. B. 'https://jenaisystems-assistant.<konto>.workers.dev').
+   Leer = gleiche Adresse wie die Seite (lokaler Testserver). Nach dem Eintragen dieselbe Adresse in der
+   Content-Security-Policy (connect-src) in index.html ergänzen – ein Test prüft, dass beides passt. */
+var CHAT_ENDPOINT = '';
+window.JENAI_CHAT_ENDPOINT = CHAT_ENDPOINT;
+
 var WEB3FORMS_ACCESS_KEY = 'dd0572f7-260e-4e5d-9ceb-30e66d1606f6'; // öffentlicher Web3Forms-Schlüssel für jenaisystems@protonmail.com
 var KONTAKT = {
   email: 'jenaisystems@protonmail.com',

@@ -1,4 +1,4 @@
-// JenAiSystems Chat-Worker (Cloudflare Workers). Leitet Chat-Fragen an ein OpenAI-kompatibles Sprachmodell weiter.
+// JenAiSystems Chat-Worker (Cloudflare Workers). Leitet Chat-Fragen an Cloudflare Workers AI (Standard) oder ein OpenAI-kompatibles Sprachmodell weiter.
 // Endpunkte:
 //   GET  /health
 //   GET  /api/config?client=ID          öffentliche Widget-Einstellungen
@@ -7,7 +7,7 @@
 import { CLIENTS } from './clients.generated.js';
 import {
   corsHeaders, originAllowed, cleanHistory, buildMessages, redact, monthKey,
-  MinuteLimiter, MonthlyCounter, checkCaps, countRequest, callLLM, publicConfig, fallbackText,
+  MinuteLimiter, MonthlyCounter, checkCaps, countRequest, callAI, llmConfigured, publicConfig, fallbackText,
 } from './core.js';
 
 const limiter = new MinuteLimiter();
@@ -73,10 +73,10 @@ export default {
       const counter = new MonthlyCounter(env.USAGE, memoryCounts);
       const caps = await checkCaps(counter, client, env);
       if (!caps.ok) return json({ error: 'cap', reply: fallbackText(client) }, 429, cors);
-      if (!env.LLM_API_KEY) return json({ error: 'not configured', reply: fallbackText(client) }, 503, cors);
+      if (!llmConfigured(env)) return json({ error: 'not configured', reply: fallbackText(client) }, 503, cors);
 
       try {
-        const reply = await callLLM(env, buildMessages(client, history));
+        const reply = await callAI(env, buildMessages(client, history));
         const done = countRequest(counter, client).catch(() => {}); // KV-Schreibfehler dürfen den Chat nicht stören
         const question = history[history.length - 1].content;
         const log = client.logQuestions && env.LOG_QUESTIONS === 'true' && env.USAGE
