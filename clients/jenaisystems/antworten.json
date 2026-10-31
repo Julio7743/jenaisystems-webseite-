@@ -1,5 +1,5 @@
 {
-  "_hinweis": "JenAiSystems selbst. Alle Angaben stammen ausschließlich von der JenAiSystems-Website (site/index.html, Stand 28.10.2026, Entwurf). Was dort nicht steht, ist hier nicht eingetragen – der Assistent verweist dann auf „bitte direkt anfragen“. Bei Änderungen an der Website diese Datei anpassen und neu generieren.",
+  "_hinweis": "JenAiSystems selbst. Alle Angaben stammen ausschließlich von der JenAiSystems-Website (site/index.html und Unterseiten, Stand 31.10.2026; Preise final). Was dort nicht steht, ist hier nicht eingetragen – der Assistent verweist dann auf „bitte direkt anfragen“. Bei Änderungen an der Website diese Datei anpassen und neu generieren.",
   "_meta": {
     "katalogVersion": 1,
     "exportiert": "2026-10-24T04:00:00+02:00"
@@ -227,6 +227,10 @@
     {
       "frage": "Was ist der kostenlose Website-Check?",
       "antwort": "Sie schicken den Namen Ihres Unternehmens. Julian Köbele schaut sich Ihre Website und Ihren Google-Eintrag an und sendet Ihnen die fünf wichtigsten Verbesserungen – kostenlos und unverbindlich. Anfordern per E-Mail an jenaisystems@protonmail.com oder über das Kontaktformular auf der Website."
+    },
+    {
+      "frage": "Was bekomme ich bei JenAiSystems?",
+      "antwort": "Eine Demo des KI-Assistenten zum Ausprobieren, offene Festpreise (die Preise stehen auf der Website, vorab gibt es ein Angebot mit Festpreis), eine Website ohne Cookies und Werbe-Tracker, alle Zugänge auf Ihren Namen und eine monatlich kündbare Betreuung."
     }
   ],
   "tabus": [

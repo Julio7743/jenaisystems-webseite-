@@ -89,3 +89,48 @@ test('Chat-Widget: keine Anfrage an den Chat-Dienst beim Seitenaufruf, erst beim
   assert.match(read('site/datenschutz.html'), /Solange Sie den Chat nicht öffnen, werden keine Daten an den Chat-Dienst übertragen/);
   assert.doesNotMatch(read('site/index.html'), /Videocall/i);
 });
+
+test('Livegang: keine Entwurfs-Leiste, keine offenen Preis-Bestätigungen, Preise final', () => {
+  assert.doesNotMatch(html, /class="draft"|noch nicht offiziell|bitte bestätigen|ENTWURF/);
+  assert.doesNotMatch(read('site/style.css'), /\.draft/);
+  for (const p of ['490&nbsp;€', '69&nbsp;€', '199&nbsp;€']) assert.ok(html.includes(p), p);
+});
+
+test('Hero: Nutzen-Überschrift, Chat-Demo direkt darunter, Website-Check weit oben', () => {
+  assert.match(html, /<h1>Ihr Betrieb beantwortet Kundenfragen <em>rund um die Uhr\.<\/em><\/h1>/);
+  const hero = html.slice(html.indexOf('<h1>'), html.indexOf('class="scene"'));
+  assert.match(hero, /data-jenaisystems-open="demo"[^>]*>Chat-Demo ausprobieren/);
+  const check = html.indexOf('id="check"');
+  assert.ok(check > 0 && check < html.indexOf('id="leistungen"'), 'Website-Check vor den Leistungen');
+  assert.match(html, /5 Verbesserungen für Ihren Betrieb/);
+});
+
+test('Was Sie bei uns bekommen: fünf ehrliche Punkte, kein Mitbewerber genannt', () => {
+  const sec = html.slice(html.indexOf('id="vorteile"'), html.indexOf('id="ablauf"'));
+  for (const s of ['Demo zum Ausprobieren', 'Offene Festpreise', 'Keine Tracker', 'Alle Zugänge gehören Ihnen', 'Monatlich kündbar']) assert.ok(sec.includes(s), s);
+  assert.doesNotMatch(html, /MA Productions|ma-productions/i);
+});
+
+test('SEO-Unterseiten: Titel, Meta, Canonical, CSP, Rechtslinks, verlinkt und in der Sitemap', () => {
+  const sitemap = read('site/sitemap.xml');
+  for (const f of ['ki-chatbot-jena.html', 'website-handwerker-jena.html']) {
+    const p = read(`site/${f}`);
+    assert.match(p, /<title>[^<]+Jena[^<]*<\/title>/);
+    assert.match(p, /<meta name="description" content="[^"]{60,}">/);
+    assert.match(p, new RegExp(`<link rel="canonical" href="https://jenaisystems.com/${f}">`));
+    assert.ok(p.includes(`connect-src 'self' https://api.web3forms.com https://jenaisystems-assistant.jenaisystems.workers.dev`), 'gleiche CSP');
+    assert.match(p, /href="impressum.html"/); assert.match(p, /href="datenschutz.html"/);
+    assert.doesNotMatch(p, /<script/, 'keine Skripte nötig');
+    assert.ok(html.includes(`href="${f}"`), `Startseite verlinkt ${f}`);
+    assert.ok(sitemap.includes(`https://jenaisystems.com/${f}`), `Sitemap enthält ${f}`);
+    assert.doesNotMatch(p, /Videocall|garantiert Platz|\d+\s?% mehr/i);
+  }
+});
+
+test('Bewertungen: Platz vorbereitet, aber verborgen und leer, bis echte vorliegen', () => {
+  const m = html.match(/<section id="bewertungen"[^>]*>([\s\S]*?)<\/section>/);
+  assert.ok(m, 'Abschnitt vorhanden');
+  assert.match(m[0], /<section id="bewertungen"[^>]*\shidden>/);
+  assert.match(m[1], /<div class="rev-list"><\/div>/, 'keine Bewertungen eingetragen');
+  assert.doesNotMatch(m[1], /★|Sterne|blockquote/);
+});
