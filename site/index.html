@@ -19,7 +19,6 @@
    5. impressum.html und datenschutz.html mit einem Rechtstexte-Generator befüllen.
    6. Entwurfs-Leiste (div class="draft") zum offiziellen Start entfernen.
    10. E-Mail, Telefon und Formular-Versand: KONTAKT-Einstellungen in main.js.
-   11. Foto: site/img/julian.jpg ablegen (siehe Kommentar bei #ueber-mich).
    7. Abrechnung mit Firmenkunden in Österreich/Schweiz vorab mit Steuerberatung bzw. Finanzamt klären
       (z. B. ob eine USt-IdNr. nötig ist und welcher Rechnungshinweis zur Steuerschuldnerschaft passt) – siehe FAQ.
    8. Für Erstgespräche per Videocall ein Werkzeug festlegen (z. B. Jitsi, Zoom, Teams) und in der Datenschutzerklärung nennen.
@@ -349,9 +348,8 @@
       <h2>Ein fester Ansprechpartner statt Warteschleife.</h2>
       <div class="me">
         <div class="me-h">
-          <!-- FOTO: ein echtes Foto von Julian als site/img/julian.jpg ablegen (quadratisch, mind. 240×240 px). Keine Stock- oder KI-Gesichter.
-               Solange die Datei fehlt, erscheint automatisch der neutrale Platzhalter. -->
-          <span class="photo"><img src="img/julian.jpg" alt="Julian Köbele" width="72" height="72" loading="lazy"><svg class="ph" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="9" r="3.6"/><path d="M5 20c.8-3.6 3.6-5.6 7-5.6s6.2 2 7 5.6"/></svg></span>
+          <!-- FOTO: echtes Foto von Julian (site/img/julian.jpg + .webp, 480×480, ohne Metadaten). Fehlt die Datei, erscheint der neutrale Platzhalter. -->
+          <span class="photo lg"><picture><source srcset="img/julian.webp" type="image/webp"><img src="img/julian.jpg" alt="Julian Köbele" width="480" height="480" loading="lazy" decoding="async"></picture><svg class="ph" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="9" r="3.6"/><path d="M5 20c.8-3.6 3.6-5.6 7-5.6s6.2 2 7 5.6"/></svg></span>
           <div><b>Julian Köbele</b><span>Gründer von JenAiSystems · Jena</span></div>
         </div>
         <p>Ich helfe kleinen Unternehmen, online so gut auszusehen, wie sie wirklich sind. Dafür nutze ich moderne Werkzeuge – auch künstliche Intelligenz –, damit gute Ergebnisse schnell und bezahlbar entstehen.</p>
@@ -395,7 +393,7 @@
       <span class="eyebrow">Kostenloser Website-Check &amp; Erstgespräch</span>
       <h2>Erzählen Sie mir von Ihrem Betrieb.</h2>
       <div class="hello">
-        <span class="photo"><img src="img/julian.jpg" alt="" width="72" height="72" loading="lazy"><svg class="ph" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="9" r="3.6"/><path d="M5 20c.8-3.6 3.6-5.6 7-5.6s6.2 2 7 5.6"/></svg></span>
+        <span class="photo"><picture><source srcset="img/julian.webp" type="image/webp"><img src="img/julian.jpg" alt="Julian Köbele" width="480" height="480" loading="lazy" decoding="async"></picture><svg class="ph" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="9" r="3.6"/><path d="M5 20c.8-3.6 3.6-5.6 7-5.6s6.2 2 7 5.6"/></svg></span>
         <p>Schicken Sie mir einfach den Namen Ihres Unternehmens. Ich schaue mir Website und Google-Eintrag an und sende Ihnen die fünf wichtigsten Verbesserungen – kostenlos und unverbindlich. <b>Ich melde mich persönlich</b>, in der Regel innerhalb eines Werktags.</p>
       </div>
       <ul class="c-list">
