@@ -48,7 +48,7 @@ test('Schnellantworten: Texte stimmen mit dem Wissen überein (Preise, Kontakt, 
   const j = Object.fromEntries(CLIENTS.jenaisystems.fastAnswers.map((f) => [f.id, f.answer]));
   for (const re of [/490 €/, /69 €/, /199 €/, /§ 19 UStG/]) assert.match(j.preise, re);
   assert.match(j.kontakt, /\+49 157 34425980/);
-  assert.match(j.kontakt, /jenaisystems@protonmail\.com/);
+  assert.match(j.kontakt, /info@jenaisystems\.com/);
   assert.match(j['mensch-oder-ki'], /KI-Assistent, kein Mensch/);
   const wissen = CLIENTS.jenaisystems.chat.systemPrompt;
   for (const a of Object.values(j)) {

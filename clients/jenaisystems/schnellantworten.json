@@ -119,7 +119,7 @@
         "dauer*",
         "lange"
       ],
-      "answer": "So läuft es ab: 1. Kostenloses Erstgespräch am Telefon (in Jena und Umgebung gern vor Ort). 2. Sie bekommen einen ersten Entwurf als Link und ein Angebot mit Festpreis – erst dann entscheiden Sie. 3. Umsetzung, abgestimmt per E-Mail oder Telefon; danach auf Wunsch laufende Betreuung, monatlich kündbar. Anfragen gern per E-Mail an jenaisystems@protonmail.com oder über das Kontaktformular unten auf dieser Seite."
+      "answer": "So läuft es ab: 1. Kostenloses Erstgespräch am Telefon (in Jena und Umgebung gern vor Ort). 2. Sie bekommen einen ersten Entwurf als Link und ein Angebot mit Festpreis – erst dann entscheiden Sie. 3. Umsetzung, abgestimmt per E-Mail oder Telefon; danach auf Wunsch laufende Betreuung, monatlich kündbar. Anfragen gern per E-Mail an info@jenaisystems.com oder über das Kontaktformular unten auf dieser Seite."
     },
     {
       "id": "kontakt",
@@ -178,7 +178,7 @@
         "nachts",
         "uhr*"
       ],
-      "answer": "Sie erreichen Julian Köbele telefonisch unter +49 157 34425980 oder per E-Mail an jenaisystems@protonmail.com – oder über das Kontaktformular unten auf dieser Seite. Er meldet sich persönlich, in der Regel innerhalb eines Werktags."
+      "answer": "Sie erreichen Julian Köbele telefonisch unter +49 157 34425980 oder per E-Mail an info@jenaisystems.com – oder über das Kontaktformular unten auf dieser Seite. Er meldet sich persönlich, in der Regel innerhalb eines Werktags."
     },
     {
       "id": "website-check",
@@ -218,7 +218,7 @@
         "kost",
         "kostet"
       ],
-      "answer": "Beim kostenlosen Website-Check schicken Sie den Namen Ihres Unternehmens. Julian Köbele schaut sich Ihre Website und Ihren Google-Eintrag an und sendet Ihnen die fünf wichtigsten Verbesserungen – kostenlos und unverbindlich, in der Regel innerhalb eines Werktags. Anfordern per E-Mail an jenaisystems@protonmail.com (Betreff „Kostenloser Website-Check“) oder über das Kontaktformular auf der Website."
+      "answer": "Beim kostenlosen Website-Check schicken Sie den Namen Ihres Unternehmens. Julian Köbele schaut sich Ihre Website und Ihren Google-Eintrag an und sendet Ihnen die fünf wichtigsten Verbesserungen – kostenlos und unverbindlich, in der Regel innerhalb eines Werktags. Anfordern per E-Mail an info@jenaisystems.com (Betreff „Kostenloser Website-Check“) oder über das Kontaktformular auf der Website."
     },
     {
       "id": "datenschutz-chat",
@@ -329,7 +329,7 @@
         "check*",
         "rabatt*"
       ],
-      "answer": "JenAiSystems macht Websites für kleine Unternehmen, auf Wunsch mit KI-Assistent für Kundenfragen, dazu Google-Unternehmensprofil, Suchmaschinenoptimierung, Fotos (in Jena und Umgebung), Werbung und laufende Betreuung. Die Pakete: „Website Start“ ab 490 € einmalig, „Rundum betreut“ ab 69 € pro Monat und „Sichtbar wachsen“ ab 199 € pro Monat (ohne Umsatzsteuer, Kleinunternehmer nach § 19 UStG). Für alles Weitere schreiben Sie einfach an jenaisystems@protonmail.com."
+      "answer": "JenAiSystems macht Websites für kleine Unternehmen, auf Wunsch mit KI-Assistent für Kundenfragen, dazu Google-Unternehmensprofil, Suchmaschinenoptimierung, Fotos (in Jena und Umgebung), Werbung und laufende Betreuung. Die Pakete: „Website Start“ ab 490 € einmalig, „Rundum betreut“ ab 69 € pro Monat und „Sichtbar wachsen“ ab 199 € pro Monat (ohne Umsatzsteuer, Kleinunternehmer nach § 19 UStG). Für alles Weitere schreiben Sie einfach an info@jenaisystems.com."
     },
     {
       "id": "mensch-oder-ki",
@@ -372,7 +372,7 @@
         "welche*",
         "wofuer"
       ],
-      "answer": "Ich bin ein KI-Assistent, kein Mensch. Persönliche Antworten gibt Julian Köbele: telefonisch unter +49 157 34425980 oder per E-Mail an jenaisystems@protonmail.com."
+      "answer": "Ich bin ein KI-Assistent, kein Mensch. Persönliche Antworten gibt Julian Köbele: telefonisch unter +49 157 34425980 oder per E-Mail an info@jenaisystems.com."
     },
     {
       "id": "hallo",

@@ -34,12 +34,12 @@
 - Texte: Verständliche Texte für Website, Flyer und Speisekarte, die zeigen, was den Betrieb besonders macht | Preis: nicht hinterlegt (auf Kontakt verweisen) | Hinweis: einzeln buchbar, Preis nach Aufwand mit Angebot vorab
 - Monatlicher Bericht: Kurz und verständlich: wie oft der Betrieb gefunden, angerufen oder angefragt wurde | Preis: nicht hinterlegt (auf Kontakt verweisen) | Hinweis: in „Rundum betreut“ enthalten
 - Domain, E-Mail und Technik: Eigene Adresse wie info@ihr-betrieb.de, Hosting, Updates und Sicherheit | Preis: nicht hinterlegt (auf Kontakt verweisen) | Hinweis: Die Domain zahlt der Kunde direkt beim Anbieter, damit sie ihm gehört
-- Kostenloser Website-Check: Der Kunde schickt den Namen seines Unternehmens; Julian Köbele schaut sich Website und Google-Eintrag an und sendet die fünf wichtigsten Verbesserungen | Preis: kostenlos und unverbindlich | Hinweis: anfordern per E-Mail an jenaisystems@protonmail.com (Betreff „Kostenloser Website-Check“) oder über das Kontaktformular auf der Website
+- Kostenloser Website-Check: Der Kunde schickt den Namen seines Unternehmens; Julian Köbele schaut sich Website und Google-Eintrag an und sendet die fünf wichtigsten Verbesserungen | Preis: kostenlos und unverbindlich | Hinweis: anfordern per E-Mail an info@jenaisystems.com (Betreff „Kostenloser Website-Check“) oder über das Kontaktformular auf der Website
 - Erstgespräch: Rund 30 Minuten am Telefon, in Jena und Umgebung gern auch vor Ort. Besprochen wird, was der Betrieb braucht und was nicht | Preis: kostenlos und unverbindlich
 
 ## Preise, Bezahlung, Bestellung
 - Hinweis zu Preisen: Kleinunternehmer gemäß § 19 UStG: Es wird keine Umsatzsteuer berechnet – die Preise sind Endpreise in Euro. Das gilt auch für Rechnungen an Unternehmen in Österreich und der Schweiz. Domain und Werbebudget zahlt der Kunde direkt beim Anbieter, so gehören sie auch ihm. Der genaue Preis hängt vom Umfang ab und steht vor Beginn schriftlich fest. Einzeln buchbare Leistungen (Fotos, Vermittlung von Fotografen, Drohnenaufnahmen, Online-Terminbuchung, Shop und Gutscheine, Texte, KI-Assistent): Preis nach Aufwand, immer mit Angebot vorab.
-- Bestellen/Buchen: So läuft es ab: 1. Kostenloses Erstgespräch am Telefon (in Jena und Umgebung gern vor Ort). 2. Vorschau und Angebot: erster Entwurf als Link zum Anschauen im Browser und ein klares Angebot mit Festpreis – erst dann entscheidet der Kunde. 3. Umsetzung: Website, Google-Profil und alles Weitere; abgestimmt wird per E-Mail oder Telefon, der Kunde gibt Texte und Fotos frei. 4. Betreuung auf Wunsch: laufende Änderungen, Beiträge, Bewertungen und ein kurzer Monatsbericht, monatlich kündbar. Anfragen per E-Mail an jenaisystems@protonmail.com oder über das Kontaktformular unten auf der Website.
+- Bestellen/Buchen: So läuft es ab: 1. Kostenloses Erstgespräch am Telefon (in Jena und Umgebung gern vor Ort). 2. Vorschau und Angebot: erster Entwurf als Link zum Anschauen im Browser und ein klares Angebot mit Festpreis – erst dann entscheidet der Kunde. 3. Umsetzung: Website, Google-Profil und alles Weitere; abgestimmt wird per E-Mail oder Telefon, der Kunde gibt Texte und Fotos frei. 4. Betreuung auf Wunsch: laufende Änderungen, Beiträge, Bewertungen und ein kurzer Monatsbericht, monatlich kündbar. Anfragen per E-Mail an info@jenaisystems.com oder über das Kontaktformular unten auf der Website.
 
 ## Erreichbarkeit
 - Feste Öffnungszeiten: keine
@@ -47,7 +47,7 @@
 
 ## Kontakt
 - Telefon: +49 157 34425980
-- E-Mail: jenaisystems@protonmail.com
+- E-Mail: info@jenaisystems.com
 - Antwortzeit: Julian Köbele meldet sich persönlich, in der Regel innerhalb eines Werktags.
 - Ansprechpartner: Julian Köbele (Gründer von JenAiSystems, Jena)
 - Impressum: https://jenaisystems.com/impressum.html
@@ -81,7 +81,7 @@
 - Frage: Wie rechnen Sie mit Unternehmen in Österreich und der Schweiz ab?
   Antwort: JenAiSystems ist Kleinunternehmer nach § 19 UStG und stellt Rechnungen ohne Umsatzsteuer aus – auch an Unternehmen in Österreich und der Schweiz. Bezahlt wird in Euro per Überweisung. Ob in Ihrem Land eine Steuer auf die Leistung anfällt (z. B. im Reverse-Charge-Verfahren), klären Sie bitte mit Ihrer Steuerberatung.
 - Frage: Was ist der kostenlose Website-Check?
-  Antwort: Sie schicken den Namen Ihres Unternehmens. Julian Köbele schaut sich Ihre Website und Ihren Google-Eintrag an und sendet Ihnen die fünf wichtigsten Verbesserungen – kostenlos und unverbindlich. Anfordern per E-Mail an jenaisystems@protonmail.com oder über das Kontaktformular auf der Website.
+  Antwort: Sie schicken den Namen Ihres Unternehmens. Julian Köbele schaut sich Ihre Website und Ihren Google-Eintrag an und sendet Ihnen die fünf wichtigsten Verbesserungen – kostenlos und unverbindlich. Anfordern per E-Mail an info@jenaisystems.com oder über das Kontaktformular auf der Website.
 - Frage: Was bekomme ich bei JenAiSystems?
   Antwort: Eine Demo des KI-Assistenten zum Ausprobieren, offene Festpreise (die Preise stehen auf der Website, vorab gibt es ein Angebot mit Festpreis), eine Website ohne Cookies und Werbe-Tracker, alle Zugänge auf Ihren Namen und eine monatlich kündbare Betreuung.
 - Frage: Sind die Preise final bzw. verbindlich?

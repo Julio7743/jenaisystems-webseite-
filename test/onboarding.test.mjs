@@ -74,7 +74,7 @@ test('JenAiSystems selbst: gültig, nur Angaben von der Website, nur die freigeg
   const { fehler } = pruefeAntworten(katalog, jenaisystems);
   assert.deepEqual(fehler, []);
   const w = baueWissen(jenaisystems);
-  for (const re of [/ab 490 € einmalig/, /ab 69 € pro Monat/, /ab 199 € pro Monat/, /§ 19 UStG/, /jenaisystems@protonmail\.com/, /\+49 157 34425980/, /Österreich und der Schweiz/, /Drohnenaufnahmen.*auf Anfrage/, /Website-Check/, /Feste Öffnungszeiten: keine/]) assert.match(w, re);
+  for (const re of [/ab 490 € einmalig/, /ab 69 € pro Monat/, /ab 199 € pro Monat/, /§ 19 UStG/, /info@jenaisystems\.com/, /\+49 157 34425980/, /Österreich und der Schweiz/, /Drohnenaufnahmen.*auf Anfrage/, /Website-Check/, /Feste Öffnungszeiten: keine/]) assert.match(w, re);
   assert.doesNotMatch(w, /Montag/, 'keine erfundenen Öffnungszeiten');
   assert.equal((w.match(/\+49 ?\d[\d ]+/g) || []).filter((t) => t.trim() !== '+49 157 34425980').length, 0, 'nur die von Julian freigegebene Telefonnummer');
   const p = baueChatPrompt(jenaisystems, w);
