@@ -82,3 +82,7 @@
   Antwort: JenAiSystems ist Kleinunternehmer nach § 19 UStG und stellt Rechnungen ohne Umsatzsteuer aus – auch an Unternehmen in Österreich und der Schweiz. Bezahlt wird in Euro per Überweisung. Ob in Ihrem Land eine Steuer auf die Leistung anfällt (z. B. im Reverse-Charge-Verfahren), klären Sie bitte mit Ihrer Steuerberatung.
 - Frage: Was ist der kostenlose Website-Check?
   Antwort: Sie schicken den Namen Ihres Unternehmens. Julian Köbele schaut sich Ihre Website und Ihren Google-Eintrag an und sendet Ihnen die fünf wichtigsten Verbesserungen – kostenlos und unverbindlich. Anfordern per E-Mail an jenaisystems@protonmail.com oder über das Kontaktformular auf der Website.
+- Frage: Was bekomme ich bei JenAiSystems?
+  Antwort: Eine Demo des KI-Assistenten zum Ausprobieren, offene Festpreise (die Preise stehen auf der Website, vorab gibt es ein Angebot mit Festpreis), eine Website ohne Cookies und Werbe-Tracker, alle Zugänge auf Ihren Namen und eine monatlich kündbare Betreuung.
+- Frage: Sind die Preise final bzw. verbindlich?
+  Antwort: Ja. Die Paketpreise gelten: Website Start ab 490 € einmalig, Rundum betreut ab 69 € pro Monat, Sichtbar wachsen ab 199 € pro Monat. Den genauen Preis für Ihren Betrieb bekommen Sie vorab als Angebot mit Festpreis. Es wird keine Umsatzsteuer berechnet (Kleinunternehmer nach § 19 UStG), die Preise sind also Endpreise.

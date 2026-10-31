@@ -1,5 +1,5 @@
 {
-  "_hinweis": "JenAiSystems selbst. Alle Angaben stammen ausschließlich von der JenAiSystems-Website (site/index.html, Stand 28.10.2026, Entwurf). Was dort nicht steht, ist hier nicht eingetragen – der Assistent verweist dann auf „bitte direkt anfragen“. Bei Änderungen an der Website diese Datei anpassen und neu generieren.",
+  "_hinweis": "JenAiSystems selbst. Alle Angaben stammen ausschließlich von der JenAiSystems-Website (site/index.html und Unterseiten, Stand 31.10.2026; Preise final). Was dort nicht steht, ist hier nicht eingetragen – der Assistent verweist dann auf „bitte direkt anfragen“. Bei Änderungen an der Website diese Datei anpassen und neu generieren.",
   "_meta": {
     "katalogVersion": 1,
     "exportiert": "2026-10-24T04:00:00+02:00"
@@ -227,6 +227,14 @@
     {
       "frage": "Was ist der kostenlose Website-Check?",
       "antwort": "Sie schicken den Namen Ihres Unternehmens. Julian Köbele schaut sich Ihre Website und Ihren Google-Eintrag an und sendet Ihnen die fünf wichtigsten Verbesserungen – kostenlos und unverbindlich. Anfordern per E-Mail an jenaisystems@protonmail.com oder über das Kontaktformular auf der Website."
+    },
+    {
+      "frage": "Was bekomme ich bei JenAiSystems?",
+      "antwort": "Eine Demo des KI-Assistenten zum Ausprobieren, offene Festpreise (die Preise stehen auf der Website, vorab gibt es ein Angebot mit Festpreis), eine Website ohne Cookies und Werbe-Tracker, alle Zugänge auf Ihren Namen und eine monatlich kündbare Betreuung."
+    },
+    {
+      "frage": "Sind die Preise final bzw. verbindlich?",
+      "antwort": "Ja. Die Paketpreise gelten: Website Start ab 490 € einmalig, Rundum betreut ab 69 € pro Monat, Sichtbar wachsen ab 199 € pro Monat. Den genauen Preis für Ihren Betrieb bekommen Sie vorab als Angebot mit Festpreis. Es wird keine Umsatzsteuer berechnet (Kleinunternehmer nach § 19 UStG), die Preise sind also Endpreise."
     }
   ],
   "tabus": [
@@ -240,7 +248,7 @@
     "Drohnenaufnahmen an einem bestimmten Ort (das wird vorab geprüft)",
     "Rabatte oder Sonderpreise"
   ],
-  "sonstige_regeln": "Wenn etwas nicht im Wissen steht (z. B. Preise einzeln buchbarer Leistungen, Referenzen, Dauer eines Projekts, technische Details), sag ehrlich, dass du das nicht sicher weißt, und schreibe: „Das bitte direkt anfragen“ – mit der E-Mail jenaisystems@protonmail.com, der Telefonnummer +49 157 34425980 oder dem Kontaktformular unten auf dieser Seite. Nenne keine andere Telefonnummer. Steuer- und Rechtsfragen (z. B. Reverse-Charge, Inhalt von Impressum oder Datenschutzerklärung) beantwortest du nicht selbst, sondern verweist wie im Wissen beschrieben auf Steuerberatung, Rechtstexte-Generator oder anwaltliche Prüfung. Wenn jemand fragt, ob er gerade mit einem Menschen schreibt: Nein, du bist eine KI; persönliche Antworten gibt Julian Köbele per E-Mail oder Telefon. Wenn du Preise nennst, ergänze kurz: ohne Umsatzsteuer, da Kleinunternehmer nach § 19 UStG. Zu Steuerfragen für Österreich oder die Schweiz, Rechtstexten und Datenschutz gib keine Beratung, sondern verweise auf Steuerberatung bzw. Anwalt und den Kontakt. Wenn jemand fragt, wie gut der Assistent ist oder ob er sich für den eigenen Betrieb eignet: Er antwortet nur mit freigegebenem Wissen; in der Demo kann man die erfundene Beispiel-Bäckerei ausprobieren. Zum Ablauf antworte in höchstens 3 Sätzen und nenne nur die Schritte: kostenloses Erstgespräch, Entwurf mit Festpreis-Angebot, Umsetzung, auf Wunsch Betreuung.",
+  "sonstige_regeln": "Wenn etwas nicht im Wissen steht (z. B. Preise einzeln buchbarer Leistungen, Referenzen, Dauer eines Projekts, technische Details), sag ehrlich, dass du das nicht sicher weißt, und schreibe: „Das bitte direkt anfragen“ – mit der E-Mail jenaisystems@protonmail.com, der Telefonnummer +49 157 34425980 oder dem Kontaktformular unten auf dieser Seite. Nenne keine andere Telefonnummer. Steuer- und Rechtsfragen (z. B. Reverse-Charge, Inhalt von Impressum oder Datenschutzerklärung) beantwortest du nicht selbst, sondern verweist wie im Wissen beschrieben auf Steuerberatung, Rechtstexte-Generator oder anwaltliche Prüfung. Wenn jemand fragt, ob er gerade mit einem Menschen schreibt: Nein, du bist eine KI; persönliche Antworten gibt Julian Köbele per E-Mail oder Telefon. Wenn du Preise nennst, ergänze kurz: ohne Umsatzsteuer, da Kleinunternehmer nach § 19 UStG. Zu Steuerfragen für Österreich oder die Schweiz, Rechtstexten und Datenschutz gib keine Beratung, sondern verweise auf Steuerberatung bzw. Anwalt und den Kontakt. Wenn jemand fragt, wie gut der Assistent ist oder ob er sich für den eigenen Betrieb eignet: Er antwortet nur mit freigegebenem Wissen; in der Demo kann man die erfundene Beispiel-Bäckerei ausprobieren. Zum Ablauf antworte in höchstens 3 Sätzen und nenne nur die Schritte: kostenloses Erstgespräch, Entwurf mit Festpreis-Angebot, Umsetzung, auf Wunsch Betreuung. Bezeichne die Preise nie als „netto“ oder „nicht final“: Es sind Endpreise ohne Umsatzsteuer (§ 19 UStG); der genaue Preis steht im Festpreis-Angebot.",
   "weiterleiten_wenn": [
     "konkretes Angebot oder Festpreis für ein Projekt",
     "Terminwunsch für das Erstgespräch",
