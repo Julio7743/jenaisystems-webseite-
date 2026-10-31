@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Sicherheit: GitHub Pages kann keine HTTP-Header setzen, daher als meta. Wird der KI-Chat-Worker veröffentlicht, dessen Adresse (z. B. https://<name>.workers.dev) bei connect-src ergänzen. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>JenAiSystems – Websites, Google-Profil &amp; KI-Assistenten aus Jena</title>
 <meta name="description" content="Websites mit optionalem KI-Assistenten, Google-Unternehmensprofil und SEO für kleine Unternehmen – aus Jena, per Videocall für Deutschland, Österreich und die Schweiz. Festpreise, monatlich kündbar.">
 <!--
@@ -15,7 +18,7 @@
    4. Kontaktformular an einen Formulardienst anschließen (siehe Kommentar bei #kontakt).
    5. impressum.html und datenschutz.html mit einem Rechtstexte-Generator befüllen.
    6. Entwurfs-Leiste (div class="draft") zum offiziellen Start entfernen.
-   10. E-Mail, Telefon und Formular-Versand: KONTAKT-Einstellungen im Script am Ende der Seite.
+   10. E-Mail, Telefon und Formular-Versand: KONTAKT-Einstellungen in main.js.
    11. Foto: site/img/julian.jpg ablegen (siehe Kommentar bei #ueber-mich).
    7. Abrechnung mit Firmenkunden in Österreich/Schweiz vorab mit Steuerberatung bzw. Finanzamt klären
       (z. B. ob eine USt-IdNr. nötig ist und welcher Rechnungshinweis zur Steuerschuldnerschaft passt) – siehe FAQ.
@@ -348,7 +351,7 @@
         <div class="me-h">
           <!-- FOTO: ein echtes Foto von Julian als site/img/julian.jpg ablegen (quadratisch, mind. 240×240 px). Keine Stock- oder KI-Gesichter.
                Solange die Datei fehlt, erscheint automatisch der neutrale Platzhalter. -->
-          <span class="photo"><img src="img/julian.jpg" alt="Julian Köbele" width="72" height="72" loading="lazy" onerror="this.remove()"><svg class="ph" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="9" r="3.6"/><path d="M5 20c.8-3.6 3.6-5.6 7-5.6s6.2 2 7 5.6"/></svg></span>
+          <span class="photo"><img src="img/julian.jpg" alt="Julian Köbele" width="72" height="72" loading="lazy"><svg class="ph" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="9" r="3.6"/><path d="M5 20c.8-3.6 3.6-5.6 7-5.6s6.2 2 7 5.6"/></svg></span>
           <div><b>Julian Köbele</b><span>Gründer von JenAiSystems · Jena</span></div>
         </div>
         <p>Ich helfe kleinen Unternehmen, online so gut auszusehen, wie sie wirklich sind. Dafür nutze ich moderne Werkzeuge – auch künstliche Intelligenz –, damit gute Ergebnisse schnell und bezahlbar entstehen.</p>
@@ -383,7 +386,7 @@
 </section>
 
 <!--
-  KONTAKT: Formular-Versand über Web3Forms – Schlüssel WEB3FORMS_ACCESS_KEY im Script am Ende der Seite eintragen.
+  KONTAKT: Formular-Versand über Web3Forms – Einstellungen (E-Mail, Telefon, Schlüssel) in main.js.
   "in der Regel innerhalb eines Werktags" nur stehen lassen, wenn Sie das zusagen können.
 -->
 <section id="kontakt" class="contact">
@@ -392,7 +395,7 @@
       <span class="eyebrow">Kostenloser Website-Check &amp; Erstgespräch</span>
       <h2>Erzählen Sie mir von Ihrem Betrieb.</h2>
       <div class="hello">
-        <span class="photo"><img src="img/julian.jpg" alt="" width="72" height="72" loading="lazy" onerror="this.remove()"><svg class="ph" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="9" r="3.6"/><path d="M5 20c.8-3.6 3.6-5.6 7-5.6s6.2 2 7 5.6"/></svg></span>
+        <span class="photo"><img src="img/julian.jpg" alt="" width="72" height="72" loading="lazy"><svg class="ph" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="9" r="3.6"/><path d="M5 20c.8-3.6 3.6-5.6 7-5.6s6.2 2 7 5.6"/></svg></span>
         <p>Schicken Sie mir einfach den Namen Ihres Unternehmens. Ich schaue mir Website und Google-Eintrag an und sende Ihnen die fünf wichtigsten Verbesserungen – kostenlos und unverbindlich. <b>Ich melde mich persönlich</b>, in der Regel innerhalb eines Werktags.</p>
       </div>
       <ul class="c-list">
@@ -407,12 +410,12 @@
       <input type="hidden" name="subject" value="Anfrage über jenaisystems.com">
       <input type="hidden" name="from_name" value="JenAiSystems Website">
       <div class="f-row">
-        <div class="f"><label for="f-name">Ihr Name</label><input id="f-name" name="name" autocomplete="name" required></div>
-        <div class="f"><label for="f-firma">Unternehmen <span>(optional)</span></label><input id="f-firma" name="betrieb" autocomplete="organization"></div>
+        <div class="f"><label for="f-name">Ihr Name</label><input id="f-name" name="name" autocomplete="name" maxlength="100" required></div>
+        <div class="f"><label for="f-firma">Unternehmen <span>(optional)</span></label><input id="f-firma" name="betrieb" autocomplete="organization" maxlength="120"></div>
       </div>
       <div class="f-row">
-        <div class="f"><label for="f-mail">E-Mail</label><input id="f-mail" name="email" type="email" autocomplete="email" required></div>
-        <div class="f"><label for="f-tel">Telefon <span>(optional)</span></label><input id="f-tel" name="telefon" type="tel" autocomplete="tel"></div>
+        <div class="f"><label for="f-mail">E-Mail</label><input id="f-mail" name="email" type="email" autocomplete="email" maxlength="254" required></div>
+        <div class="f"><label for="f-tel">Telefon <span>(optional)</span></label><input id="f-tel" name="telefon" type="tel" autocomplete="tel" maxlength="40"></div>
       </div>
       <div class="f"><label for="f-topic">Worum geht es?</label>
         <select id="f-topic" name="thema">
@@ -426,7 +429,7 @@
           <option>Etwas anderes</option>
         </select>
       </div>
-      <div class="f"><label for="f-msg">Ihre Nachricht</label><textarea id="f-msg" name="nachricht" placeholder="z. B. Wir sind ein Café in Leipzig, unsere Website ist www.…"></textarea></div>
+      <div class="f"><label for="f-msg">Ihre Nachricht</label><textarea id="f-msg" name="nachricht" maxlength="5000" placeholder="z. B. Wir sind ein Café in Leipzig, unsere Website ist www.…"></textarea></div>
       <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true"><!-- Spam-Falle (Honeypot) für Web3Forms -->
       <label class="consent"><input type="checkbox" id="f-ok" required><span>Ich bin einverstanden, dass meine Angaben zur Bearbeitung meiner Anfrage verwendet werden. Mehr dazu in der <a href="datenschutz.html">Datenschutzerklärung</a>.</span></label>
       <button class="btn btn-amber" type="submit">Anfrage senden <svg aria-hidden="true"><use href="#arrow"/></svg></button>
@@ -452,85 +455,8 @@
   </div>
 </footer>
 
-<script>
-/* ============================================================
-   KONTAKT-EINSTELLUNGEN – nur hier ändern (TODO Julian):
-   - email:   wird überall angezeigt (Kontakt, Fußzeile, mailto). Später möglich: info@jenaisystems.com als
-              Weiterleitung auf dieses Postfach.
-   - telefon: leer = Telefonnummer und Anrufen-Knopf werden nirgends angezeigt.
-   - WEB3FORMS_ACCESS_KEY: Schlüssel für den Formular-Versand über Web3Forms (kein Konto nötig):
-              1. https://web3forms.com öffnen, bei "Create your Access Key" jenaisystems@protonmail.com eingeben.
-              2. Web3Forms schickt den Schlüssel an dieses Postfach (Format wie 12345678-abcd-...).
-              3. Den Schlüssel unten statt 'WEB3FORMS_ACCESS_KEY' eintragen – fertig.
-              Eingetragen am 31.10.2026. Steht hier wieder 'WEB3FORMS_ACCESS_KEY', öffnet das Formular das E-Mail-Programm (mailto).
-              Klappt das Senden nicht, springt das Formular automatisch auf mailto zurück.
-              WICHTIG: Web3Forms als Empfänger/Auftragsverarbeiter in der Datenschutzerklärung nennen.
-   ============================================================ */
-var WEB3FORMS_ACCESS_KEY = 'dd0572f7-260e-4e5d-9ceb-30e66d1606f6'; // öffentlicher Web3Forms-Schlüssel für jenaisystems@protonmail.com
-var KONTAKT = {
-  email: 'jenaisystems@protonmail.com',
-  telefon: '+49 157 34425980',
-  formular: { endpoint: 'https://api.web3forms.com/submit', accessKey: WEB3FORMS_ACCESS_KEY }
-};
-(function(){
-  var K=KONTAKT;
-  [].forEach.call(document.querySelectorAll('[data-k="email"]'),function(a){a.href='mailto:'+K.email;a.textContent=K.email});
-  [].forEach.call(document.querySelectorAll('[data-k="telefon"]'),function(a){a.href='tel:'+K.telefon.replace(/[^\d+]/g,'');a.textContent=K.telefon});
-  [].forEach.call(document.querySelectorAll('[data-k="telefon-btn"]'),function(a){a.href='tel:'+K.telefon.replace(/[^\d+]/g,'');a.setAttribute('aria-label','Anrufen: '+K.telefon)});
-  [].forEach.call(document.querySelectorAll('[data-k-wrap="telefon"]'),function(el){el.hidden=!K.telefon});
-
-  var b=document.querySelector('.menu-btn'),m=document.getElementById('menu');
-  b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Menü schließen':'Menü öffnen')});
-  m.addEventListener('click',function(e){if(e.target.tagName==='A'){m.classList.remove('open');b.setAttribute('aria-expanded','false')}});
-  document.getElementById('y').textContent=new Date().getFullYear();
-
-  // Buttons mit data-thema wählen das passende Thema im Formular vor
-  var sel=document.getElementById('f-topic');
-  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-thema]');if(a)sel.value=a.getAttribute('data-thema')});
-
-  var f=document.getElementById('contact-form'),n=document.getElementById('f-note');
-  var aktiv=!!(K.formular.endpoint&&K.formular.accessKey&&K.formular.accessKey!=='WEB3FORMS_ACCESS_KEY');
-  f.elements.access_key.value=aktiv?K.formular.accessKey:'';
-  if(aktiv)n.textContent='Ihre Nachricht wird direkt an mich gesendet.';
-  function g(id){return document.getElementById(id).value.trim()}
-  function mailto(){
-    var body='Name: '+g('f-name')+'\nUnternehmen: '+g('f-firma')+'\nE-Mail: '+g('f-mail')+'\nTelefon: '+g('f-tel')+'\n\n'+g('f-msg');
-    location.href='mailto:'+K.email+'?subject='+encodeURIComponent('Anfrage über JenAiSystems: '+g('f-topic'))+'&body='+encodeURIComponent(body);
-    n.style.color='';n.textContent='Ihr E-Mail-Programm sollte sich jetzt öffnen. Falls nicht, schreiben Sie direkt an '+K.email+'.';
-  }
-  f.addEventListener('submit',function(e){
-    e.preventDefault();
-    if(!g('f-name')||!/^\S+@\S+\.\S+$/.test(g('f-mail'))){n.textContent='Bitte geben Sie Ihren Namen und eine gültige E-Mail-Adresse an.';n.style.color='#b3261e';return}
-    if(!document.getElementById('f-ok').checked){n.textContent='Bitte bestätigen Sie kurz den Hinweis zum Datenschutz.';n.style.color='#b3261e';return}
-    if(f.botcheck.checked)return; // Spam-Falle: echte Besucher sehen dieses Feld nicht
-    if(!aktiv||!window.fetch){mailto();return}
-    var data={access_key:K.formular.accessKey,subject:'Anfrage über JenAiSystems: '+g('f-topic'),from_name:'JenAiSystems Website',name:g('f-name'),betrieb:g('f-firma'),email:g('f-mail'),telefon:g('f-tel'),thema:g('f-topic'),nachricht:g('f-msg'),botcheck:f.botcheck.checked};
-    n.style.color='';n.textContent='Wird gesendet …';
-    fetch(K.formular.endpoint,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)})
-      .then(function(r){return r.json().catch(function(){return{}}).then(function(j){if(!r.ok||j.success===false)throw 0})})
-      .then(function(){f.reset();n.textContent='Danke! Ihre Nachricht ist angekommen – ich melde mich persönlich bei Ihnen.'})
-      .catch(function(){n.style.color='#b3261e';n.textContent='Das Senden hat leider nicht geklappt. Ich öffne stattdessen Ihr E-Mail-Programm …';setTimeout(mailto,1200)});
-  });
-})();
-</script>
 <script type="application/json" id="telefon-demo-daten">{"betrieb":"Beispiel-Bäckerei Sonnenkorn","szenarien":[{"id":"baeckerei","titel":"Tortenbestellung","verlauf":[{"rolle":"bot","text":"Guten Tag, Sie sind bei Beispiel-Bäckerei Sonnenkorn in Beispielstadt. Ich bin der digitale Telefon-Assistent – eine künstliche Intelligenz. Gerade ist leider niemand persönlich erreichbar. Ich notiere Ihr Anliegen schriftlich für das Team, das Gespräch wird nicht aufgenommen. Infos zum Datenschutz finden Sie auf beispiel-baeckerei.example/datenschutz. Bei Lebensgefahr wählen Sie bitte sofort die 112. Worum geht es bei Ihnen?"},{"rolle":"anrufer","text":"Ich würde gern eine Geburtstagstorte für Samstag bestellen."},{"rolle":"bot","text":"Wie ist Ihr Name?"},{"rolle":"anrufer","text":"Ich bin Max Muster"},{"rolle":"bot","text":"Unter welcher Nummer erreichen wir Sie am besten?"},{"rolle":"anrufer","text":"0176 1234567"},{"rolle":"bot","text":"Gibt es einen Wunschzeitraum?"},{"rolle":"anrufer","text":"Samstag Vormittag"},{"rolle":"bot","text":"Ich fasse zusammen: Ich würde gern eine Geburtstagstorte für Samstag bestellen, Name Max Muster, Rückruf unter 0176 12 34 56 7. Stimmt das so?"},{"rolle":"anrufer","text":"ja"},{"rolle":"bot","text":"Vielen Dank! Wir melden uns am nächsten Werktag. Auf Wiederhören."}],"zusammenfassung":"Betreff: [Telefon] normal – Ich würde gern eine Geburtstagstorte für Samstag b – Max Muster\n\nNeuer Anruf über den Telefon-Assistenten\nDringlichkeit: normal\nAnliegen: Ich würde gern eine Geburtstagstorte für Samstag bestellen\nOrt: –\nName: Max Muster\nRückruf: 0176 12 34 56 7 (bestätigt)\nWunschzeitraum: Samstag Vormittag\nNicht im Angebot: nein\nKI abgelehnt: nein\nNotfall-Hinweis gegeben: nein\nGesprächsende: fertig\n---\nKein Audio gespeichert. Transkript wird nach 30 Tagen gelöscht. Der Assistent ruft nie selbst zurück."},{"id":"notfall","titel":"Notfall: 112-Hinweis","verlauf":[{"rolle":"bot","text":"Guten Tag, Sie sind bei Beispiel-Bäckerei Sonnenkorn in Beispielstadt. Ich bin der digitale Telefon-Assistent – eine künstliche Intelligenz. Gerade ist leider niemand persönlich erreichbar. Ich notiere Ihr Anliegen schriftlich für das Team, das Gespräch wird nicht aufgenommen. Infos zum Datenschutz finden Sie auf beispiel-baeckerei.example/datenschutz. Bei Lebensgefahr wählen Sie bitte sofort die 112. Worum geht es bei Ihnen?"},{"rolle":"anrufer","text":"Hilfe, es brennt in der Küche!"},{"rolle":"bot","text":"Bitte legen Sie sofort auf und wählen Sie die 112. Ich gebe dem Team Bescheid, dass Sie angerufen haben."}],"zusammenfassung":"Betreff: [Telefon] NOTFALL – Anruf ohne Anliegen – ohne Namen\n\nNeuer Anruf über den Telefon-Assistenten\nDringlichkeit: NOTFALL – 112/Entstörung empfohlen\nAnliegen: –\nOrt: –\nName: –\nRückruf: –\nWunschzeitraum: –\nNicht im Angebot: nein\nKI abgelehnt: nein\nNotfall-Hinweis gegeben: ja\nGesprächsende: notfall_extern\n---\nKein Audio gespeichert. Transkript wird nach 30 Tagen gelöscht. Der Assistent ruft nie selbst zurück."},{"id":"keine_ki","titel":"Möchte nicht mit einer KI sprechen","verlauf":[{"rolle":"bot","text":"Guten Tag, Sie sind bei Beispiel-Bäckerei Sonnenkorn in Beispielstadt. Ich bin der digitale Telefon-Assistent – eine künstliche Intelligenz. Gerade ist leider niemand persönlich erreichbar. Ich notiere Ihr Anliegen schriftlich für das Team, das Gespräch wird nicht aufgenommen. Infos zum Datenschutz finden Sie auf beispiel-baeckerei.example/datenschutz. Bei Lebensgefahr wählen Sie bitte sofort die 112. Worum geht es bei Ihnen?"},{"rolle":"anrufer","text":"Ich will mit keiner KI reden."},{"rolle":"bot","text":"Kein Problem. Sie können es zu unseren Bürozeiten wieder versuchen: Montag 06:30 bis 18:00, Dienstag 06:30 bis 18:00, Mittwoch 06:30 bis 18:00, Donnerstag 06:30 bis 18:00, Freitag 06:30 bis 18:00, Samstag 07:00 bis 13:00. Oder Sie nennen mir nur Ihren Namen und Ihre Rückrufnummer, dann meldet sich das Team."},{"rolle":"anrufer","text":"Max Muster"},{"rolle":"bot","text":"Unter welcher Nummer erreichen wir Sie am besten?"},{"rolle":"anrufer","text":"0176 1234567"},{"rolle":"bot","text":"Ich fasse zusammen: Name Max Muster, Rückruf unter 0176 12 34 56 7. Stimmt das so?"},{"rolle":"anrufer","text":"Ja"},{"rolle":"bot","text":"Vielen Dank! Wir melden uns am nächsten Werktag. Auf Wiederhören."}],"zusammenfassung":"Betreff: [Telefon] normal – Anruf ohne Anliegen – Max Muster\n\nNeuer Anruf über den Telefon-Assistenten\nDringlichkeit: normal\nAnliegen: –\nOrt: –\nName: Max Muster\nRückruf: 0176 12 34 56 7 (bestätigt)\nWunschzeitraum: –\nNicht im Angebot: nein\nKI abgelehnt: ja\nNotfall-Hinweis gegeben: nein\nGesprächsende: fertig\n---\nKein Audio gespeichert. Transkript wird nach 30 Tagen gelöscht. Der Assistent ruft nie selbst zurück."}]}</script>
-<script>
-// Telefon-Demo: spielt Beispielanrufe der Offline-Engine (P0) als Text ab. Daten: scripts/build-site.mjs
-(function(){
-  var box=document.getElementById('telefon-demo'); if(!box) return;
-  var data; try{data=JSON.parse(document.getElementById('telefon-demo-daten').textContent)}catch(e){return}
-  var tabs=box.querySelector('.tel-tabs'),log=box.querySelector('.tel-log'),sum=box.querySelector('.tel-sum'),pre=sum.querySelector('pre');
-  var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,timer;
-  function line(m){var d=document.createElement('div');d.className='tl '+(m.rolle==='bot'?'bot':'caller');var w=document.createElement('small');w.textContent=m.rolle==='bot'?'KI-Telefonassistent':'Anrufer (Beispiel)';var t=document.createElement('p');t.textContent=m.text;d.appendChild(w);d.appendChild(t);log.appendChild(d);log.scrollTop=log.scrollHeight}
-  function show(sc,animate){
-    clearTimeout(timer);log.textContent='';pre.textContent=sc.zusammenfassung;sum.open=false;sum.hidden=true;
-    [].forEach.call(tabs.children,function(b){b.setAttribute('aria-pressed',b.dataset.id===sc.id?'true':'false')});
-    var i=0;(function next(){if(i>=sc.verlauf.length){sum.hidden=false;if(!animate)log.scrollTop=0;return}line(sc.verlauf[i++]);if(animate&&!still)timer=setTimeout(next,i===1?900:1100);else next()})();
-  }
-  data.szenarien.forEach(function(sc){var b=document.createElement('button');b.type='button';b.className='tel-tab';b.dataset.id=sc.id;b.textContent=sc.titel;b.addEventListener('click',function(){show(sc,true)});tabs.appendChild(b)});
-  show(data.szenarien[0],false);
-})();
-</script>
+<script src="main.js" defer></script>
 <!-- KI-Chat (JenAiSystems-Assistent + Demo-Modus mit erfundener Bäckerei). data-endpoint="" = gleiche Adresse (lokaler Testserver).
      TODO vor Livegang: data-endpoint="https://<worker>.workers.dev" setzen (siehe assistant/README.md). -->
 <script src="jenaisystems-chat.js" data-client="jenaisystems" data-endpoint="" data-demo="beispiel" data-main-label="JenAiSystems" data-demo-label="Demo: Bäckerei" data-contact="#kontakt" data-privacy="datenschutz.html#chat" data-compact-mobile="true" defer></script>
