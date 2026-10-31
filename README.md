@@ -25,7 +25,7 @@ Nur der Ordner `site/` wird veröffentlicht (GitHub Pages, Workflow `.github/wor
 ### Vor dem offiziellen Start (Launch-Liste)
 
 - Entwurfs-Leiste (`div class="draft"`) in `site/index.html` entfernen.
-- Impressum und Datenschutzerklärung mit echten Angaben füllen (derzeit Platzhalter). Web3Forms als Empfänger nennen.
+- Impressum und Datenschutzerklärung sind ausgefüllt (Stand Oktober 2026). Bei jedem neuen Dienst (z. B. Videocall-Werkzeug, Analyse) die Datenschutzerklärung anpassen.
 - Web3Forms-Schlüssel ist eingetragen (`WEB3FORMS_ACCESS_KEY` in `site/main.js`). Einmal eine Testnachricht schicken.
 - KI-Chat: Worker veröffentlichen und `data-endpoint` setzen (siehe `assistant/README.md`).
 - E-Mail, Telefon und Formular stehen gesammelt in den KONTAKT-Einstellungen oben in `site/main.js`.
@@ -75,7 +75,7 @@ Alles andere im Repo (Kunden, Preise, Telefon-Doku, Rechtsfragen) wird **nicht**
   (kopiert auch das Widget nach `site/jenaisystems-chat.js`). Der Test prüft, dass `site/` aktuell ist.
 - **Limits:** Beide Assistenten zählen getrennt. JenAiSystems: 1000 Anfragen/Monat, 8/Minute. Demo: 300/Monat, 5/Minute.
 - **Vor dem Livegang:** Worker veröffentlichen und in `site/index.html` beim Chat-Script `data-endpoint` setzen,
-  Datenschutzerklärung um den Chat ergänzen (Platzhalter `#chat` in `site/datenschutz.html`).
+  Der Chat-Abschnitt steht in `site/datenschutz.html#chat`; bei Anbieterwechsel anpassen.
 - **Screenshots:** `npm run dev`, dann z. B.
   `node scripts/screenshot.mjs http://localhost:8787/site/ docs/screenshots/site-chat-preisfrage.png 1280 0 800 scripts/shots/chat-preis.js`
   (weitere Abläufe in `scripts/shots/`).
