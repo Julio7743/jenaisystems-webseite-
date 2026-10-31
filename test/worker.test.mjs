@@ -143,7 +143,7 @@ test('Worker: Config für Demo meldet „beispiel“, JenAiSystems mit freigegeb
   const j = await (await worker.fetch(new Request('https://w.example/api/config?client=jenaisystems'), {}, null)).json();
   assert.equal(j.beispiel, false);
   assert.equal(j.phone, '+49 157 34425980');
-  assert.equal(j.email, 'jenaisystems@protonmail.com');
+  assert.equal(j.email, 'info@jenaisystems.com');
   assert.match(j.greeting, /KI/);
 });
 
@@ -202,7 +202,7 @@ test('Tagesgrenze GLOBAL_DAILY_CAP schützt das Gratis-Kontingent', async () => 
 
 test('Prompt JenAiSystems: Kontakt, Preise, § 19, keine Datensammlung; Demo als erfunden markiert', () => {
   const p = CLIENTS.jenaisystems.chat.systemPrompt;
-  for (const re of [/jenaisystems@protonmail\.com/, /\+49 157 34425980/, /490 €/, /69 €/, /199 €/, /§ 19 UStG/, /Website-Check/, /keine personenbezogenen Daten/, /Keine Rechts-, Steuer-/, /„Sie“/]) assert.match(p, re);
+  for (const re of [/info@jenaisystems\.com/, /\+49 157 34425980/, /490 €/, /69 €/, /199 €/, /§ 19 UStG/, /Website-Check/, /keine personenbezogenen Daten/, /Keine Rechts-, Steuer-/, /„Sie“/]) assert.match(p, re);
   assert.match(CLIENTS.beispiel.chat.systemPrompt, /ERFUNDEN/);
 });
 
