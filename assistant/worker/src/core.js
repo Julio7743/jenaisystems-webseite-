@@ -1,4 +1,5 @@
 // Reine Logik des Chat-Workers (ohne Cloudflare-spezifische APIs), damit sie mit Node getestet werden kann.
+import { selectKnowledge, isSimpleQuestion } from './sparen.js';
 
 export const MAX_HISTORY = 8;          // so viele letzte Nachrichten gehen an das Modell
 export const MAX_MESSAGE_CHARS = 800;  // längere Nachrichten werden abgeschnitten
@@ -8,6 +9,11 @@ export const MAX_ANSWER_TOKENS = 350;
 // Mistral Small 3.1: gut auf Deutsch, günstig bei Antworten (≈ 31.876 Neurons/M Eingabe, 50.488/M Ausgabe).
 export const DEFAULT_WORKERS_AI_MODEL = '@cf/mistralai/mistral-small-3.1-24b-instruct';
 export const FALLBACK_WORKERS_AI_MODEL = '@cf/meta/llama-3.3-70b-instruct-fp8-fast';
+// Empfohlenes kleines Modell für kurze, einfache Fragen (Test Okt. 2026: flüssiges Deutsch, Sie-Form, ≈ 5× weniger Neurons
+// als Mistral, aber ungenauer: spricht teils als „ich“ statt über Julian Köbele, vergisst Pflicht-Hinweise).
+// Deshalb standardmäßig AUS; einschalten mit WORKERS_AI_SMALL_MODEL in wrangler.toml.
+// Llama 3.1 8B wurde verworfen: duzt trotz Anweisung und widerspricht sich auf Deutsch.
+export const SMALL_WORKERS_AI_MODEL = '@cf/qwen/qwen3-30b-a3b-fp8';
 
 /** CORS: nur Domains aus der Kunden-Konfiguration. */
 export function corsHeaders(origin, client) {
@@ -38,6 +44,20 @@ export function cleanHistory(messages) {
 
 export function buildMessages(client, history) {
   return [{ role: 'system', content: client.chat.systemPrompt }, ...history];
+}
+
+/**
+ * Plant eine KI-Antwort sparsam: nur der passende Wissens-Auszug und – bei einfachen Fragen – das kleine Modell.
+ * Ganzes Wissen statt Auszug: RETRIEVAL="off". Kleines Modell nur, wenn WORKERS_AI_SMALL_MODEL gesetzt ist.
+ */
+export function planChat(client, history, env = {}) {
+  const k = env.RETRIEVAL === 'off' ? { prompt: client.chat.systemPrompt, mode: 'voll' } : selectKnowledge(client, history);
+  const main = env.WORKERS_AI_MODEL || DEFAULT_WORKERS_AI_MODEL;
+  const fb = env.WORKERS_AI_FALLBACK_MODEL === '' ? null : (env.WORKERS_AI_FALLBACK_MODEL || FALLBACK_WORKERS_AI_MODEL);
+  const small = env.WORKERS_AI_SMALL_MODEL || null; // leer/nicht gesetzt = aus
+  const simple = Boolean(small) && isSimpleQuestion(history, k.mode);
+  const models = [...new Set((simple ? [small, main] : [main, fb]).filter(Boolean))];
+  return { messages: [{ role: 'system', content: k.prompt }, ...history], models, knowledge: k.mode, simple };
 }
 
 /** Entfernt E-Mail-Adressen, Telefonnummern und IBANs aus Text (für das optionale anonyme Fragen-Log). */
@@ -130,24 +150,44 @@ export function llmConfigured(env) {
 }
 
 /** Einheitlicher Aufruf für beide Anbieter. */
-export async function callAI(env, messages, fetchImpl = fetch) {
-  return llmProvider(env) === 'workers-ai' ? callWorkersAI(env, messages) : callLLM(env, messages, fetchImpl);
+export async function callAI(env, messages, fetchImpl = fetch, models = null) {
+  return llmProvider(env) === 'workers-ai' ? callWorkersAI(env, messages, models) : callLLM(env, messages, fetchImpl);
+}
+
+/** Qwen3 denkt sonst erst laut nach; „/no_think“ schaltet das ab. Denk-Blöcke werden zur Sicherheit entfernt. */
+function prepareFor(model, messages) {
+  if (!/qwen3/i.test(model)) return messages;
+  const out = messages.map((m) => ({ ...m }));
+  for (let i = out.length - 1; i >= 0; i -= 1) {
+    if (out[i].role === 'user') { out[i].content = `${out[i].content} /no_think`; break; }
+  }
+  return out;
+}
+export function cleanModelText(text) {
+  return String(text || '').replace(/<think>[\s\S]*?<\/think>/gi, '').replace(/^[\s\S]*<\/think>/i, '').trim();
 }
 
 /** Cloudflare Workers AI über das Binding env.AI. Fällt bei einem Fehler einmal auf das Ersatzmodell zurück. */
-export async function callWorkersAI(env, messages) {
+export async function callWorkersAI(env, messages, modelList = null) {
   if (!env.AI || typeof env.AI.run !== 'function') throw new Error('Workers-AI-Binding fehlt');
   const max_tokens = Number.parseInt(env.LLM_MAX_TOKENS || '', 10) || MAX_ANSWER_TOKENS;
-  const models = [env.WORKERS_AI_MODEL || DEFAULT_WORKERS_AI_MODEL];
-  const fb = env.WORKERS_AI_FALLBACK_MODEL === '' ? null : (env.WORKERS_AI_FALLBACK_MODEL || FALLBACK_WORKERS_AI_MODEL);
-  if (fb && fb !== models[0]) models.push(fb);
+  let models = modelList && modelList.length ? [...modelList] : null;
+  if (!models) {
+    models = [env.WORKERS_AI_MODEL || DEFAULT_WORKERS_AI_MODEL];
+    const fb = env.WORKERS_AI_FALLBACK_MODEL === '' ? null : (env.WORKERS_AI_FALLBACK_MODEL || FALLBACK_WORKERS_AI_MODEL);
+    if (fb && fb !== models[0]) models.push(fb);
+  }
   let last;
   for (const model of models) {
     try {
-      const out = await env.AI.run(model, { messages, max_tokens, temperature: 0.2 });
+      const out = await env.AI.run(model, { messages: prepareFor(model, messages), max_tokens, temperature: 0.2 });
       let text = out?.response ?? out?.choices?.[0]?.message?.content ?? (typeof out === 'string' ? out : '');
       if (Array.isArray(text)) text = text.filter((c) => c && c.type === 'text').map((c) => c.text).join('');
-      if (typeof text === 'string' && text.trim()) return text.trim();
+      text = cleanModelText(text);
+      if (text) {
+        if (env.CHAT_DEBUG_LOG === 'true') console.log('ki', model, 'neurons', out?.usage?.neurons ?? '?', 'prompt_tokens', out?.usage?.prompt_tokens ?? '?');
+        return text;
+      }
       last = new Error('Leere Antwort vom Modell');
     } catch (e) { last = e; }
   }

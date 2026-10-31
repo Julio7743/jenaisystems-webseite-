@@ -67,7 +67,7 @@ test('Worker: fremde Domain wird abgelehnt', async () => {
 });
 
 test('Worker: ohne API-Schlüssel freundlicher Hinweis mit Kontakt', async () => {
-  const r = await worker.fetch(req({ client: 'beispiel', messages: [{ role: 'user', content: 'Hi' }] }), {}, null);
+  const r = await worker.fetch(req({ client: 'beispiel', messages: [{ role: 'user', content: 'Kann ich eine Torte bestellen?' }] }), {}, null);
   assert.equal(r.status, 503);
   assert.match((await r.json()).reply, /Telefon|E-Mail/);
 });
@@ -179,7 +179,7 @@ test('Workers AI: Standardmodell Mistral Small 3.1, Ersatzmodell bei Fehler', as
 
 test('Worker über Workers AI: Antwort für jenaisystems.com, fremde Domain abgelehnt, System-Prompt vorn', async () => {
   const ai = fakeAI([{ response: 'Eine Website gibt es ab 490 € einmalig, ohne Umsatzsteuer (§ 19 UStG).' }]);
-  const mk = (origin) => new Request('https://w.example/api/chat?client=jenaisystems', { method: 'POST', headers: { 'Content-Type': 'application/json', Origin: origin, 'CF-Connecting-IP': `ip-wai-${Math.random()}` }, body: JSON.stringify({ client: 'jenaisystems', messages: [{ role: 'user', content: 'Was kostet eine Website?' }] }) });
+  const mk = (origin) => new Request('https://w.example/api/chat?client=jenaisystems', { method: 'POST', headers: { 'Content-Type': 'application/json', Origin: origin, 'CF-Connecting-IP': `ip-wai-${Math.random()}` }, body: JSON.stringify({ client: 'jenaisystems', messages: [{ role: 'user', content: 'Was kostet eine Website mit drei Seiten?' }] }) });
   const r = await worker.fetch(mk('https://jenaisystems.com'), { AI: ai }, null);
   assert.equal(r.status, 200);
   assert.equal(r.headers.get('Access-Control-Allow-Origin'), 'https://jenaisystems.com');

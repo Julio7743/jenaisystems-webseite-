@@ -7,8 +7,9 @@
 import { CLIENTS } from './clients.generated.js';
 import {
   corsHeaders, originAllowed, cleanHistory, buildMessages, redact, monthKey,
-  MinuteLimiter, MonthlyCounter, checkCaps, countRequest, callAI, llmConfigured, publicConfig, fallbackText,
+  MinuteLimiter, MonthlyCounter, checkCaps, countRequest, callAI, llmConfigured, publicConfig, fallbackText, planChat,
 } from './core.js';
+import { findFastAnswer, ensureDemoNotice } from './sparen.js';
 
 const limiter = new MinuteLimiter();
 const memoryCounts = new Map();
@@ -75,20 +76,29 @@ export default {
         return json({ error: 'rate', reply: 'Bitte einen kleinen Moment warten und dann erneut fragen.' }, 429, cors);
       }
 
+      // Schnellantwort: eindeutige Standardfragen ohne KI. Zählt NICHT gegen die KI-Limits und schreibt nichts in KV
+      // (spart auch KV-Schreibvorgänge); das Minuten-Limit oben gilt trotzdem. Abschalten mit FAST_ANSWERS="off".
+      if (env.FAST_ANSWERS !== 'off') {
+        const fast = findFastAnswer(client, history);
+        if (fast) return json({ reply: fast.reply, source: 'faq' }, 200, cors);
+      }
+
       const counter = new MonthlyCounter(env.USAGE, memoryCounts);
       const caps = await checkCaps(counter, client, env);
       if (!caps.ok) return json({ error: 'cap', reply: fallbackText(client) }, 429, cors);
       if (!llmConfigured(env)) return json({ error: 'not configured', reply: fallbackText(client) }, 503, cors);
 
       try {
-        const reply = await callAI(env, buildMessages(client, history));
+        const plan = planChat(client, history, env);
+        if (env.CHAT_DEBUG_LOG === 'true') console.log('plan', client.id, plan.knowledge, plan.simple ? 'einfach' : 'normal', 'prompt_chars', plan.messages[0].content.length);
+        const reply = ensureDemoNotice(client, history[history.length - 1].content, await callAI(env, plan.messages, fetch, plan.models));
         const done = countRequest(counter, client).catch(() => {}); // KV-Schreibfehler dürfen den Chat nicht stören
         const question = history[history.length - 1].content;
         const log = client.logQuestions && env.LOG_QUESTIONS === 'true' && env.USAGE
           ? env.USAGE.put(`q:${client.id}:${monthKey()}:${Date.now()}-${Math.random().toString(36).slice(2, 7)}`, redact(question), { expirationTtl: 60 * 60 * 24 * 90 })
           : null;
         if (ctx?.waitUntil) { ctx.waitUntil(done); if (log) ctx.waitUntil(log); } else { await done; await log; }
-        return json({ reply }, 200, cors);
+        return json({ reply, source: 'ki' }, 200, cors);
       } catch (e) {
         console.log('chat error', client.id, String(e && e.message)); // keine Nutzerinhalte loggen
         return json({ error: 'llm', reply: fallbackText(client) }, 502, cors);

@@ -1,0 +1,239 @@
+{
+  "_hinweis": "Feste Antworten für die Demo-Bäckerei (erfunden). Gleiche Regeln wie bei clients/jenaisystems/schnellantworten.json.",
+  "antworten": [
+    {
+      "id": "oeffnungszeiten",
+      "keys": [
+        "geoeffnet",
+        "oeffnungszeiten",
+        "oeffnungszeit",
+        "offen",
+        "oeffnet",
+        "oeffnen",
+        "schliesst",
+        "schliessen",
+        "geschlossen",
+        "auf",
+        "zu"
+      ],
+      "fill": [
+        "lange",
+        "bis",
+        "ab",
+        "uhr",
+        "morgen",
+        "montag*",
+        "dienstag*",
+        "mittwoch*",
+        "donnerstag*",
+        "freitag*",
+        "samstag*",
+        "sonntag*",
+        "wochenende",
+        "feiertag*",
+        "baeckerei",
+        "laden",
+        "cafe",
+        "eure",
+        "ihre",
+        "eigentlich",
+        "habt",
+        "morgens",
+        "abends",
+        "wochentags",
+        "am",
+        "immer",
+        "sonnenkorn",
+        "macht",
+        "machen"
+      ],
+      "block": [
+        "frueh*",
+        "torte*",
+        "bestell*",
+        "abhol*",
+        "wlan",
+        "kuchen*",
+        "brot*",
+        "broetchen*"
+      ],
+      "answer": "Unsere Öffnungszeiten: Montag bis Freitag 06:30–18:00 Uhr, Samstag 07:00–13:00 Uhr, Sonntag und an Feiertagen geschlossen. Hinweis: Wir sind eine erfundene Beispiel-Bäckerei für die Demo – vorbeikommen kann man hier nicht wirklich."
+    },
+    {
+      "id": "adresse",
+      "keys": [
+        "wo",
+        "adresse",
+        "anfahrt",
+        "standort",
+        "hinkommen",
+        "anschrift"
+      ],
+      "fill": [
+        "finde",
+        "finden",
+        "befindet",
+        "liegt",
+        "ihr",
+        "euch",
+        "baeckerei",
+        "laden",
+        "cafe",
+        "komme",
+        "kommt",
+        "hin",
+        "sonnenkorn",
+        "eure",
+        "ihre",
+        "genau",
+        "zu"
+      ],
+      "block": [
+        "bestell*",
+        "abhol*",
+        "wlan",
+        "passwort",
+        "torte*",
+        "kuchen*",
+        "brot*",
+        "broetchen*",
+        "park*",
+        "kauf*",
+        "bezahl*"
+      ],
+      "answer": "Sie finden uns in der Musterstraße 1, 00000 Beispielstadt – die Bushaltestelle „Marktplatz“ ist direkt vor der Tür, der Eingang ist ebenerdig. Hinweis: Wir sind eine erfundene Beispiel-Bäckerei für die Demo, die Adresse gibt es nicht wirklich."
+    },
+    {
+      "id": "glutenfrei",
+      "keys": [
+        "glutenfrei",
+        "glutenfreies",
+        "glutenfreie",
+        "glutenfreien",
+        "glutenfreier",
+        "gluten",
+        "ohne"
+      ],
+      "fill": [
+        "brot",
+        "brote",
+        "broetchen",
+        "backwaren",
+        "etwas",
+        "sachen",
+        "produkte",
+        "kuchen",
+        "euer",
+        "eure",
+        "angebot",
+        "gluten"
+      ],
+      "block": [
+        "laktose*",
+        "milch*",
+        "nuss*",
+        "nuesse*",
+        "ei",
+        "eier",
+        "zucker*",
+        "allerg*",
+        "zoeliakie*",
+        "vegan*"
+      ],
+      "answer": "Nein, glutenfreie Backwaren bieten wir nicht an – in unserer Backstube wird überall mit Weizen gearbeitet. Bei Fragen zu Allergenen hilft Ihnen das Personal im Laden. (Erfundene Beispiel-Bäckerei für die Demo.)"
+    },
+    {
+      "id": "vegan",
+      "keys": [
+        "vegan",
+        "vegane",
+        "veganes",
+        "veganen",
+        "veganer",
+        "veganem"
+      ],
+      "fill": [
+        "brot",
+        "brote",
+        "broetchen",
+        "backwaren",
+        "etwas",
+        "sachen",
+        "produkte",
+        "euer",
+        "eure",
+        "angebot",
+        "essen"
+      ],
+      "block": [
+        "kuchen*",
+        "torte*",
+        "frueh*",
+        "allerg*",
+        "gluten*"
+      ],
+      "answer": "Ja, unsere Brote und die einfachen Brötchen sind vegan. Bei Kuchen fragen Sie bitte im Laden nach. (Erfundene Beispiel-Bäckerei für die Demo.)"
+    },
+    {
+      "id": "mensch-oder-ki",
+      "keys": [
+        "mensch",
+        "bot",
+        "chatbot",
+        "roboter",
+        "maschine",
+        "ki",
+        "person"
+      ],
+      "fill": [
+        "echter",
+        "echte",
+        "echt",
+        "schreibe",
+        "rede",
+        "spreche",
+        "chatte",
+        "einem",
+        "wirklich",
+        "oder",
+        "korni"
+      ],
+      "block": [
+        "kost*",
+        "preis*",
+        "macht",
+        "machen",
+        "kann",
+        "kannst",
+        "wie",
+        "was",
+        "welche*"
+      ],
+      "answer": "Ich bin Korni, ein KI-Assistent – kein Mensch. Diese Bäckerei ist ein erfundenes Beispiel für die Demo von JenAiSystems."
+    },
+    {
+      "id": "hallo",
+      "keys": [
+        "hallo",
+        "hi",
+        "hey",
+        "moin",
+        "servus",
+        "gruess",
+        "gruezi",
+        "huhu",
+        "tag",
+        "abend",
+        "morgen"
+      ],
+      "fill": [
+        "guten",
+        "zusammen",
+        "gott",
+        "korni"
+      ],
+      "block": [],
+      "answer": "Hallo! Ich bin Korni, der KI-Assistent der erfundenen Beispiel-Bäckerei Sonnenkorn. Fragen Sie mich gern nach Öffnungszeiten, Brot, Brötchen oder Torten."
+    }
+  ]
+}
