@@ -270,7 +270,12 @@ footer a:hover{color:#fff}
 .legal p,.legal li{color:var(--muted)}
 
 /* Responsive */
-@media (max-width:1100px){.mini-grid{grid-template-columns:repeat(2,1fr)}.nav nav{gap:20px}}
+@media (max-width:1100px){.mini-grid{grid-template-columns:repeat(2,1fr)}
+  .nav nav{display:none}
+  .menu-btn{display:inline-flex}
+  .nav nav.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;gap:0;background:var(--night);padding:8px var(--pad) 20px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .nav nav.open a{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:1rem}
+}
 @media (max-width:980px){
   .hero-grid{grid-template-columns:1fr;gap:28px}
   .scene{margin:0 auto}
@@ -280,10 +285,6 @@ footer a:hover{color:#fff}
   .why-grid,.faq-grid,.contact-grid{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr 1fr;gap:36px 24px}
   .steps::before{display:none}
-  .nav nav{display:none}
-  .menu-btn{display:inline-flex}
-  .nav nav.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;gap:0;background:var(--night);padding:8px var(--pad) 20px;border-bottom:1px solid rgba(255,255,255,.1)}
-  .nav nav.open a{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:1rem}
 }
 @media (max-width:760px){
   body{font-size:16px}
@@ -403,3 +404,57 @@ footer a:hover{color:#fff}
 /* Marken-Prinzipien (aus dem JenAiSystems-Markenauftritt) */
 #prinzipien .reasons{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
 #prinzipien .reason .ic{font-family:var(--display);font-weight:600;font-size:1rem;letter-spacing:.02em}
+.cycle{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin:0 0 32px;font-family:var(--display);font-weight:600}
+.cycle span{background:var(--night);color:#fff;border-radius:999px;padding:7px 16px;font-size:.95rem}
+.cycle i{font-style:normal;color:var(--amber-d)}
+.offers{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.tag{align-self:flex-start;font-size:.74rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:999px;background:var(--mist);color:var(--muted);margin-bottom:18px}
+.tag.live{background:var(--saale-soft);color:var(--saale)}
+.svc.soon{background:transparent;border-style:dashed}
+.offer-head{border-top:1px solid var(--line);padding-bottom:0}
+.guide{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin:-12px 0 32px;font-family:var(--display);font-size:1.35rem;font-weight:600}
+.guide span{font:600 .78rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--saale)}
+.hero .cycle{margin:-14px 0 30px}
+.hero .cycle a{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#fff;border-radius:999px;padding:6px 15px;font-size:.92rem;text-decoration:none}
+.hero .cycle a:hover{border-color:var(--amber)}
+
+/* ===== Kompakte Startseite (Okt. 2026) ===== */
+[hidden]{display:none!important}
+.nav nav{white-space:nowrap}
+.call-top{display:none;width:44px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,.25);color:#fff;align-items:center;justify-content:center}
+.call-top svg{width:20px;height:20px}
+.call-mobile{display:none}
+.btn svg{flex:none}
+.call-mobile svg{width:18px;height:18px}
+.svc-4 .svc p{margin-top:2px}
+.svc-4 .svc p a{color:var(--saale);font-weight:600}
+.more{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:28px}
+.more b{font-family:var(--display);font-weight:600;margin-right:4px}
+.promise{padding:clamp(48px,7vw,84px) 0;background:linear-gradient(120deg,var(--amber-soft),#fdf3e2);border-top:1px solid #f1d9ae;border-bottom:1px solid #f1d9ae}
+.promise blockquote{margin:0 auto;max-width:880px;text-align:center}
+.promise blockquote p{font-family:var(--display);font-weight:600;font-size:clamp(1.4rem,3vw,2.1rem);line-height:1.25;letter-spacing:-.02em;color:var(--night);margin:0}
+.promise blockquote footer{background:none;color:#7a5a2a;padding:16px 0 0;font-size:.95rem}
+.photo{position:relative;width:72px;height:72px;border-radius:50%;overflow:hidden;flex:none;background:var(--mist);color:var(--muted);display:grid;place-items:center;border:2px solid var(--amber-soft)}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.photo .ph{width:44px;height:44px}
+.hello{display:flex;gap:18px;align-items:flex-start;margin:6px 0 26px}
+.hello p{color:#c3cbd7;margin:0}
+.hello b{color:#fff}
+.contact .photo{background:var(--night-2);color:#8d99aa;border-color:rgba(243,168,59,.5)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.f-contact{margin-top:12px;line-height:1.7}
+.f-contact a{color:#c3cbd7}
+[data-k="telefon"]{white-space:nowrap}
+@media (max-width:760px){
+  .call-top{display:inline-flex}
+  .call-mobile{display:inline-flex}
+  .hello{gap:14px}
+  .hello .photo{width:56px;height:56px}
+  .more .chip{font-size:.82rem;padding:6px 12px}
+  /* Platz für den Chat-Knopf, damit er nie Inhalte oder Knöpfe verdeckt */
+  footer{padding-bottom:96px}
+  .reason{display:grid;grid-template-columns:44px 1fr;column-gap:14px}
+  .reason .ic{grid-row:span 2;margin:0}
+  .reasons{gap:20px}
+  .svc .ic{margin-bottom:12px}
+}

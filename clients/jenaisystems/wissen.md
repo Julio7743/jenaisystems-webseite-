@@ -2,11 +2,10 @@
 
 ## Betrieb
 - Name: JenAiSystems
-- Branche: Intelligente Systeme und KI. Aktuelles Angebot: Websites mit KI-Assistent, Google-Profil, SEO und Online-Marketing für kleine Unternehmen
-- Beschreibung: JenAiSystems (JEN steht für Joint Evolution Network) baut intelligente Systeme, die denken, handeln und sich weiterentwickeln – Mission: „Turn intelligence into action.“ Leitgedanke: „Intelligence that moves things forward.“ Claim: „Beyond intelligence. Into action.“ Das aktuelle Angebot richtet sich an kleine Unternehmen in Deutschland, Österreich und der Schweiz: online gefunden werden mit modernen Websites mit optionalem KI-Assistenten, einem gepflegten Google-Eintrag, SEO und gezielter Werbung. Weitere Angebote sind in Vorbereitung. Die Zusammenarbeit läuft per Videocall, Telefon und E-Mail; in Jena und Umgebung auch persönlich vor Ort. Gründer und fester Ansprechpartner ist Julian Köbele aus Jena. Er nutzt moderne Werkzeuge, auch künstliche Intelligenz, und prüft jedes Ergebnis selbst, bevor es online geht.
+- Branche: Websites mit KI-Assistent, Google-Profil, SEO und Online-Marketing für kleine Unternehmen
+- Beschreibung: JenAiSystems hilft kleinen Unternehmen in Deutschland, Österreich und der Schweiz, online gefunden zu werden: mit modernen Websites, optionalem KI-Assistenten, einem gepflegten Google-Eintrag, SEO und gezielter Werbung. Die Zusammenarbeit läuft per Videocall, Telefon und E-Mail; in Jena und Umgebung auch persönlich vor Ort. Gründer und fester Ansprechpartner ist Julian Köbele aus Jena. Er nutzt moderne Werkzeuge, auch künstliche Intelligenz, und prüft jedes Ergebnis selbst, bevor es online geht.
 - Adresse: Jena
 - Gebiet: Online für Unternehmen in ganz Deutschland, Österreich und der Schweiz; persönlich vor Ort in Jena und Umgebung
-- Besonderheit: Klarer Ansatz statt isolierter KI-Tools: Judgment (verstehen und entscheiden), Execution (bauen und handeln), Navigation (anpassen und weiterentwickeln)
 - Besonderheit: Ein fester Ansprechpartner statt Ticketsystem und Warteschleife – per Videocall, Telefon oder E-Mail, in Jena und Umgebung auch persönlich
 - Besonderheit: Festpreise vorab, keine versteckten Kosten
 - Besonderheit: Betreuung monatlich kündbar: kein Jahresvertrag, keine Mindestlaufzeit
@@ -35,29 +34,28 @@
 - Texte: Verständliche Texte für Website, Flyer und Speisekarte, die zeigen, was den Betrieb besonders macht | Preis: nicht hinterlegt (auf Kontakt verweisen) | Hinweis: einzeln buchbar, Preis nach Aufwand mit Angebot vorab
 - Monatlicher Bericht: Kurz und verständlich: wie oft der Betrieb gefunden, angerufen oder angefragt wurde | Preis: nicht hinterlegt (auf Kontakt verweisen) | Hinweis: in „Rundum betreut“ enthalten
 - Domain, E-Mail und Technik: Eigene Adresse wie info@ihr-betrieb.de, Hosting, Updates und Sicherheit | Preis: nicht hinterlegt (auf Kontakt verweisen) | Hinweis: Die Domain zahlt der Kunde direkt beim Anbieter, damit sie ihm gehört
-- Kostenloser Website-Check: Der Kunde schickt den Namen seines Unternehmens; Julian Köbele schaut sich Website und Google-Eintrag an und sendet die fünf wichtigsten Verbesserungen | Preis: kostenlos und unverbindlich | Hinweis: anfordern per E-Mail an julian.koebele@gmail.com (Betreff „Kostenloser Website-Check“) oder über das Kontaktformular auf der Website
+- Kostenloser Website-Check: Der Kunde schickt den Namen seines Unternehmens; Julian Köbele schaut sich Website und Google-Eintrag an und sendet die fünf wichtigsten Verbesserungen | Preis: kostenlos und unverbindlich | Hinweis: anfordern per E-Mail an jenaisystems@protonmail.com (Betreff „Kostenloser Website-Check“) oder über das Kontaktformular auf der Website
 - Erstgespräch: Rund 30 Minuten per Videocall oder Telefon, in Jena und Umgebung gern auch vor Ort. Besprochen wird, was der Betrieb braucht und was nicht | Preis: kostenlos und unverbindlich
 
 ## Preise, Bezahlung, Bestellung
 - Hinweis zu Preisen: Kleinunternehmer gemäß § 19 UStG: Es wird keine Umsatzsteuer berechnet – die Preise sind netto und zugleich Endpreise in Euro. Das gilt auch für Rechnungen an Unternehmen in Österreich und der Schweiz. Domain und Werbebudget zahlt der Kunde direkt beim Anbieter, so gehören sie auch ihm. Der genaue Preis hängt vom Umfang ab und steht vor Beginn schriftlich fest. Einzeln buchbare Leistungen (Fotos, Vermittlung von Fotografen, Drohnenaufnahmen, Online-Terminbuchung, Shop und Gutscheine, Texte, KI-Assistent): Preis nach Aufwand, immer mit Angebot vorab.
-- Bestellen/Buchen: So läuft es ab: 1. Kostenloses Erstgespräch per Videocall oder Telefon (in Jena und Umgebung gern vor Ort). 2. Vorschau und Angebot: erster Entwurf als Link zum Anschauen im Browser und ein klares Angebot mit Festpreis – erst dann entscheidet der Kunde. 3. Umsetzung: Website, Google-Profil und alles Weitere; abgestimmt wird per E-Mail, Telefon oder Videocall, der Kunde gibt Texte und Fotos frei. 4. Betreuung auf Wunsch: laufende Änderungen, Beiträge, Bewertungen und ein kurzer Monatsbericht, monatlich kündbar. Anfragen per E-Mail an julian.koebele@gmail.com oder über das Kontaktformular unten auf der Website.
+- Bestellen/Buchen: So läuft es ab: 1. Kostenloses Erstgespräch per Videocall oder Telefon (in Jena und Umgebung gern vor Ort). 2. Vorschau und Angebot: erster Entwurf als Link zum Anschauen im Browser und ein klares Angebot mit Festpreis – erst dann entscheidet der Kunde. 3. Umsetzung: Website, Google-Profil und alles Weitere; abgestimmt wird per E-Mail, Telefon oder Videocall, der Kunde gibt Texte und Fotos frei. 4. Betreuung auf Wunsch: laufende Änderungen, Beiträge, Bewertungen und ein kurzer Monatsbericht, monatlich kündbar. Anfragen per E-Mail an jenaisystems@protonmail.com oder über das Kontaktformular unten auf der Website.
 
 ## Erreichbarkeit
 - Feste Öffnungszeiten: keine
 - Sonderzeiten: Keine festen Öffnungszeiten. Das Erstgespräch wird nach Anfrage vereinbart, per Videocall oder Telefon; in Jena und Umgebung auch vor Ort.
 
 ## Kontakt
-- E-Mail: julian.koebele@gmail.com
+- Telefon: +49 157 34425980
+- E-Mail: jenaisystems@protonmail.com
 - Antwortzeit: Julian Köbele meldet sich persönlich, in der Regel innerhalb eines Werktags.
 - Ansprechpartner: Julian Köbele (Gründer von JenAiSystems, Jena)
 - Impressum: https://jenaisystems.com/impressum.html
 - Datenschutz: https://jenaisystems.com/datenschutz.html
 
 ## Häufige Fragen
-- Frage: Was bedeutet JenAiSystems – und wofür stehen Judgment, Execution und Navigation?
-  Antwort: JEN steht für Joint Evolution Network. Die Mission von JenAiSystems lautet „Turn intelligence into action.“: Wir verwandeln künstliche Intelligenz in wirksame Systeme, die denken, handeln und sich kontinuierlich verbessern. Der Leitgedanke ist „Intelligence that moves things forward.“ Drei Prinzipien tragen das: Judgment steht für verstehen und entscheiden, Execution für bauen und handeln, Navigation für anpassen und weiterentwickeln.
 - Frage: Welche Angebote gibt es bei JenAiSystems?
-  Antwort: Aktuell bieten wir Websites und KI-Assistenten für kleine Unternehmen an, inklusive Google-Profil, SEO und Werbung. Weitere Angebote sind in Vorbereitung. Wenn Sie ein Thema haben, bei dem KI, Automatisierung und Systeme zusammenspielen sollen, schreiben Sie uns gern.
+  Antwort: Websites und KI-Assistenten für kleine Unternehmen, dazu Google-Profil, SEO, Fotos, Werbung und laufende Betreuung. Für alles Weitere schreiben Sie einfach – ich sage ehrlich, ob es passt.
 - Frage: Was kostet eine Website bei JenAiSystems?
   Antwort: Eine Website mit bis zu fünf Seiten gibt es ab 490 € einmalig, die laufende Betreuung ab 69 € im Monat. Nach dem kostenlosen Erstgespräch bekommen Sie ein Angebot mit Festpreis – erst dann entscheiden Sie. Alle Preise ohne Umsatzsteuer (Kleinunternehmer gemäß § 19 UStG).
 - Frage: Muss ich mich um die Technik kümmern?
@@ -83,4 +81,4 @@
 - Frage: Wie rechnen Sie mit Unternehmen in Österreich und der Schweiz ab?
   Antwort: JenAiSystems ist Kleinunternehmer nach § 19 UStG und stellt Rechnungen ohne Umsatzsteuer aus – auch an Unternehmen in Österreich und der Schweiz. Bezahlt wird in Euro per Überweisung. Ob in Ihrem Land eine Steuer auf die Leistung anfällt (z. B. im Reverse-Charge-Verfahren), klären Sie bitte mit Ihrer Steuerberatung.
 - Frage: Was ist der kostenlose Website-Check?
-  Antwort: Sie schicken den Namen Ihres Unternehmens. Julian Köbele schaut sich Ihre Website und Ihren Google-Eintrag an und sendet Ihnen die fünf wichtigsten Verbesserungen – kostenlos und unverbindlich. Anfordern per E-Mail an julian.koebele@gmail.com oder über das Kontaktformular auf der Website.
+  Antwort: Sie schicken den Namen Ihres Unternehmens. Julian Köbele schaut sich Ihre Website und Ihren Google-Eintrag an und sendet Ihnen die fünf wichtigsten Verbesserungen – kostenlos und unverbindlich. Anfordern per E-Mail an jenaisystems@protonmail.com oder über das Kontaktformular auf der Website.

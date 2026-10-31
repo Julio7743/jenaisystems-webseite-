@@ -136,13 +136,13 @@ test('Worker: getrennte Zähler – volle Demo sperrt den JenAiSystems-Assistent
   } finally { globalThis.fetch = orig; }
 });
 
-test('Worker: Config für Demo meldet „beispiel“, JenAiSystems ohne Telefonnummer', async () => {
+test('Worker: Config für Demo meldet „beispiel“, JenAiSystems mit freigegebener Telefonnummer', async () => {
   const d = await (await worker.fetch(new Request('https://w.example/api/config?client=beispiel'), {}, null)).json();
   assert.equal(d.beispiel, true);
   assert.ok(d.suggestions.length > 0);
   const j = await (await worker.fetch(new Request('https://w.example/api/config?client=jenaisystems'), {}, null)).json();
   assert.equal(j.beispiel, false);
-  assert.equal(j.phone, '');
-  assert.equal(j.email, 'julian.koebele@gmail.com');
+  assert.equal(j.phone, '+49 157 34425980');
+  assert.equal(j.email, 'jenaisystems@protonmail.com');
   assert.match(j.greeting, /KI/);
 });
