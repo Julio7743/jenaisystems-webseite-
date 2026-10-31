@@ -134,7 +134,9 @@
     "https://jenaisystems.com",
     "https://www.jenaisystems.com",
     "http://localhost:8787",
-    "http://127.0.0.1:8787"
+    "http://127.0.0.1:8787",
+    "http://jenaisystems.com",
+    "http://www.jenaisystems.com"
   ],
   "farbe": "#8a4b1f",
   "limit_monat": "300",
@@ -153,5 +155,6 @@
   "telefon_rueckruf_zusage": "Wir melden uns am nächsten Werktag.",
   "telefon_empfaenger": "info@beispiel-baeckerei.example",
   "telefon_ort_abfragen": false,
-  "_demo": "Wird auf der JenAiSystems-Website als Live-Demo genutzt (Demo-Modus im Chat). Deshalb sind jenaisystems.com-Domains erlaubt und die Limits enger (300/Monat, 5/Minute)."
+  "_demo": "Wird auf der JenAiSystems-Website als Live-Demo genutzt (Demo-Modus im Chat). Deshalb sind jenaisystems.com-Domains erlaubt und die Limits enger (300/Monat, 5/Minute).",
+  "limit_tag": "40"
 }

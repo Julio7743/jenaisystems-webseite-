@@ -64,7 +64,9 @@ test('Kunden-Config: Domains, Limits, Log standardmäßig aus', () => {
   assert.equal(c.logQuestions, false);
   assert.equal(c.beispiel, true);
   const std = baueKundenConfig({ ...beispiel, limit_monat: '', limit_minute: '' }, 'p', 't');
-  assert.deepEqual(std.limits, { monthlyRequests: 1000, perMinutePerIp: 8 });
+  assert.deepEqual(std.limits, { monthlyRequests: 1000, perMinutePerIp: 8, dailyRequests: 40 });
+  const ohneTag = baueKundenConfig({ ...beispiel, limit_tag: '' }, 'p', 't');
+  assert.equal(ohneTag.limits.dailyRequests, 0, 'ohne Angabe keine Tagesgrenze pro Kunde');
   assert.ok(pruefeAntworten(katalog, { ...beispiel, limit_minute: 'viele' }).fehler.some((f) => f.includes('limit_minute')));
 });
 

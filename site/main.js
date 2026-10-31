@@ -1,3 +1,8 @@
+/* Immer über HTTPS: Wird die Seite per http:// geöffnet (z. B. eingetippte Adresse in Safari), sofort auf https:// wechseln.
+   Sonst lehnt der Chat-Dienst die Anfrage ab, und das Formular wäre unverschlüsselt. */
+if (location.protocol === 'http:' && /(^|\.)jenaisystems\.com$/.test(location.hostname)) {
+  location.replace('https://' + location.host + location.pathname + location.search + location.hash);
+}
 /* JenAiSystems – Startseite. Ausgelagert aus index.html, damit die Content-Security-Policy keine Inline-Skripte erlauben muss. */
 /* ============================================================
    KONTAKT-EINSTELLUNGEN – nur hier ändern (Datei site/main.js):

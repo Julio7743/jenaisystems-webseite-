@@ -9,7 +9,7 @@ const read = (p) => readFileSync(new URL(`../${p}`, import.meta.url), 'utf8');
 const html = read('site/index.html');
 
 test('Website bindet den Chat ein: JenAiSystems + Demo (Bäckerei)', () => {
-  const tag = html.match(/<script src="jenaisystems-chat\.js" data-[^>]*>/);
+  const tag = html.match(/<script src="jenaisystems-chat\.js(\?v=[^"]+)?" data-[^>]*>/);
   assert.ok(tag, 'Widget-Script fehlt');
   assert.match(tag[0], /data-client="jenaisystems"/);
   assert.match(tag[0], /data-demo="beispiel"/);
@@ -64,7 +64,7 @@ test('KI-Chat: Worker-Adresse steht an einer Stelle (main.js) und ist in der CSP
   const connect = csp.split(';').map((s) => s.trim()).find((s) => s.startsWith('connect-src'));
   assert.match(connect, /https:\/\/api\.web3forms\.com/);
   if (m[1]) assert.ok(connect.split(/\s+/).includes(new URL(m[1]).origin), `connect-src muss ${new URL(m[1]).origin} enthalten`);
-  assert.ok(html.indexOf('src="main.js"') < html.indexOf('src="jenaisystems-chat.js"'), 'main.js muss vor dem Chat-Widget geladen werden');
+  assert.ok(html.indexOf('src="main.js') < html.indexOf('src="jenaisystems-chat.js'), 'main.js muss vor dem Chat-Widget geladen werden');
 });
 
 test('Datenschutz: vollständig, ohne Platzhalter, passt zur Seite', () => {
@@ -133,4 +133,11 @@ test('Bewertungen: Platz vorbereitet, aber verborgen und leer, bis echte vorlieg
   assert.match(m[0], /<section id="bewertungen"[^>]*\shidden>/);
   assert.match(m[1], /<div class="rev-list"><\/div>/, 'keine Bewertungen eingetragen');
   assert.doesNotMatch(m[1], /★|Sterne|blockquote/);
+});
+
+test('HTTPS-Weiterleitung und Cache-Versionen für JS/CSS', () => {
+  assert.match(read('site/main.js'), /location\.protocol === 'http:'[\s\S]{0,120}location\.replace\('https:\/\//);
+  assert.match(html, /src="main\.js\?v=\w+"/);
+  assert.match(html, /src="jenaisystems-chat\.js\?v=\w+"/);
+  assert.match(html, /href="style\.css\?v=\w+"/);
 });

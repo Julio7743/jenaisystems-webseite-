@@ -283,9 +283,12 @@
     "https://jenaisystems.com",
     "https://www.jenaisystems.com",
     "http://localhost:8787",
-    "http://127.0.0.1:8787"
+    "http://127.0.0.1:8787",
+    "http://jenaisystems.com",
+    "http://www.jenaisystems.com"
   ],
   "farbe": "#0f1c2e",
   "limit_monat": "1000",
-  "limit_minute": "8"
+  "limit_minute": "8",
+  "limit_tag": "50"
 }
