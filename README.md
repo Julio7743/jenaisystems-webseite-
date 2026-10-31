@@ -80,6 +80,12 @@ Alles andere im Repo (Kunden, Preise, Telefon-Doku, Rechtsfragen) wird **nicht**
   `node scripts/screenshot.mjs http://localhost:8787/site/ docs/screenshots/site-chat-preisfrage.png 1280 0 800 scripts/shots/chat-preis.js`
   (weitere Abläufe in `scripts/shots/`).
 
+### Sparmodus des Chats (weniger KI-Verbrauch, schnellere Antworten)
+- **Schnellantworten** (`clients/<id>/schnellantworten.json`): Eindeutige Standardfragen (Preise, Ablauf, Kontakt, Website-Check, Datenschutz, Leistungen, „Mensch oder KI?“, Gruß; in der Demo Öffnungszeiten, Adresse, glutenfrei, vegan) bekommen einen festen, geprüften Text – ohne KI, in Millisekunden. Nur wenn **jedes** Wort der Frage passt; alles andere geht an die KI. Schnellantworten zählen **nicht** gegen die Tageslimits (50/40/90) und schreiben nichts in KV; das Minutenlimit gilt weiter. **Wichtig:** Bei Preis- oder Textänderungen diese Datei mitpflegen, dann `npm run build:worker`.
+- **Wissens-Auszug**: An das Modell gehen die Regeln vollständig, vom Wissen aber nur die passenden Einträge (Kontakt und Kurzbeschreibung immer, Pakete und Öffnungszeiten immer komplett). Ohne Treffer geht das ganze Wissen mit. Abschalten: `RETRIEVAL = "off"`.
+- **Kleines Modell** (optional, standardmäßig aus): `WORKERS_AI_SMALL_MODEL = "@cf/qwen/qwen3-30b-a3b-fp8"` schickt kurze, einfache Fragen an ein schnelleres, billigeres Modell. Im Test ungenauer als Mistral, deshalb aus.
+- Schalter in `assistant/worker/wrangler.toml`: `FAST_ANSWERS`, `RETRIEVAL`, `WORKERS_AI_SMALL_MODEL`; `CHAT_DEBUG_LOG = "true"` loggt Modell, Neurons und Prompt-Länge (keine Inhalte).
+
 ## Tests
 
 ```bash

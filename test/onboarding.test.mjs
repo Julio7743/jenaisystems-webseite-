@@ -106,7 +106,11 @@ test('Erzeugte Dateien sind aktuell (generate + build:worker)', async () => {
     const datei = JSON.parse(readFileSync(new URL(`../clients/${id}/client.json`, import.meta.url)));
     const neu = baueKundenConfig(a, baueChatPrompt(a, baueWissen(a)), '');
     assert.deepEqual(datei, JSON.parse(JSON.stringify(neu)), `Bitte npm run generate -- clients/${id}/antworten.json ausführen`);
-    assert.deepEqual(CLIENTS[id], datei, 'Bitte npm run build:worker ausführen');
+    const { fastAnswers, ...ohneSchnell } = CLIENTS[id];
+    assert.deepEqual(ohneSchnell, datei, 'Bitte npm run build:worker ausführen');
+    const schnell = JSON.parse(readFileSync(new URL(`../clients/${id}/schnellantworten.json`, import.meta.url))).antworten;
+    assert.deepEqual(fastAnswers.map((f) => f.id), schnell.map((f) => f.id), 'Schnellantworten: bitte npm run build:worker ausführen');
+    assert.deepEqual(fastAnswers.map((f) => f.answer), schnell.map((f) => f.answer));
   }
 });
 
