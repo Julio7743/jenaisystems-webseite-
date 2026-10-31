@@ -213,3 +213,22 @@ test('Worker: Cloudflare-Rate-Limit-Binding blockt mit 429', async () => {
   const res = await worker.fetch(req, env, {});
   assert.equal(res.status, 429);
 });
+
+test('Tagesgrenze pro Kunde: Demo bremst den Haupt-Assistenten nicht aus', async () => {
+  const counts = new Map();
+  const counter = { get: async (k) => counts.get(k) || 0, incr: async (k) => counts.set(k, (counts.get(k) || 0) + 1) };
+  const demo = { id: 'beispiel', limits: { monthlyRequests: 300, dailyRequests: 2 } };
+  const main = { id: 'jenaisystems', limits: { monthlyRequests: 1000, dailyRequests: 5 } };
+  const env = { GLOBAL_DAILY_CAP: '90' };
+  await countRequest(counter, demo); await countRequest(counter, demo);
+  assert.deepEqual(await checkCaps(counter, demo, env), { ok: false, reason: 'client-daily' });
+  assert.deepEqual(await checkCaps(counter, main, env), { ok: true });
+});
+
+test('Kunden-Config: http://jenaisystems.com ist als Herkunft erlaubt (Safari öffnet oft http)', () => {
+  for (const id of ['jenaisystems', 'beispiel']) {
+    const c = CLIENTS[id];
+    assert.ok(c.allowedOrigins.includes('http://jenaisystems.com'), id);
+    assert.ok(c.allowedOrigins.includes('https://jenaisystems.com'), id);
+  }
+});

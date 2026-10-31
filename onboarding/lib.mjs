@@ -240,7 +240,7 @@ export function baueKundenConfig(a, chatPrompt, telefonPrompt) {
     name: a.betrieb_name,
     beispiel: Boolean(a._hinweis && /BEISPIEL/i.test(a._hinweis)),
     allowedOrigins: liste(a.domains).map((d) => d.replace(/\/$/, '')),
-    limits: { monthlyRequests: Number.parseInt(a.limit_monat, 10) || 1000, perMinutePerIp: Number.parseInt(a.limit_minute, 10) || 8 },
+    limits: { monthlyRequests: Number.parseInt(a.limit_monat, 10) || 1000, perMinutePerIp: Number.parseInt(a.limit_minute, 10) || 8, dailyRequests: Number.parseInt(a.limit_tag, 10) || 0 },
     logQuestions: a.fragen_auswerten === true,
     widget: {
       assistantName: name,

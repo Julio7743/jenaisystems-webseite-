@@ -9,11 +9,14 @@ export const CLIENTS = {
       "https://jenaisystems.com",
       "https://www.jenaisystems.com",
       "http://localhost:8787",
-      "http://127.0.0.1:8787"
+      "http://127.0.0.1:8787",
+      "http://jenaisystems.com",
+      "http://www.jenaisystems.com"
     ],
     "limits": {
       "monthlyRequests": 300,
-      "perMinutePerIp": 5
+      "perMinutePerIp": 5,
+      "dailyRequests": 40
     },
     "logQuestions": false,
     "widget": {
@@ -48,11 +51,14 @@ export const CLIENTS = {
       "https://jenaisystems.com",
       "https://www.jenaisystems.com",
       "http://localhost:8787",
-      "http://127.0.0.1:8787"
+      "http://127.0.0.1:8787",
+      "http://jenaisystems.com",
+      "http://www.jenaisystems.com"
     ],
     "limits": {
       "monthlyRequests": 1000,
-      "perMinutePerIp": 8
+      "perMinutePerIp": 8,
+      "dailyRequests": 50
     },
     "logQuestions": false,
     "widget": {

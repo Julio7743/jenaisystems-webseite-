@@ -93,6 +93,12 @@ export async function checkCaps(counter, client, env, month = monthKey()) {
     const g = await counter.get(`cap:_global:${month}`);
     if (g >= globalCap) return { ok: false, reason: 'global' };
   }
+  // Tagesgrenze pro Kunde (z. B. Demo), damit ein Assistent den anderen nicht ausbremst.
+  const clientDaily = Number(client.limits && client.limits.dailyRequests) || 0;
+  if (clientDaily > 0) {
+    const cd = await counter.get(`cap:${client.id}:day:${dayKey()}`);
+    if (cd >= clientDaily) return { ok: false, reason: 'client-daily' };
+  }
   // Tagesgrenze über alle Kunden: hält das kostenlose Workers-AI-Kontingent ein (Reset 00:00 UTC).
   const dailyCap = Number.parseInt(env.GLOBAL_DAILY_CAP || '0', 10);
   if (dailyCap > 0) {
@@ -106,6 +112,7 @@ export async function countRequest(counter, client, month = monthKey(), day = da
   await counter.incr(`cap:${client.id}:${month}`);
   await counter.incr(`cap:_global:${month}`);
   await counter.incr(`cap:_day:${day}`);
+  await counter.incr(`cap:${client.id}:day:${day}`);
 }
 
 export function dayKey(date = new Date()) {
