@@ -114,7 +114,7 @@ export function baueWissen(a) {
   return z.join('\n').trim() + '\n';
 }
 
-function regelblock(a) {
+function regelblock(a, art = 'chat') {
   const du = a.anrede === 'Du';
   const r = [];
   const kontakt = [a.kontakt_telefon && `Telefon ${a.kontakt_telefon}`, a.kontakt_email && `E-Mail ${a.kontakt_email}`, a.kontakt_formular && `Kontaktformular ${a.kontakt_formular}`].filter(Boolean).join(', ') || 'die Kontaktangaben auf der Website';
@@ -130,7 +130,14 @@ function regelblock(a) {
     `9. Sprich den Kunden mit „${du ? 'du' : 'Sie'}“ an. Stil: ${a.stil || 'freundlich und sachlich'}.`,
     `10. Sprachen: ${liste(a.sprachen).length ? liste(a.sprachen).join(', ') : 'Deutsch'}. Antworte in der Sprache des Kunden, wenn sie erlaubt ist, sonst auf Deutsch.`,
   );
-  let n = 11;
+  if (art === 'chat') r.push(
+    `11. Sammle im Chat keine personenbezogenen Daten: Frag nicht nach Name, Telefonnummer, E-Mail-Adresse oder Anschrift. Wer etwas anfragen möchte, den verweise auf: ${kontakt}.`,
+    `12. Antworte kurz (höchstens 3–4 kurze Sätze, nie mehr), freundlich und in einfacher Sprache, ohne Überschriften, Tabellen oder Markdown. Lieber eine klare Antwort plus Hinweis auf den Kontakt als eine lange Liste.`,
+  );
+  if (a._hinweis && /BEISPIEL/i.test(a._hinweis)) r.push(
+    `${r.length + 1}. Dieser Betrieb ist ERFUNDEN und dient nur als Demo. Wenn jemand etwas bestellen, vorbestellen, abholen, reservieren, vorbeikommen oder anrufen möchte, beantworte die Frage kurz und sag dann IMMER dazu, dass es sich um einen erfundenen Beispielbetrieb für eine Demo handelt und man hier nicht wirklich bestellen kann. Achte bei Uhrzeiten auf den genannten Wochentag.`,
+  );
+  let n = r.length + 1;
   for (const t of liste(a.tabus)) r.push(`${n++}. Kein Thema für dich: ${t}. Verweise freundlich auf den Kontakt.`);
   for (const t of liste(a.keine_versprechen)) r.push(`${n++}. Niemals versprechen: ${t}.`);
   for (const t of liste(a.weiterleiten_wenn)) r.push(`${n++}. Bei diesem Anliegen an einen Menschen verweisen (${a.weiterleitung_weg || 'Kontakt'}): ${t}.`);
@@ -174,7 +181,7 @@ export function baueTelefonPrompt(a, wissen) {
     'Nimm auf: Anliegen, Ort (PLZ/Ort genügt), Name, Rückrufnummer (Ziffern in Zweiergruppen wiederholen und bestätigen lassen). Optional: Erreichbarkeit, Wunschzeitraum, E-Mail (nur wenn der Anrufer es möchte). Frag nur nach, was fehlt. Am Ende zusammenfassen und fragen „Stimmt das so?“ (höchstens 2 Korrekturen).',
     '',
     'REGELN',
-    regelblock(a),
+    regelblock(a, 'telefon'),
     '',
     'TELEFON-LEITPLANKEN (gehen allen anderen Regeln vor)',
     '- Nenne am Telefon KEINE Preise und keine Zahlen in Euro, auch wenn sie im Wissen stehen. Sag: „Das klärt das Team gern persönlich beim Rückruf.“',

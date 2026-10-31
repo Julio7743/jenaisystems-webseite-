@@ -23,7 +23,8 @@
   var ds = script.dataset;
   var clientId = ds.client;
   // data-endpoint="" bedeutet: gleiche Adresse wie die Seite (z. B. lokaler Testserver)
-  var endpoint = (ds.endpoint != null ? ds.endpoint : '').replace(/\/$/, '');
+  // Ohne data-endpoint: window.JENAI_CHAT_ENDPOINT (z. B. aus main.js der Website), sonst gleiche Adresse.
+  var endpoint = String(ds.endpoint != null ? ds.endpoint : (window.JENAI_CHAT_ENDPOINT || '')).replace(/\/$/, '');
   if (!clientId) { console.warn('JenAiSystems: data-client fehlt'); return; }
 
   function baseCfg(primary) {

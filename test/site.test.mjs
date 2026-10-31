@@ -42,9 +42,10 @@ test('Impressum und Datenschutz sind verlinkt und vorhanden, Datenschutz hat Cha
   }
   const ds = read('site/datenschutz.html');
   assert.match(ds, /id="chat"/);
-  assert.match(ds, /Mistral/);
+  assert.match(ds, /Cloudflare Workers AI/);
+  assert.match(ds, /nicht zum Trainieren/);
   assert.match(ds, /Cloudflare/);
-  assert.match(ds, /KI, kein Mensch/);
+  assert.match(ds, /künstliche Intelligenz, kein Mensch/);
 });
 
 test('Übungs-Modell: Preisfrage an JenAiSystems, Demo-Frage an die Bäckerei', () => {
@@ -52,4 +53,16 @@ test('Übungs-Modell: Preisfrage an JenAiSystems, Demo-Frage an die Bäckerei', 
   assert.match(ask('jenaisystems', 'Was kostet eine Website?'), /490 €/);
   assert.match(ask('beispiel', 'Habt ihr glutenfreies Brot?'), /glutenfrei/);
   assert.match(ask('jenaisystems', 'Bist du ein Mensch?'), /KI-Assistent, kein Mensch/);
+});
+
+test('KI-Chat: Worker-Adresse steht an einer Stelle (main.js) und ist in der CSP erlaubt', () => {
+  const js = read('site/main.js');
+  const m = js.match(/var CHAT_ENDPOINT = '([^']*)';/);
+  assert.ok(m, 'CHAT_ENDPOINT fehlt in site/main.js');
+  assert.doesNotMatch(html, /data-endpoint=/, 'Endpoint nicht doppelt im HTML pflegen');
+  const csp = html.match(/http-equiv="Content-Security-Policy" content="([^"]+)"/)[1];
+  const connect = csp.split(';').map((s) => s.trim()).find((s) => s.startsWith('connect-src'));
+  assert.match(connect, /https:\/\/api\.web3forms\.com/);
+  if (m[1]) assert.ok(connect.split(/\s+/).includes(new URL(m[1]).origin), `connect-src muss ${new URL(m[1]).origin} enthalten`);
+  assert.ok(html.indexOf('src="main.js"') < html.indexOf('src="jenaisystems-chat.js"'), 'main.js muss vor dem Chat-Widget geladen werden');
 });

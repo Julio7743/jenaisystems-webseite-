@@ -1,5 +1,5 @@
 # Vorlage. Kopieren nach wrangler.toml, dann anpassen. Kein Geheimnis in diese Datei schreiben!
-# Geheimnisse setzen mit:  npx wrangler secret put LLM_API_KEY
+# Mit Workers AI ist kein KI-Schlüssel nötig. Nur bei LLM_PROVIDER = "openai": npx wrangler secret put LLM_API_KEY
 name = "jenaisystems-assistant"
 main = "src/index.js"
 compatibility_date = "2026-10-01"
@@ -8,10 +8,19 @@ compatibility_date = "2026-10-01"
 [assets]
 directory = "../widget"
 
+# Cloudflare Workers AI – kostenloses Kontingent 10.000 Neurons/Tag, kein zweites Konto nötig.
+[ai]
+binding = "AI"
+
 [vars]
-LLM_BASE_URL = "https://api.mistral.ai/v1"   # jeder OpenAI-kompatible Anbieter
-LLM_MODEL = "mistral-small-latest"
-GLOBAL_MONTHLY_CAP = "5000"                   # harte Obergrenze über alle Kunden zusammen
+LLM_PROVIDER = "workers-ai"                   # "workers-ai" (Standard) oder "openai" (OpenAI-kompatibel, z. B. Mistral)
+WORKERS_AI_MODEL = "@cf/mistralai/mistral-small-3.1-24b-instruct"
+WORKERS_AI_FALLBACK_MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast"   # leer lassen ("") = kein Ersatzmodell
+GLOBAL_DAILY_CAP = "45"                       # Antworten pro Tag über alle Kunden – bleibt im Gratis-Kontingent
+GLOBAL_MONTHLY_CAP = "1300"                   # harte Obergrenze über alle Kunden zusammen
+# Nur für LLM_PROVIDER = "openai":
+# LLM_BASE_URL = "https://api.mistral.ai/v1"
+# LLM_MODEL = "mistral-small-latest"
 LOG_QUESTIONS = "false"                       # anonymes Fragen-Log nur mit "true" UND logQuestions beim Kunden
 
 # Optional: KV für Monatszähler (empfohlen) und anonymes Fragen-Log.
@@ -21,5 +30,12 @@ LOG_QUESTIONS = "false"                       # anonymes Fragen-Log nur mit "tru
 # id = "HIER_KV_ID"
 
 # Geheimnisse (über wrangler secret put, NICHT hier):
-#   LLM_API_KEY         Schlüssel des Sprachmodell-Anbieters
+#   LLM_API_KEY         nur für LLM_PROVIDER = "openai": Schlüssel des Anbieters
 #   ADMIN_TOKEN         für /api/report
+
+# Limit pro Besucher (IP) und Minute über alle Cloudflare-Instanzen (kostenlos).
+# Zusätzlich gilt das Limit pro Kunde aus client.json im Speicher.
+[[ratelimits]]
+name = "RATE_LIMITER"
+namespace_id = "1001"
+simple = { limit = 6, period = 60 }

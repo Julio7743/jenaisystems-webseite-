@@ -146,3 +146,70 @@ test('Worker: Config für Demo meldet „beispiel“, JenAiSystems mit freigegeb
   assert.equal(j.email, 'jenaisystems@protonmail.com');
   assert.match(j.greeting, /KI/);
 });
+
+// ---- Cloudflare Workers AI (Binding env.AI, hier gefälscht – es wird nichts an Cloudflare gesendet) ----
+import { callWorkersAI, llmProvider, llmConfigured, DEFAULT_WORKERS_AI_MODEL, FALLBACK_WORKERS_AI_MODEL, dayKey } from '../assistant/worker/src/core.js';
+
+const fakeAI = (antworten) => {
+  const calls = [];
+  return { calls, run: async (model, input) => { calls.push({ model, input }); const a = antworten.shift(); if (a instanceof Error) throw a; return a; } };
+};
+
+test('Workers AI: Anbieter-Erkennung und „konfiguriert“', () => {
+  assert.equal(llmProvider({ AI: fakeAI([]) }), 'workers-ai');
+  assert.equal(llmProvider({ LLM_API_KEY: 'k' }), 'openai');
+  assert.equal(llmProvider({ LLM_PROVIDER: 'openai', AI: fakeAI([]) }), 'openai');
+  assert.equal(llmConfigured({ LLM_PROVIDER: 'workers-ai' }), false);
+  assert.equal(llmConfigured({ AI: fakeAI([]) }), true);
+});
+
+test('Workers AI: Standardmodell Mistral Small 3.1, Ersatzmodell bei Fehler', async () => {
+  const ai = fakeAI([{ response: '  Hallo!  ' }]);
+  assert.equal(await callWorkersAI({ AI: ai }, [{ role: 'user', content: 'Hi' }]), 'Hallo!');
+  assert.equal(ai.calls[0].model, DEFAULT_WORKERS_AI_MODEL);
+  assert.equal(DEFAULT_WORKERS_AI_MODEL, '@cf/mistralai/mistral-small-3.1-24b-instruct');
+  assert.ok(ai.calls[0].input.max_tokens <= 350);
+  const ai2 = fakeAI([new Error('3040: capacity'), { response: 'Ersatz' }]);
+  assert.equal(await callWorkersAI({ AI: ai2 }, [{ role: 'user', content: 'Hi' }]), 'Ersatz');
+  assert.equal(ai2.calls[1].model, FALLBACK_WORKERS_AI_MODEL);
+  const ai3 = fakeAI([new Error('kaputt')]);
+  await assert.rejects(callWorkersAI({ AI: ai3, WORKERS_AI_FALLBACK_MODEL: '' }, [{ role: 'user', content: 'Hi' }]));
+  assert.equal(ai3.calls.length, 1);
+});
+
+test('Worker über Workers AI: Antwort für jenaisystems.com, fremde Domain abgelehnt, System-Prompt vorn', async () => {
+  const ai = fakeAI([{ response: 'Eine Website gibt es ab 490 € einmalig, ohne Umsatzsteuer (§ 19 UStG).' }]);
+  const mk = (origin) => new Request('https://w.example/api/chat?client=jenaisystems', { method: 'POST', headers: { 'Content-Type': 'application/json', Origin: origin, 'CF-Connecting-IP': `ip-wai-${Math.random()}` }, body: JSON.stringify({ client: 'jenaisystems', messages: [{ role: 'user', content: 'Was kostet eine Website?' }] }) });
+  const r = await worker.fetch(mk('https://jenaisystems.com'), { AI: ai }, null);
+  assert.equal(r.status, 200);
+  assert.equal(r.headers.get('Access-Control-Allow-Origin'), 'https://jenaisystems.com');
+  assert.match((await r.json()).reply, /490 €/);
+  assert.equal(ai.calls[0].input.messages[0].role, 'system');
+  assert.match(ai.calls[0].input.messages[0].content, /KI, kein Mensch/);
+  const bad = await worker.fetch(mk('https://boese.example'), { AI: ai }, null);
+  assert.equal(bad.status, 403);
+  assert.equal(ai.calls.length, 1, 'fremde Domain darf kein Modell aufrufen');
+});
+
+test('Tagesgrenze GLOBAL_DAILY_CAP schützt das Gratis-Kontingent', async () => {
+  const counter = new MonthlyCounter(null, new Map());
+  const c = { ...CLIENTS.jenaisystems, limits: { monthlyRequests: 1000, perMinutePerIp: 8 } };
+  const env = { GLOBAL_DAILY_CAP: '2' };
+  for (let i = 0; i < 2; i++) { assert.equal((await checkCaps(counter, c, env)).ok, true); await countRequest(counter, c); }
+  assert.deepEqual(await checkCaps(counter, c, env), { ok: false, reason: 'daily' });
+  assert.match(dayKey(new Date('2026-10-31T23:59:00Z')), /^2026-10-31$/);
+});
+
+test('Prompt JenAiSystems: Kontakt, Preise, § 19, keine Datensammlung; Demo als erfunden markiert', () => {
+  const p = CLIENTS.jenaisystems.chat.systemPrompt;
+  for (const re of [/jenaisystems@protonmail\.com/, /\+49 157 34425980/, /490 €/, /69 €/, /199 €/, /§ 19 UStG/, /Website-Check/, /keine personenbezogenen Daten/, /Keine Rechts-, Steuer-/, /„Sie“/]) assert.match(p, re);
+  assert.match(CLIENTS.beispiel.chat.systemPrompt, /ERFUNDEN/);
+});
+
+test('Worker: Cloudflare-Rate-Limit-Binding blockt mit 429', async () => {
+  const { default: worker } = await import('../assistant/worker/src/index.js');
+  const env = { LLM_PROVIDER: 'workers-ai', AI: { run: async () => ({ response: 'ok' }) }, RATE_LIMITER: { limit: async () => ({ success: false }) } };
+  const req = new Request('https://w.example/api/chat?client=jenaisystems', { method: 'POST', headers: { 'Content-Type': 'application/json', Origin: 'https://jenaisystems.com', 'CF-Connecting-IP': '203.0.113.9' }, body: JSON.stringify({ client: 'jenaisystems', messages: [{ role: 'user', content: 'Hallo' }] }) });
+  const res = await worker.fetch(req, env, {});
+  assert.equal(res.status, 429);
+});
