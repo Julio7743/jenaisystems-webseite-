@@ -10,7 +10,7 @@ if (location.protocol === 'http:' && /(^|\.)jenaisystems\.com$/.test(location.ho
               Weiterleitung auf dieses Postfach.
    - telefon: leer = Telefonnummer und Anrufen-Knopf werden nirgends angezeigt.
    - WEB3FORMS_ACCESS_KEY: Schlüssel für den Formular-Versand über Web3Forms (kein Konto nötig):
-              1. https://web3forms.com öffnen, bei "Create your Access Key" jenaisystems@protonmail.com eingeben.
+              1. https://web3forms.com öffnen, bei "Create your Access Key" die Postfach-Adresse eingeben, an die Formular-Mails gehen sollen.
               2. Web3Forms schickt den Schlüssel an dieses Postfach (Format wie 12345678-abcd-...).
               3. Den Schlüssel unten statt 'WEB3FORMS_ACCESS_KEY' eintragen – fertig.
               Eingetragen am 31.10.2026. Steht hier wieder 'WEB3FORMS_ACCESS_KEY', öffnet das Formular das E-Mail-Programm (mailto).
@@ -23,9 +23,9 @@ if (location.protocol === 'http:' && /(^|\.)jenaisystems\.com$/.test(location.ho
 var CHAT_ENDPOINT = 'https://jenaisystems-assistant.jenaisystems.workers.dev';
 window.JENAI_CHAT_ENDPOINT = CHAT_ENDPOINT;
 
-var WEB3FORMS_ACCESS_KEY = 'dd0572f7-260e-4e5d-9ceb-30e66d1606f6'; // öffentlicher Web3Forms-Schlüssel für jenaisystems@protonmail.com
+var WEB3FORMS_ACCESS_KEY = 'dd0572f7-260e-4e5d-9ceb-30e66d1606f6'; // öffentlicher Web3Forms-Schlüssel (Formular-Mails gehen an das Postfach von JenAiSystems)
 var KONTAKT = {
-  email: 'jenaisystems@protonmail.com',
+  email: 'info@jenaisystems.com',
   telefon: '+49 157 34425980',
   formular: { endpoint: 'https://api.web3forms.com/submit', accessKey: WEB3FORMS_ACCESS_KEY }
 };
