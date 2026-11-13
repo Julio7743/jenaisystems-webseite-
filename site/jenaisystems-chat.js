@@ -6,6 +6,7 @@
  *   data-color="#8a4b1f" data-name="Korni" data-phone="..." data-email="..." data-privacy="https://.../datenschutz"
  *   data-contact="#kontakt"   (Link „Kontaktformular“ in der Fußzeile)
  *   data-position="left"  (Standard: rechts)
+ *   data-theme="night"  FAB in Bernstein, Fenster bleibt hell (für dunkle Seiten)
  * Demo-Modus (z. B. auf der JenAiSystems-Website):
  *   data-demo="beispiel"                 zweiter, ERFUNDENER Beispiel-Betrieb, umschaltbar im Chatfenster
  *   data-main-label="JenAiSystems"          Beschriftung des eigenen Assistenten im Umschalter
@@ -45,6 +46,7 @@
 
   var host = document.createElement('div');
   host.setAttribute('data-jenaisystems', '');
+  if (ds.theme === 'night') host.setAttribute('data-theme', 'night');
   var root = host.attachShadow ? host.attachShadow({ mode: 'open' }) : host;
   var left = ds.position === 'left';
 
@@ -91,7 +93,15 @@
     // Kompakt auf dem Handy (data-compact-mobile="true"): nur ein rundes Symbol, erscheint erst nach dem Scrollen.
     '@media (max-width:760px){:host([data-compact]) .fab{width:52px;height:52px;padding:0;justify-content:center}:host([data-compact]) .fl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}:host([data-compact]) .fab{transition:opacity .2s,transform .2s}:host([data-compact][data-away]) .fab{opacity:0;transform:translateY(12px);pointer-events:none}}',
     '@media (max-width:520px){.wrap{right:12px;left:auto;bottom:12px}.panel{position:fixed;inset:0;width:auto;max-width:none;height:auto;max-height:none;border-radius:0}}',
-    '@media (prefers-reduced-motion:no-preference){.panel{animation:pop .18s ease-out}@keyframes pop{from{opacity:0;transform:translateY(8px)}}}'
+    '@media (prefers-reduced-motion:no-preference){.panel{animation:pop .18s ease-out}@keyframes pop{from{opacity:0;transform:translateY(8px)}}}',
+    /* optionales Nacht-Thema: Bernstein-Knopf, Papier-Fenster, ohne die Standardkunden zu ändern */
+    ':host([data-theme="night"]) .fab{background:#f3a83b;color:#141c28;box-shadow:0 10px 28px -12px rgba(0,0,0,.55)}',
+    ':host([data-theme="night"]) .head{background:#141c28;color:#f3eee4}',
+    ':host([data-theme="night"]) .x{color:#f3eee4}',
+    ':host([data-theme="night"]) .av{background:rgba(243,168,59,.2);color:#f3a83b}',
+    ':host([data-theme="night"]) .m.u{background:#141c28;color:#f3eee4}',
+    ':host([data-theme="night"]) .btn,:host([data-theme="night"]) .send{background:#f3a83b;color:#141c28}',
+    ':host([data-theme="night"]) .mode[aria-pressed="true"]{background:#141c28;border-color:#141c28;color:#f3eee4}'
   ].join('\n');
 
   var ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12z"/></svg>';
